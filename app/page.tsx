@@ -12,6 +12,62 @@ import { FaInstagram, FaXTwitter, FaLinkedinIn, FaFacebookF, FaApple, FaGooglePl
 
 // ... (previous components: Navbar, HeroSection, HighlightsBar, HowItWorks, ServicesGrid, SpecialPacks, FAQ)
 
+/* =========================================
+   CUSTOM SELECT DROPDOWN COMPONENT
+   Premium dark glass UI with yellow glow
+   ========================================= */
+interface CustomSelectProps {
+  placeholder: string;
+  options: { value: string; label: string }[];
+  className?: string;
+}
+
+const CustomSelect = ({ placeholder, options, className = '' }: CustomSelectProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState<string | null>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  React.useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedLabel = options.find(o => o.value === selected)?.label;
+
+  return (
+    <div ref={ref} className={`custom-select ${isOpen ? 'open' : ''} ${className}`}>
+      <button
+        type="button"
+        className={`select-trigger ${selected ? 'has-value' : ''}`}
+        onClick={() => setIsOpen(prev => !prev)}
+      >
+        {selectedLabel || placeholder}
+      </button>
+
+      <div className="custom-select-dropdown">
+        {options.map((opt) => (
+          <div
+            key={opt.value}
+            className={`custom-select-option ${selected === opt.value ? 'active' : ''}`}
+            onClick={() => {
+              setSelected(opt.value);
+              setIsOpen(false);
+            }}
+          >
+            {opt.label}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Waitlist = () => {
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 text-white overflow-hidden relative" style={{ background: 'radial-gradient(ellipse at 50% 30%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
@@ -38,12 +94,31 @@ const Waitlist = () => {
             <input type="text" placeholder="Mobile number" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm text-white/40 appearance-none">
-              <option>Select your city</option>
-            </select>
-            <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm text-white/40 appearance-none">
-              <option>I am joining as</option>
-            </select>
+            <CustomSelect
+              placeholder="Select your city"
+              className="waitlist-select"
+              options={[
+                { value: 'gurugram', label: 'Gurugram' },
+                { value: 'south-delhi', label: 'South Delhi' },
+                { value: 'noida', label: 'Noida' },
+                { value: 'dwarka', label: 'Dwarka' },
+                { value: 'east-delhi', label: 'East Delhi' },
+                { value: 'west-delhi', label: 'West Delhi' },
+                { value: 'north-delhi', label: 'North Delhi' },
+                { value: 'faridabad', label: 'Faridabad' },
+                { value: 'ghaziabad', label: 'Ghaziabad' },
+                { value: 'other', label: 'Other' },
+              ]}
+            />
+            <CustomSelect
+              placeholder="I am joining as"
+              className="waitlist-select"
+              options={[
+                { value: 'customer', label: 'Customer — I need home help' },
+                { value: 'partner', label: 'Partner — I want to earn with Jinny' },
+                { value: 'business', label: 'Business — I need regular services' },
+              ]}
+            />
           </div>
           <input type="text" placeholder="Email address (optional — for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
 
@@ -235,7 +310,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = React.useState("");
 
   React.useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -280,11 +355,26 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-white/80 backdrop-blur-xl py-4 shadow-sm" : "bg-transparent py-8"}`}>
+      <nav
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 9999,
+          background: isScrolled ? 'rgba(11, 1, 32, 0.88)' : 'transparent',
+          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(108,43,217,0.1)' : 'none',
+          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          padding: isScrolled ? '16px 0' : '32px 0',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-3xl">🪔</span>
-            <span className={`text-2xl font-serif font-bold italic tracking-tight ${isScrolled ? "text-[#0b0120]" : "text-white"}`}>Jinny</span>
+            <span className={`text-2xl font-serif font-bold italic tracking-tight ${isScrolled ? "text-white" : "text-white"}`}>Jinny</span>
           </div>
 
           <div className="hidden lg:flex items-center gap-10">
@@ -293,12 +383,12 @@ const Navbar = () => {
                 key={link.id}
                 href={link.href}
                 className={`navbar-link text-sm font-bold ${activeSection === link.id
-                    ? isScrolled
-                      ? "text-[#6c2bd9] navbar-link-active-scrolled"
-                      : "text-white navbar-link-active"
-                    : isScrolled
-                      ? "text-[#0b0120]/60"
-                      : "text-white/60"
+                  ? isScrolled
+                    ? "text-[#c4b5fd] navbar-link-active-scrolled"
+                    : "text-white navbar-link-active"
+                  : isScrolled
+                    ? "text-white/60"
+                    : "text-white/60"
                   }`}
               >
                 {link.label}
@@ -311,7 +401,7 @@ const Navbar = () => {
               Join waitlist
             </button>
             <button
-              className={`lg:hidden p-2 ${isScrolled ? "text-[#0b0120]" : "text-white"}`}
+              className={`lg:hidden p-2 ${isScrolled ? "text-white" : "text-white"}`}
               onClick={() => setIsMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -353,8 +443,8 @@ const Navbar = () => {
               href={link.href}
               onClick={() => setIsMobileOpen(false)}
               className={`block px-4 py-4 rounded-2xl text-base font-bold transition-all duration-250 ${activeSection === link.id
-                  ? "text-white bg-[#6c2bd9]/20 border border-[#6c2bd9]/30"
-                  : "text-white/60 hover:text-white hover:bg-white/5 border border-transparent"
+                ? "text-white bg-[#6c2bd9]/20 border border-[#6c2bd9]/30"
+                : "text-white/60 hover:text-white hover:bg-white/5 border border-transparent"
                 }`}
             >
               {link.label}
@@ -682,6 +772,146 @@ const ServicesGrid = () => {
             </div>
           ))}
         </div>
+
+        {/* Premium Service Packs */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          style={{ gap: '24px', marginTop: '40px' }}
+        >
+          {/* Weekend Deep Clean */}
+          <div
+            className="premium-pack-card"
+            style={{
+              background: 'linear-gradient(135deg, #1A0033 0%, #2D0B5C 100%)',
+              borderRadius: '20px',
+              padding: '28px',
+              color: 'white',
+              position: 'relative',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+              cursor: 'pointer',
+              overflow: 'hidden',
+            }}
+          >
+            <div className="absolute top-0 right-0 w-40 h-40 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(108,43,217,0.15) 0%, transparent 70%)', filter: 'blur(20px)' }} />
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div className="flex items-start justify-between" style={{ marginBottom: '14px' }}>
+                <h3 className="font-serif" style={{ fontSize: '22px', fontWeight: 700, lineHeight: 1.2 }}>
+                  ✨ Weekend Deep Clean
+                </h3>
+                <span style={{
+                  background: 'rgba(245,177,0,0.15)',
+                  color: '#F5B100',
+                  padding: '6px 14px',
+                  borderRadius: '999px',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}>
+                  Save more ✨
+                </span>
+              </div>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: '20px' }}>
+                Bathroom + Kitchen + Full floor mopping. 2.5 hours.<br />
+                Your weekend reset.
+              </p>
+              <div className="flex items-center gap-3">
+                <span style={{ color: '#F5B100', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
+                <span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>₹ XXX</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Pre-Party Pack */}
+          <div
+            className="premium-pack-card"
+            style={{
+              background: 'linear-gradient(135deg, #1A0033 0%, #2D0B5C 100%)',
+              borderRadius: '20px',
+              padding: '28px',
+              color: 'white',
+              position: 'relative',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+              cursor: 'pointer',
+              overflow: 'hidden',
+            }}
+          >
+            <div className="absolute top-0 right-0 w-40 h-40 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(108,43,217,0.15) 0%, transparent 70%)', filter: 'blur(20px)' }} />
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div className="flex items-start justify-between" style={{ marginBottom: '14px' }}>
+                <h3 className="font-serif" style={{ fontSize: '22px', fontWeight: 700, lineHeight: 1.2 }}>
+                  🎉 Pre-Party Pack
+                </h3>
+                <span style={{
+                  background: 'rgba(245,177,0,0.15)',
+                  color: '#F5B100',
+                  padding: '6px 14px',
+                  borderRadius: '999px',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}>
+                  Save more ✨
+                </span>
+              </div>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: '20px' }}>
+                Living room + Kitchen + Bathroom. 2 hours. Guests arrive in 3 hours? Jinny&apos;s on it.
+              </p>
+              <div className="flex items-center gap-3">
+                <span style={{ color: '#F5B100', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
+                <span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>₹ XXX</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Full Home Clean */}
+          <div
+            className="premium-pack-card"
+            style={{
+              background: 'linear-gradient(135deg, #1A0033 0%, #2D0B5C 100%)',
+              borderRadius: '20px',
+              padding: '28px',
+              color: 'white',
+              position: 'relative',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+              cursor: 'pointer',
+              overflow: 'hidden',
+            }}
+          >
+            <div className="absolute top-0 right-0 w-40 h-40 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(108,43,217,0.15) 0%, transparent 70%)', filter: 'blur(20px)' }} />
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div className="flex items-start justify-between" style={{ marginBottom: '14px' }}>
+                <h3 className="font-serif" style={{ fontSize: '22px', fontWeight: 700, lineHeight: 1.2 }}>
+                  🏠 Full Home Clean
+                </h3>
+                <span style={{
+                  background: 'rgba(245,177,0,0.15)',
+                  color: '#F5B100',
+                  padding: '6px 14px',
+                  borderRadius: '999px',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}>
+                  Best value ✨
+                </span>
+              </div>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: '20px' }}>
+                Every room + Kitchen + Bathroom + Laundry. 4 hours.<br />
+                The complete reset.
+              </p>
+              <div className="flex items-center gap-3">
+                <span style={{ color: '#F5B100', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
+                <span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>₹ XXX</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -958,10 +1188,18 @@ const EveryBookingEarnsMagic = () => {
 
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#FDFCFB] text-[#0b0120]">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-start">
+      <div
+        className="max-w-7xl mx-auto"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 500px',
+          alignItems: 'center',
+          gap: '60px',
+        }}
+      >
 
         {/* Left Column: Loyalty Info */}
-        <div className="flex-1 space-y-10">
+        <div className="space-y-10">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
               <span className="text-[10px] font-bold uppercase tracking-widest">👑 JINNY LOYALTY</span>
@@ -982,7 +1220,7 @@ const EveryBookingEarnsMagic = () => {
               { bold: "Platinum members", rest: "get a dedicated partner and 10-minute ETA guarantee." },
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-4 text-gray-600">
-                <div className="w-2 h-2 bg-[#6c2bd9] rounded-full" />
+                <div className="w-2 h-2 bg-[#6c2bd9] rounded-full flex-shrink-0" />
                 <p>
                   <span className="font-bold text-[#0b0120]">{item.bold}</span> {item.rest}
                 </p>
@@ -992,44 +1230,73 @@ const EveryBookingEarnsMagic = () => {
         </div>
 
         {/* Right Column: Tier Cards */}
-        <div className="flex-1 w-full space-y-4">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', width: '100%', maxWidth: '500px', marginLeft: 'auto' }}>
           {tiers.map((tier, i) => (
-            <div key={i} className={`${tier.color} p-8 rounded-[2.5rem] text-white flex items-center justify-between group hover:scale-[1.02] transition-all duration-500 shadow-xl`}>
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-3xl">
+            <div
+              key={i}
+              className={`${tier.color} text-white flex items-center justify-between group hover:scale-[1.02] transition-all duration-500`}
+              style={{
+                borderRadius: '18px',
+                padding: '16px 20px',
+                boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+              }}
+            >
+              <div className="flex items-center gap-3" style={{ minWidth: 0, flex: 1 }}>
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl flex-shrink-0">
                   {tier.icon}
                 </div>
                 <div>
-                  <h4 className="text-2xl font-bold">{tier.name}</h4>
-                  <p className="text-white/70 text-sm font-medium">{tier.points}</p>
-                  <p className="text-white/50 text-[10px] mt-1 uppercase tracking-wider">{tier.perks}</p>
+                  <h4 style={{ fontSize: '16px', fontWeight: 700 }}>{tier.name}</h4>
+                  <p className="text-white/70 font-medium" style={{ fontSize: '12px' }}>{tier.points}</p>
+                  <p className="text-white/50 mt-0.5" style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{tier.perks}</p>
                 </div>
               </div>
-              <div className="px-4 py-1.5 bg-white/10 border border-white/20 rounded-full text-[10px] font-bold uppercase tracking-widest">
+              <div className="px-3 py-1 bg-white/10 border border-white/20 rounded-full flex-shrink-0" style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 {tier.tag}
               </div>
             </div>
           ))}
 
           {/* Booking Streaks Card */}
-          <div className="p-8 rounded-[2.5rem] text-white flex items-center justify-between group hover:scale-[1.02] transition-all duration-500 shadow-xl border border-white/5" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
-            <div className="flex items-center gap-6">
-              <div className="w-14 h-14 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl">
+          <div
+            className="text-white flex items-center justify-between group hover:scale-[1.02] transition-all duration-500"
+            style={{
+              background: 'linear-gradient(135deg, #1a0033, #2d0b5f)',
+              borderRadius: '18px',
+              padding: '16px 20px',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.18)',
+              border: '1px solid rgba(255,255,255,0.05)',
+            }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center text-xl flex-shrink-0">
                 🔥
               </div>
               <div>
-                <h4 className="text-2xl font-bold">Booking Streaks</h4>
-                <p className="text-white/50 text-sm">Book once a week for 4 weeks straight</p>
+                <h4 style={{ fontSize: '16px', fontWeight: 700 }}>Booking Streaks</h4>
+                <p className="text-white/50" style={{ fontSize: '12px' }}>Book once a week for 4 weeks straight</p>
               </div>
             </div>
-            <div className="flex flex-col items-end gap-1">
-              <span className="text-2xl">🎁</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">reward unlocked</span>
+            <div className="flex flex-col items-end gap-0.5 flex-shrink-0">
+              <span className="text-xl">🎁</span>
+              <span style={{ fontSize: '9px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'rgba(255,255,255,0.4)' }}>reward unlocked</span>
             </div>
           </div>
         </div>
 
       </div>
+
+      {/* Mobile responsive */}
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          div[style*="grid-template-columns: 1fr 500px"] {
+            grid-template-columns: 1fr !important;
+          }
+          div[style*="maxWidth"] {
+            margin: 0 auto !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
@@ -1092,36 +1359,93 @@ const JinnyProtectsThePeople = () => {
 
         {/* Right Column: Suraksha Card */}
         <div className="flex-1 w-full max-w-xl relative">
-          <div className="bg-gradient-to-br from-[#150e30] to-[#0b0120] p-12 rounded-[4rem] border border-white/10 shadow-2xl space-y-10 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 blur-[80px] rounded-full -mr-20 -mt-20 group-hover:bg-purple-700/20 transition-colors" />
+          {/* Outer glow wrapper */}
+          <div
+            style={{
+              padding: '1.5px',
+              borderRadius: '28px',
+              background: 'linear-gradient(135deg, rgba(255,80,80,0.5), rgba(255,120,80,0.2), transparent 60%)',
+              boxShadow: '0 0 50px rgba(255,80,80,0.12), 0 0 100px rgba(255,120,80,0.06)',
+            }}
+          >
+            {/* Inner card */}
+            <div
+              style={{
+                background: 'linear-gradient(135deg, #1a0b2e 0%, #140826 100%)',
+                borderRadius: '27px',
+                padding: '40px',
+                position: 'relative',
+                overflow: 'hidden',
+                border: '1px solid rgba(255,255,255,0.05)',
+              }}
+            >
+              {/* Red radial glow overlay */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: '-30%',
+                  right: '-15%',
+                  width: '300px',
+                  height: '300px',
+                  background: 'radial-gradient(circle, rgba(255,90,90,0.16) 0%, transparent 70%)',
+                  filter: 'blur(40px)',
+                }}
+              />
+              {/* Purple subtle glow bottom-left */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  bottom: '-20%',
+                  left: '-10%',
+                  width: '250px',
+                  height: '250px',
+                  background: 'radial-gradient(circle, rgba(108,43,217,0.1) 0%, transparent 70%)',
+                  filter: 'blur(50px)',
+                }}
+              />
 
-            <div className="text-center space-y-6 relative z-10">
-              <div className="w-24 h-24 bg-blue-500/20 rounded-3xl mx-auto flex items-center justify-center text-5xl border border-blue-500/30">
-                🛡️
+              {/* Card Content */}
+              <div className="relative z-10 text-center space-y-6">
+                {/* Shield icon */}
+                <div
+                  className="mx-auto flex items-center justify-center"
+                  style={{
+                    width: '72px',
+                    height: '72px',
+                    borderRadius: '20px',
+                    background: 'linear-gradient(135deg, #1e3a8a, #2563eb)',
+                    boxShadow: 'inset 0 0 20px rgba(255,255,255,0.08), 0 10px 30px rgba(0,0,0,0.4)',
+                    fontSize: '36px',
+                  }}
+                >
+                  🛡️
+                </div>
+
+                <h3 className="heading-md" style={{ fontSize: '24px' }}>Jinny Suraksha</h3>
+                <p className="text-sm text-white/40 max-w-xs mx-auto leading-relaxed">
+                  Our AI-powered proactive safety system. Active on every session. Protecting every partner. Every time.
+                </p>
               </div>
-              <h3 className="heading-md">Jinny Suraksha</h3>
-              <p className="text-sm text-white/40 max-w-xs mx-auto leading-relaxed">
-                Our AI-powered proactive safety system. Active on every session. Protecting every partner. Every time.
-              </p>
-            </div>
 
-            <ul className="space-y-4 relative z-10 pt-4">
-              {[
-                "Volume ×3 SOS on locked phone",
-                "Automated 20-min safety check-ins",
-                "On-device AI distress detection",
-                "Live GPS tracking during all sessions",
-                "5-minute field team response SLA",
-                "Partner can block any customer anytime",
-                "Health + accident insurance from Day 1",
-                "Safe exit — leave any session, no penalty",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-4 label-text font-medium text-white/80">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+              {/* Bullet list */}
+              <ul className="relative z-10 space-y-4 pt-8">
+                {[
+                  "Volume ×3 SOS on locked phone",
+                  "Automated 20-min safety check-ins",
+                  "On-device AI distress detection",
+                  "Live GPS tracking during all sessions",
+                  "5-minute field team response SLA",
+                  "Partner can block any customer anytime",
+                  "Health + accident insurance from Day 1",
+                  "Safe exit — leave any session, no penalty",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-4 label-text font-medium text-white/80">
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#ff7a3d', boxShadow: '0 0 6px rgba(255,122,61,0.4)' }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Background decoration */}
@@ -1174,8 +1498,8 @@ const WhereJinnyWorks = () => {
 
         <div>
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full label-text" style={{ backgroundColor: '#FFFBEB', border: '1px solid #FEF3C7', color: '#92400E' }}>
-             <span>🧞</span>
-             Delhi NCR launch coming soon — join the waitlist below
+            <span>🧞</span>
+            Delhi NCR launch coming soon — join the waitlist below
           </div>
         </div>
       </div>
@@ -1199,8 +1523,8 @@ const BecomePartner = () => {
         {/* Left Column */}
         <div className="flex-1 space-y-10 relative z-10">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1 bg-white/5 border border-white/10 rounded-full text-white/60">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">💼 WORK WITH JINNY</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>💼 WORK WITH JINNY</span>
             </div>
             <h2 className="heading-lg">
               Become a <span className="text-purple-300">Jinny partner.</span> <br />
@@ -1223,24 +1547,108 @@ const BecomePartner = () => {
 
         {/* Right Column: Form */}
         <div className="flex-1 w-full max-w-xl relative z-10">
-          <div className="bg-white/5 border border-white/10 p-10 rounded-[3rem] shadow-2xl space-y-8">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">🧞</span>
-              <h3 className="heading-md">Join as a Jinny partner</h3>
+          <div
+            style={{
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '24px',
+              padding: '28px',
+              width: '100%',
+              maxWidth: '480px',
+              marginLeft: 'auto',
+              boxSizing: 'border-box' as const,
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+              <span style={{ fontSize: '22px' }}>🪔</span>
+              <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0 }}>Join as a Jinny partner</h3>
             </div>
 
-            <div className="space-y-4">
-              <input type="text" placeholder="Full name" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-purple-300 text-sm" />
-              <input type="text" placeholder="Mobile number" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-purple-300 text-sm" />
-              <div className="grid grid-cols-2 gap-4">
-                <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-purple-300 text-sm text-white/40 appearance-none">
-                  <option>Select your city</option>
-                </select>
-                <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-purple-300 text-sm text-white/40 appearance-none">
-                  <option>Services you offer</option>
-                </select>
-              </div>
-              <button className="w-full py-5 bg-brand-gold text-brand-dark font-bold rounded-[2rem] shadow-lg hover:opacity-90 transition-all active:scale-95 text-lg mt-4">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <input
+                type="text"
+                placeholder="Full name"
+                className="partner-input"
+                style={{
+                  width: '100%',
+                  height: '52px',
+                  padding: '0 16px',
+                  borderRadius: '14px',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  color: '#fff',
+                  fontSize: '14px',
+                  outline: 'none',
+                  boxSizing: 'border-box' as const,
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Mobile number"
+                className="partner-input"
+                style={{
+                  width: '100%',
+                  height: '52px',
+                  padding: '0 16px',
+                  borderRadius: '14px',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  color: '#fff',
+                  fontSize: '14px',
+                  outline: 'none',
+                  boxSizing: 'border-box' as const,
+                }}
+              />
+
+              {/* City */}
+              <CustomSelect
+                placeholder="Select your city"
+                options={[
+                  { value: 'gurugram', label: 'Gurugram' },
+                  { value: 'south-delhi', label: 'South Delhi' },
+                  { value: 'noida', label: 'Noida' },
+                  { value: 'dwarka', label: 'Dwarka' },
+                  { value: 'east-delhi', label: 'East Delhi' },
+                  { value: 'west-delhi', label: 'West Delhi' },
+                  { value: 'north-delhi', label: 'North Delhi' },
+                  { value: 'faridabad', label: 'Faridabad' },
+                  { value: 'ghaziabad', label: 'Ghaziabad' },
+                  { value: 'other', label: 'Other' },
+                ]}
+              />
+
+              {/* Services */}
+              <CustomSelect
+                placeholder="Services you offer"
+                options={[
+                  { value: 'home', label: 'Home cleaning' },
+                  { value: 'kitchen', label: 'Kitchen cleaning' },
+                  { value: 'laundry', label: 'Laundry & ironing' },
+                  { value: 'car', label: 'Car cleaning' },
+                  { value: 'multiple', label: 'Multiple services' },
+                ]}
+              />
+
+              <button
+                style={{
+                  width: '100%',
+                  height: '52px',
+                  borderRadius: '999px',
+                  background: 'linear-gradient(90deg, #facc15, #f59e0b)',
+                  color: '#000',
+                  fontWeight: 600,
+                  fontSize: '15px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  marginTop: '8px',
+                  boxShadow: '0 10px 30px rgba(250,204,21,0.35), 0 0 20px rgba(250,204,21,0.25)',
+                  transition: 'all 0.25s ease',
+                }}
+                className="partner-form-btn"
+              >
                 Apply now — it&apos;s free ✨
               </button>
             </div>
@@ -1397,7 +1805,7 @@ const FAQ = () => {
 
 export default function Home() {
   return (
-    <main className="flex-1 overflow-x-hidden">
+    <main className="flex-1">
       <Navbar />
       <HeroSection />
       <HowItWorks />

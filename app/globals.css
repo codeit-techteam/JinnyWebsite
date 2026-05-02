@@ -10,7 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
-  
+
   --color-brand-purple: #6c2bd9;
   --color-brand-gold: #f5b21c;
   --color-brand-dark: #0b0120;
@@ -19,6 +19,15 @@
 /* =========================================
    GLOBAL TYPOGRAPHY SYSTEM
    ========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
 
 body {
   background: linear-gradient(135deg, #0b0120 0%, #1a0645 40%, #2a0a5e 100%);
@@ -74,7 +83,7 @@ body {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.6;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* --- Card title --- */
@@ -118,7 +127,8 @@ body {
 }
 
 /* Ensure sections with explicit bg don't show body gradient */
-section, footer, nav {
+section,
+footer {
   position: relative;
 }
 
@@ -130,7 +140,7 @@ section, footer, nav {
 .hover-card {
   background-color: #FFFFFF;
   border: 1px solid #EAEAF0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -153,14 +163,14 @@ section, footer, nav {
 
 /* Icon circle goes translucent white on hover */
 .hover-card:hover .card-icon-circle {
-  background-color: rgba(255,255,255,0.2) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* Badge goes translucent on hover */
 .hover-card:hover .service-badge {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
-  border-color: rgba(255,255,255,0.3);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Service badge — default state */
@@ -179,8 +189,9 @@ section, footer, nav {
 .feature-list-item {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .feature-list-item:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px rgba(108, 43, 217, 0.15);
   transform: translateY(-2px);
 }
@@ -189,6 +200,7 @@ section, footer, nav {
 .chat-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .chat-card:hover {
   transform: translateY(-4px);
   box-shadow:
@@ -200,8 +212,9 @@ section, footer, nav {
 .cta-gold-btn {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .cta-gold-btn:hover {
-  box-shadow: 0 10px 40px rgba(245,178,28,0.4);
+  box-shadow: 0 10px 40px rgba(245, 178, 28, 0.4);
   transform: translateY(-2px) scale(1.03);
 }
 
@@ -217,14 +230,38 @@ section, footer, nav {
 .hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .hover-lift:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 40px rgba(108, 43, 217, 0.2);
 }
 
 /* =========================================
-   NAVBAR
+   NAVBAR — Premium Sticky Glass Effect
    ========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled {
+  background: rgba(11, 1, 32, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(108, 43, 217, 0.1);
+}
 
 .navbar-link {
   position: relative;
@@ -276,4 +313,302 @@ section, footer, nav {
   box-shadow:
     0 0 24px rgba(124, 58, 237, 0.4),
     0 8px 24px rgba(108, 43, 217, 0.3);
+}
+
+/* =========================================
+   PREMIUM PACK CARDS
+   ========================================= */
+
+.premium-pack-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 40px rgba(108, 43, 217, 0.12);
+}
+
+/* =========================================
+   JINNY AI SHOWCASE CARD
+   ========================================= */
+
+.jinny-ai-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jinny-ai-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 100px rgba(108, 43, 217, 0.15),
+    0 0 40px rgba(245, 178, 28, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* =========================================
+   PARTNER FORM
+   ========================================= */
+
+.partner-form-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+  width: 100%;
+  max-width: 420px;
+  margin-left: auto;
+  box-sizing: border-box;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.partner-form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.partner-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+  width: 100%;
+}
+
+.partner-input {
+  width: 100% !important;
+  height: 52px !important;
+  padding: 0 16px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  outline: none !important;
+  transition: all 0.25s ease;
+  box-sizing: border-box !important;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.partner-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+select.partner-input {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.partner-input:focus {
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.15);
+}
+
+.partner-form-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.25s ease;
+  box-shadow:
+    0 10px 30px rgba(250, 204, 21, 0.35),
+    0 0 20px rgba(250, 204, 21, 0.25);
+}
+
+.partner-form-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 40px rgba(250, 204, 21, 0.45);
+}
+
+.partner-form-btn:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 640px) {
+  .partner-form-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .partner-form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================
+   CUSTOM SELECT DROPDOWN — Premium Glass UI
+   ========================================= */
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.select-trigger {
+  width: 100%;
+  height: 52px;
+  border-radius: 14px;
+  padding: 0 40px 0 16px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s ease;
+  position: relative;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Chevron arrow */
+.select-trigger::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.custom-select.open .select-trigger::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select-trigger.has-value {
+  color: #fff;
+}
+
+.select-trigger:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.select-trigger:focus,
+.custom-select.open .select-trigger {
+  border-color: rgba(168, 85, 247, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.15);
+}
+
+/* Dropdown container */
+.custom-select-dropdown {
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+  background: rgba(30, 10, 60, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(250, 204, 21, 0.1);
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 280px;
+  z-index: 50;
+
+  /* Animation — hidden by default */
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.custom-select.open .custom-select-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Scrollbar styling */
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Individual option */
+.custom-select-option {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+/* Hover effect — yellow glow from left */
+.custom-select-option:hover {
+  background: rgba(250, 204, 21, 0.08);
+}
+
+.custom-select-option:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at left center,
+    rgba(250, 204, 21, 0.35),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Active/selected option */
+.custom-select-option.active {
+  color: #fff;
+  background: rgba(250, 204, 21, 0.06);
+}
+
+.custom-select-option.active::after {
+  content: "✓";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+/* Waitlist section variant — slightly larger */
+.custom-select.waitlist-select .select-trigger {
+  height: auto;
+  padding: 16px 40px 16px 24px;
+  border-radius: 16px;
 }
