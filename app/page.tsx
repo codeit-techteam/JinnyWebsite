@@ -769,7 +769,7 @@ const BuiltOnTrust = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1: Verified Partners */}
-          <div className="p-10 rounded-[2.5rem] text-white space-y-8 flex flex-col h-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
+          <div className="p-10 rounded-[2.5rem] text-white space-y-8 flex flex-col h-full shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_50px_-10px_rgba(108,43,217,0.3)] group" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
             <div className="w-12 h-12 bg-green-500/20 border border-green-500/30 rounded-xl flex items-center justify-center text-green-400">
               <CheckCircle2 className="w-8 h-8" />
             </div>
@@ -790,7 +790,7 @@ const BuiltOnTrust = () => {
           </div>
 
           {/* Card 2: Jinny Score */}
-          <div className="bg-[#FFFBEB] p-10 rounded-[2.5rem] text-[#0b0120] space-y-8 flex flex-col h-full border border-[#FEF3C7]">
+          <div className="bg-[#FFFBEB] p-10 rounded-[2.5rem] text-[#0b0120] space-y-8 flex flex-col h-full border border-[#FEF3C7] transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:border-brand-gold/30 group">
             <div className="w-12 h-12 flex items-center justify-center text-4xl">
               ⭐
             </div>
@@ -811,7 +811,7 @@ const BuiltOnTrust = () => {
           </div>
 
           {/* Card 3: Privacy */}
-          <div className="bg-[#F0FDF4] p-10 rounded-[2.5rem] text-[#0b0120] space-y-8 flex flex-col h-full border border-[#DCFCE7]">
+          <div className="bg-[#F0FDF4] p-10 rounded-[2.5rem] text-[#0b0120] space-y-8 flex flex-col h-full border border-[#DCFCE7] transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:border-green-500/30 group">
             <div className="w-12 h-12 flex items-center justify-center text-4xl">
               🔐
             </div>
@@ -1024,7 +1024,7 @@ const JinnyProtectsThePeople = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {safetyFeatures.map((f, i) => (
-              <div key={i} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-white/20 transition-all group">
+              <div key={i} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/[0.08] transition-all duration-500 group hover:scale-[1.05] hover:shadow-[0_20px_40px_-15px_rgba(108,43,217,0.2)]">
                 <div className="text-3xl mb-6 group-hover:scale-110 transition-transform">{f.icon}</div>
                 <h4 className="font-bold text-white mb-2">{f.title}</h4>
                 <p className="text-xs text-white/40 leading-relaxed">{f.desc}</p>
@@ -1225,26 +1225,28 @@ const BecomePartner = () => {
           </div>
 
           {/* Right Column: Form */}
-          <div className="w-full relative z-10">
-            <div className="form-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-                <span style={{ fontSize: '22px' }}>🪔</span>
-                <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0 }}>Join as a Jinny partner</h3>
+          <div className="w-full relative z-10 lg:max-w-md">
+            {/* External Yellow Glow */}
+            <div className="absolute -inset-4 bg-[#f5b21c]/5 blur-[60px] rounded-full pointer-events-none" />
+            
+            <div className="form-card relative z-10 border border-white/10 shadow-[0_30px_100px_-20px_rgba(0,0,0,0.6)]" style={{ background: '#251043', borderRadius: '32px' }}>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="text-2xl">🪔</span>
+                <h3 className="text-[20px] font-semibold text-white">Join as a Jinny partner</h3>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div className="flex flex-col gap-4">
                 <input
                   type="text"
                   placeholder="Full name"
-                  className="partner-input"
+                  className="w-full h-[60px] px-6 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9] focus:bg-white/[0.06] transition-all"
                 />
                 <input
                   type="text"
                   placeholder="Mobile number"
-                  className="partner-input"
+                  className="w-full h-[60px] px-6 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9] focus:bg-white/[0.06] transition-all"
                 />
 
-                {/* City */}
                 <CustomSelect
                   placeholder="Select your city"
                   options={[
@@ -1261,19 +1263,33 @@ const BecomePartner = () => {
                   ]}
                 />
 
-              <div className="pt-8">
-                <Link href="/waitlist" className="cta-gold-btn inline-flex items-center gap-4 px-12 py-5 bg-[#f5b21c] text-black rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(245,178,28,0.3)]">
-                  Apply now — it&apos;s free ✨
-                  <ArrowRight className="w-6 h-6" />
-                </Link>
+                <CustomSelect
+                  placeholder="Services you offer"
+                  options={[
+                    { value: 'cleaning', label: 'Home Cleaning' },
+                    { value: 'deep-cleaning', label: 'Deep Cleaning' },
+                    { value: 'kitchen', label: 'Kitchen & Bathroom' },
+                    { value: 'pest', label: 'Pest Control' },
+                    { value: 'sofa', label: 'Sofa & Carpet' },
+                    { value: 'other', label: 'Other' },
+                  ]}
+                />
+
+                <div className="pt-4">
+                  <Link 
+                    href="/waitlist" 
+                    className="w-full h-[64px] flex items-center justify-center gap-2 bg-[#d1a242] text-black rounded-full font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(209,162,66,0.3)]"
+                  >
+                    Apply now — it&apos;s free ✨
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 const Testimonials = () => {
   const reviews = [
@@ -1378,42 +1394,47 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
-      <div className="max-w-4xl mx-auto space-y-16">
+    <section className="py-24 px-6 md:px-12 lg:px-24 bg-[#FAF9F6]">
+      <div className="max-w-[900px] mx-auto space-y-16">
         <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-brand-purple">? QUESTIONS</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest">? QUESTIONS</span>
           </div>
-          <h2 className="heading-lg">
+          <h2 className="heading-lg" style={{ color: '#1a0b2e' }}>
             Everything you <span className="text-[#6c2bd9]">wish to know</span>
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="divide-y divide-black/[0.08] border-t border-black/[0.08]">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="border-b border-gray-100 last:border-0"
+              className="group transition-all duration-300 hover:bg-black/[0.01]"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full py-8 flex items-center justify-between text-left group"
+                className="w-full py-[22px] flex items-center justify-between text-left"
               >
-                <h3 className={`heading-md transition-colors ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#0b0120]'}`}>
+                <h3 className={`text-[18px] font-semibold transition-colors duration-300 ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#1a0b2e]'}`}>
                   {faq.q}
                 </h3>
-                <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${openIndex === i ? 'bg-[#6c2bd9] border-[#6c2bd9] text-white rotate-45' : 'border-[#F5F3FF] text-[#6c2bd9]'}`}>
-                  <Plus className="w-5 h-5" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  openIndex === i 
+                    ? 'bg-[#6c2bd9] text-white rotate-45' 
+                    : 'bg-[#7c3aed]/[0.08] text-[#7c3aed] group-hover:bg-[#7c3aed]/[0.15]'
+                }`}>
+                  <Plus className="w-4.5 h-4.5" />
                 </div>
               </button>
 
               <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 pb-8 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="body-text max-w-3xl">
+                <p className="body-text max-w-3xl text-gray-500">
                   {faq.a}
                 </p>
               </div>
             </div>
           ))}
+          <div className="border-b border-black/[0.08]" />
         </div>
       </div>
     </section>
