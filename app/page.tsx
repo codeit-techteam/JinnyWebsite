@@ -4,10 +4,11 @@ import React from "react";
 import {
   Sparkles, Menu, ArrowRight, Star, Clock, CheckCircle2,
   MessageCircle, Wand2, PartyPopper, Home as HomeIcon, Plus,
-  Apple, PlayCircle, Globe, Mic, Heart, Lightbulb, Activity,
+  Mic, Heart, Lightbulb, Activity,
   ShieldCheck, ShieldAlert, Fingerprint, Lock, Trophy, AlertCircle, Navigation,
-  Eye, MapPin, X, Camera, Send, Briefcase
+  Eye, MapPin, X, Send,
 } from "lucide-react";
+import { FaInstagram, FaXTwitter, FaLinkedinIn, FaFacebookF, FaApple, FaGooglePlay } from "react-icons/fa6";
 
 // ... (previous components: Navbar, HeroSection, HighlightsBar, HowItWorks, ServicesGrid, SpecialPacks, FAQ)
 
@@ -93,14 +94,14 @@ const FinalCTA = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-white hover:text-[#0b0120] transition-all group shadow-2xl">
-            <PlayCircle className="w-10 h-10" />
+            <FaGooglePlay className="w-8 h-8 text-[#6c2bd9] group-hover:text-[#0b0120]" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-bold text-white/40 group-hover:text-[#0b0120]/40">Coming to</p>
               <p className="text-xl font-bold">Google Play</p>
             </div>
           </button>
           <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-white hover:text-[#0b0120] transition-all group shadow-2xl">
-            <div className="w-10 h-10 flex items-center justify-center text-3xl">🍎</div>
+            <FaApple className="w-10 h-10 text-[#6c2bd9] group-hover:text-[#0b0120]" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-bold text-white/40 group-hover:text-[#0b0120]/40">Coming to the</p>
               <p className="text-xl font-bold">App Store</p>
@@ -118,18 +119,36 @@ const FinalCTA = () => {
 
 const Footer = () => {
   const services = [
-    "Bathroom cleaning", "Kitchen cleaning", "Full home cleaning",
-    "Laundry & ironing", "Car cleaning", "Service bundles", "Occasion bookings"
+    { name: "Bathroom cleaning", href: "/bathroom-cleaning" },
+    { name: "Kitchen cleaning", href: "/kitchen-cleaning" },
+    { name: "Full home cleaning", href: "/full-home-cleaning" },
+    { name: "Laundry & ironing", href: "/laundry-ironing" },
+    { name: "Car cleaning", href: "/car-cleaning" },
+    { name: "Service bundles", href: "/service-bundles" },
+    { name: "Occasion bookings", href: "/occasion-bookings" }
   ];
 
   const company = [
-    "About Jinny", "How it works", "Safety & trust", "Jinny Score",
-    "Loyalty programme", "Jinny for Business", "Careers", "Press"
+    { name: "About Jinny", href: "/about" },
+    { name: "How it works", href: "#how-it-works" },
+    { name: "Safety & trust", href: "#safety" },
+    { name: "Jinny Score", href: "/jinny-score" },
+    { name: "Loyalty programme", href: "/loyalty-programme" },
+    { name: "Jinny for Business", href: "/business" },
+    { name: "Careers", href: "/careers" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Press", href: "/press" }
   ];
 
   const partners = [
-    "Become a partner", "Partner app", "Jinny Suraksha safety",
-    "Certifications", "Early salary", "Partner benefits", "Support centre", "Privacy policy"
+    { name: "Become a partner", href: "#become-partner" },
+    { name: "Partner app", href: "/partner-app" },
+    { name: "Jinny Suraksha safety", href: "#partner" },
+    { name: "Certifications", href: "/certifications" },
+    { name: "Early salary", href: "/early-salary" },
+    { name: "Partner benefits", href: "/partner-benefits" },
+    { name: "Support centre", href: "/support" },
+    { name: "Privacy policy", href: "/privacy" }
   ];
 
   return (
@@ -153,11 +172,10 @@ const Footer = () => {
             </div>
             <div className="flex gap-3">
               {[
-                { Icon: Camera, label: "Instagram" },
-                { Icon: Send, label: "Twitter" },
-                { Icon: Briefcase, label: "LinkedIn" },
-                { Icon: Globe, label: "Facebook" },
-                { Icon: MessageCircle, label: "Support" }
+                { Icon: FaInstagram, label: "Instagram" },
+                { Icon: FaXTwitter, label: "Twitter" },
+                { Icon: FaLinkedinIn, label: "LinkedIn" },
+                { Icon: FaFacebookF, label: "Facebook" }
               ].map(({ Icon, label }, i) => (
                 <a key={i} href="#" aria-label={label} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:bg-[#6c2bd9] hover:text-white hover:border-[#6c2bd9] transition-all duration-300">
                   <Icon className="w-4 h-4" />
@@ -171,7 +189,7 @@ const Footer = () => {
             <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-8">SERVICES</h4>
             <ul className="space-y-4 text-sm font-medium text-white/40">
               {services.map((s, i) => (
-                <li key={i}><a href="#" className="hover:text-[#6c2bd9] transition-colors">{s}</a></li>
+                <li key={i}><a href={s.href} className="hover:text-[#6c2bd9] transition-colors">{s.name}</a></li>
               ))}
             </ul>
           </div>
@@ -180,7 +198,7 @@ const Footer = () => {
             <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-8">COMPANY</h4>
             <ul className="space-y-4 text-sm font-medium text-white/40">
               {company.map((s, i) => (
-                <li key={i}><a href="#" className="hover:text-[#6c2bd9] transition-colors">{s}</a></li>
+                <li key={i}><a href={s.href} className="hover:text-[#6c2bd9] transition-colors">{s.name}</a></li>
               ))}
             </ul>
           </div>
@@ -189,7 +207,7 @@ const Footer = () => {
             <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-8">PARTNERS</h4>
             <ul className="space-y-4 text-sm font-medium text-white/40">
               {partners.map((s, i) => (
-                <li key={i}><a href="#" className="hover:text-[#6c2bd9] transition-colors">{s}</a></li>
+                <li key={i}><a href={s.href} className="hover:text-[#6c2bd9] transition-colors">{s.name}</a></li>
               ))}
             </ul>
           </div>
@@ -200,10 +218,10 @@ const Footer = () => {
             © 2026 MTB ALPHA Private Limited. All rights reserved. Jinny™ is a trademark of MTB ALPHA Private Limited.
           </p>
           <div className="flex flex-wrap justify-center gap-8 text-[11px] font-bold text-white/40">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Partner Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/partner-terms" className="hover:text-white transition-colors">Partner Terms</a>
+            <a href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
