@@ -2,11 +2,11 @@
 
 import React from "react";
 import {
-  Sparkles, Menu, ArrowRight, Star, Clock, CheckCircle2,
+  Sparkles, ArrowRight, Star, Clock, CheckCircle2,
   MessageCircle, Wand2, PartyPopper, Home as HomeIcon, Plus,
   Mic, Heart, Lightbulb, Activity,
   ShieldCheck, ShieldAlert, Fingerprint, Lock, Trophy, AlertCircle, Navigation,
-  Eye, MapPin, X, Send,
+  Eye, MapPin, Send,
 } from "lucide-react";
 import { FaInstagram, FaXTwitter, FaLinkedinIn, FaFacebookF, FaApple, FaGooglePlay } from "react-icons/fa6";
 import Navbar from "@/app/components/Navbar";
@@ -157,11 +157,13 @@ const HeroSection = () => {
 
           <h1 className="heading-xl text-white max-w-2xl" style={{ fontSize: 'clamp(48px, 6.5vw, 82px)', lineHeight: 1.05 }}>
             Your home&apos;s <br />
-            <span style={{ color: '#f5b21c' }}>personal genie.</span> <br />
+            <span className="hero-highlight-wrapper" data-text="personal genie.">
+              <span className="hero-highlight">personal genie.</span>
+            </span> <br />
             In 15 minutes.
           </h1>
 
-          <p className="body-text-dark max-w-lg">
+          <p className="hero-subtext max-w-lg">
             Tell Jinny what you need — in Hindi or English — and a trained, verified home professional arrives at your door. As if by magic.
           </p>
 
@@ -176,18 +178,18 @@ const HeroSection = () => {
 
           {/* Bottom Stats/Highlights */}
           <div className="pt-16 grid grid-cols-3 gap-8">
-            <div className="space-y-1">
-              <p className="text-3xl font-serif text-brand-gold">15 min</p>
+            <div className="space-y-2">
+              <p className="hero-stat-value">15 min</p>
               <p className="section-label text-white/40">Average arrival time</p>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-brand-gold" />
+                <Sparkles className="w-7 h-7 text-[#FFB800]" />
               </div>
-              <p className="section-label text-white/40 mt-2">Magical prices await</p>
+              <p className="section-label text-white/40 mt-1">Magical prices await</p>
             </div>
-            <div className="space-y-1">
-              <p className="text-3xl font-serif text-brand-gold flex items-center gap-1">4.9 <Star className="w-5 h-5 fill-brand-gold" /></p>
+            <div className="space-y-2">
+              <p className="hero-stat-value flex items-center gap-1">4.9 <Star className="w-6 h-6 fill-[#FFB800]" style={{ WebkitTextFillColor: 'initial' }} /></p>
               <p className="section-label text-white/40">Average partner rating</p>
             </div>
           </div>
@@ -1194,117 +1196,70 @@ const BecomePartner = () => {
       <div className="max-w-[1400px] mx-auto rounded-[4rem] p-12 lg:p-24 text-white flex flex-col lg:flex-row gap-20 items-center overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
         <div className="absolute top-0 left-0 w-full h-full bg-purple-600/5 blur-[120px] pointer-events-none" />
 
-        {/* Left Column */}
-        <div className="flex-1 space-y-10 relative z-10">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>
+        <div className="hero-content">
+
+          {/* Left Column */}
+          <div className="hero-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full w-fit" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>💼 WORK WITH JINNY</span>
             </div>
-            <h2 className="heading-lg">
-              Become a <span className="text-purple-300">Jinny partner.</span> <br />
+
+            <h2 className="partner-hero-title heading-lg">
+              Become a <span>Jinny partner.</span> <br />
               Earn more. Work safely.
             </h2>
+
             <p className="body-text-dark max-w-lg">
               Join thousands of home service professionals earning a dignified, flexible income with Jinny&apos;s full welfare and safety system behind them.
             </p>
-          </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((s, i) => (
-              <div key={i} className="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-1">
-                <div className="text-2xl font-serif font-bold text-brand-gold">{s.value}</div>
-                <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Column: Form */}
-        <div className="flex-1 w-full max-w-xl relative z-10">
-          <div
-            style={{
-              background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '24px',
-              padding: '28px',
-              width: '100%',
-              maxWidth: '480px',
-              marginLeft: 'auto',
-              boxSizing: 'border-box' as const,
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
-              <span style={{ fontSize: '22px' }}>🪔</span>
-              <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0 }}>Join as a Jinny partner</h3>
+            {/* Stats Grid */}
+            <div className="stats-grid">
+              {stats.map((s, i) => (
+                <div key={i} className="stat-card space-y-1">
+                  <div className="text-2xl font-serif font-bold text-[#facc15]">{s.value}</div>
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">{s.label}</div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <input
-                type="text"
-                placeholder="Full name"
-                className="partner-input"
-                style={{
-                  width: '100%',
-                  height: '52px',
-                  padding: '0 16px',
-                  borderRadius: '14px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  color: '#fff',
-                  fontSize: '14px',
-                  outline: 'none',
-                  boxSizing: 'border-box' as const,
-                }}
-              />
-              <input
-                type="text"
-                placeholder="Mobile number"
-                className="partner-input"
-                style={{
-                  width: '100%',
-                  height: '52px',
-                  padding: '0 16px',
-                  borderRadius: '14px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  color: '#fff',
-                  fontSize: '14px',
-                  outline: 'none',
-                  boxSizing: 'border-box' as const,
-                }}
-              />
+          {/* Right Column: Form */}
+          <div className="w-full relative z-10">
+            <div className="form-card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                <span style={{ fontSize: '22px' }}>🪔</span>
+                <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0 }}>Join as a Jinny partner</h3>
+              </div>
 
-              {/* City */}
-              <CustomSelect
-                placeholder="Select your city"
-                options={[
-                  { value: 'gurugram', label: 'Gurugram' },
-                  { value: 'south-delhi', label: 'South Delhi' },
-                  { value: 'noida', label: 'Noida' },
-                  { value: 'dwarka', label: 'Dwarka' },
-                  { value: 'east-delhi', label: 'East Delhi' },
-                  { value: 'west-delhi', label: 'West Delhi' },
-                  { value: 'north-delhi', label: 'North Delhi' },
-                  { value: 'faridabad', label: 'Faridabad' },
-                  { value: 'ghaziabad', label: 'Ghaziabad' },
-                  { value: 'other', label: 'Other' },
-                ]}
-              />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="partner-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Mobile number"
+                  className="partner-input"
+                />
 
-              {/* Services */}
-              <CustomSelect
-                placeholder="Services you offer"
-                options={[
-                  { value: 'home', label: 'Home cleaning' },
-                  { value: 'kitchen', label: 'Kitchen cleaning' },
-                  { value: 'laundry', label: 'Laundry & ironing' },
-                  { value: 'car', label: 'Car cleaning' },
-                  { value: 'multiple', label: 'Multiple services' },
-                ]}
-              />
+                {/* City */}
+                <CustomSelect
+                  placeholder="Select your city"
+                  options={[
+                    { value: 'gurugram', label: 'Gurugram' },
+                    { value: 'south-delhi', label: 'South Delhi' },
+                    { value: 'noida', label: 'Noida' },
+                    { value: 'dwarka', label: 'Dwarka' },
+                    { value: 'east-delhi', label: 'East Delhi' },
+                    { value: 'west-delhi', label: 'West Delhi' },
+                    { value: 'north-delhi', label: 'North Delhi' },
+                    { value: 'faridabad', label: 'Faridabad' },
+                    { value: 'ghaziabad', label: 'Ghaziabad' },
+                    { value: 'other', label: 'Other' },
+                  ]}
+                />
 
               <div className="pt-8">
                 <Link href="/waitlist" className="cta-gold-btn inline-flex items-center gap-4 px-12 py-5 bg-[#f5b21c] text-black rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(245,178,28,0.3)]">
@@ -1467,7 +1422,7 @@ const FAQ = () => {
 export default function Home() {
   return (
     <main className="flex-1">
-      <Navbar />
+
       <HeroSection />
       <HowItWorks />
       <section id="services" style={{ backgroundColor: '#FAF9F6' }}>
