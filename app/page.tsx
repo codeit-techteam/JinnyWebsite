@@ -1603,8 +1603,8 @@ const FAQ = () => {
 
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
-      <div className="max-w-4xl mx-auto space-y-16">
-        <div className="text-center space-y-6">
+      <div className="faq-container">
+        <div className="text-center space-y-6 mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
             <span className="text-[10px] font-bold uppercase tracking-widest text-brand-purple">? QUESTIONS</span>
           </div>
@@ -1613,26 +1613,23 @@ const FAQ = () => {
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="max-w-[900px] mx-auto">
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="border-b border-gray-100 last:border-0"
-            >
+            <div key={i} className="border-b border-[rgba(0,0,0,0.08)] py-[18px] last:border-0 hover:bg-[rgba(0,0,0,0.02)] transition-colors px-2 rounded-lg">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full py-8 flex items-center justify-between text-left group"
+                className="group flex items-center justify-between w-full text-left cursor-pointer"
               >
-                <h3 className={`heading-md transition-colors ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#0b0120]'}`}>
+                <span className={`text-[18px] font-semibold transition-colors ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#1a0b2e]'}`}>
                   {faq.q}
-                </h3>
-                <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${openIndex === i ? 'bg-[#6c2bd9] border-[#6c2bd9] text-white rotate-45' : 'border-[#F5F3FF] text-[#6c2bd9]'}`}>
-                  <Plus className="w-5 h-5" />
+                </span>
+                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${openIndex === i ? 'bg-[rgba(124,58,237,0.15)] text-[#6c2bd9] rotate-45' : 'bg-[rgba(124,58,237,0.08)] text-[#7c3aed] group-hover:bg-[rgba(124,58,237,0.15)]'}`}>
+                  <Plus className="w-4 h-4" />
                 </div>
               </button>
 
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 pb-8 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="body-text max-w-3xl">
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === i ? 'max-h-96 pt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="body-text max-w-3xl" style={{ color: 'rgba(26, 11, 46, 0.7)', fontSize: '15px' }}>
                   {faq.a}
                 </p>
               </div>
