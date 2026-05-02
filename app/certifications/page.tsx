@@ -1,24 +1,16 @@
+import Footer from "../components/Footer";
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, Sparkles, GraduationCap, Trophy, CheckCircle2, Star } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 export default function CertificationsPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0b0120]/80 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className="w-4 h-4 text-white/40 group-hover:text-white group-hover:-translate-x-1 transition-all" />
-            <span className="text-3xl">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight">Jinny</span>
-          </Link>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6c2bd9]">Partner Training</span>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden text-center">
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24 relative overflow-hidden text-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto space-y-12 relative z-10">
@@ -39,7 +31,7 @@ export default function CertificationsPage() {
       </section>
 
       {/* Course List */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 bg-white text-[#0b0120]">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             { title: "Bathroom Deep Clean Specialist", level: "Intermediate", perks: "Unlocks ₹499+ tasks", icon: Sparkles },
@@ -60,7 +52,7 @@ export default function CertificationsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8 bg-[#0b0120]">
+      <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8 bg-[#0b0120]">
         <div className="flex items-center justify-center gap-3">
           <span className="text-3xl">🪔</span>
           <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
@@ -72,3 +64,5 @@ export default function CertificationsPage() {
     </main>
   );
 }
+
+

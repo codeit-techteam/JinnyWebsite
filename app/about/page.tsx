@@ -1,26 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, Sparkles, Target, Users, ShieldCheck, Heart } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0b0120]/80 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className="w-4 h-4 text-white/40 group-hover:text-white group-hover:-translate-x-1 transition-all" />
-            <span className="text-3xl">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight">Jinny</span>
-          </Link>
-          <Link href="/" className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#0b0120] transition-all">
-            Join Waitlist
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto space-y-12 relative z-10 text-center">
@@ -41,7 +31,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision/Mission */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 bg-white text-[#0b0120]">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-8">
             <h2 className="heading-lg">Our Vision</h2>
@@ -73,7 +63,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#0b0120]">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#0b0120]">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="text-center space-y-6">
             <h2 className="heading-lg">Our Core Values</h2>
@@ -109,15 +99,9 @@ export default function AboutPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8">
-        <div className="flex items-center justify-center gap-3">
-          <span className="text-3xl">🪔</span>
-          <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
-        </div>
-        <p className="text-[10px] font-medium text-white/20 uppercase tracking-[0.2em]">
-          © 2026 MTB ALPHA Private Limited · Delhi NCR
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }
+
+

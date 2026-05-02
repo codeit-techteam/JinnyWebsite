@@ -138,7 +138,7 @@ footer {
 
 /* Default state — fully visible white card */
 .hover-card {
-  background-color: #FFFFFF;
+  background-color: #FAF9F6;
   border: 1px solid #EAEAF0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
@@ -611,4 +611,45 @@ select.partner-input {
   height: auto;
   padding: 16px 40px 16px 24px;
   border-radius: 16px;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes float-mini {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes wiggle-subtle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-mini {
+  animation: float-mini 5s ease-in-out infinite;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.animate-wiggle-subtle {
+  animation: wiggle-subtle 4s ease-in-out infinite;
 }
