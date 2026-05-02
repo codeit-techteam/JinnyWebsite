@@ -1271,8 +1271,9 @@ const BecomePartner = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 const Testimonials = () => {
   const reviews = [
