@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0D0B21;
+  --background: #0b0120;
   --foreground: #ffffff;
 }
 
@@ -9,16 +9,271 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
   
-  --color-brand-purple: #8B5CF6;
-  --color-brand-gold: #FCD34D;
-  --color-brand-dark: #0D0B21;
+  --color-brand-purple: #6c2bd9;
+  --color-brand-gold: #f5b21c;
+  --color-brand-dark: #0b0120;
 }
+
+/* =========================================
+   GLOBAL TYPOGRAPHY SYSTEM
+   ========================================= */
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, #0b0120 0%, #1a0645 40%, #2a0a5e 100%);
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- Reusable heading classes --- */
+
+.heading-xl {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heading-md {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* --- Reusable body text classes --- */
+
+.body-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* Muted body text for dark sections */
+.body-text-dark {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+}
+
+/* --- Card title --- */
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #1A1A1A;
+}
+
+/* Card title for dark sections */
+.card-title-dark {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+/* --- Small text / labels --- */
+
+.label-text {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* --- Section label pill --- */
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Ensure sections with explicit bg don't show body gradient */
+section, footer, nav {
+  position: relative;
+}
+
+/* =========================================
+   INTERACTIVE CARD SYSTEM
+   ========================================= */
+
+/* Default state — fully visible white card */
+.hover-card {
+  background-color: #FFFFFF;
+  border: 1px solid #EAEAF0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover state — gradient takeover */
+.hover-card:hover {
+  background: linear-gradient(135deg, #5B2EFF, #7A4DFF);
+  border-color: transparent;
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(91, 46, 255, 0.25);
+}
+
+/* All text turns white on hover */
+.hover-card:hover h3,
+.hover-card:hover h4,
+.hover-card:hover p,
+.hover-card:hover span {
+  color: #FFFFFF !important;
+}
+
+/* Icon circle goes translucent white on hover */
+.hover-card:hover .card-icon-circle {
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+/* Badge goes translucent on hover */
+.hover-card:hover .service-badge {
+  background: rgba(255,255,255,0.2);
+  color: #FFFFFF;
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Service badge — default state */
+.service-badge {
+  background: #F0EBFF;
+  color: #6c2bd9;
+  border: 1px solid #DDD6FE;
+  transition: all 0.3s ease;
+}
+
+/* =========================================
+   DARK-SECTION CARD INTERACTIONS
+   ========================================= */
+
+/* Feature list items in "understands you" section */
+.feature-list-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.feature-list-item:hover {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(108, 43, 217, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Chat card */
+.chat-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.chat-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 60px rgba(108, 43, 217, 0.3),
+    0 0 0 1px rgba(108, 43, 217, 0.2);
+}
+
+/* CTA button glow on hover */
+.cta-gold-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cta-gold-btn:hover {
+  box-shadow: 0 10px 40px rgba(245,178,28,0.4);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Gradient text utility */
+.gradient-text-purple {
+  background: linear-gradient(90deg, #6c2bd9, #9d4edd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Generic interactive lift */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(108, 43, 217, 0.2);
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar-link {
+  position: relative;
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+  padding-bottom: 4px;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #9d4edd, #6c2bd9);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 0.25s ease-in-out;
+}
+
+.navbar-link:hover {
+  color: #9d4edd;
+  transform: translateY(-1px);
+  text-shadow: 0 0 16px rgba(157, 78, 221, 0.15);
+}
+
+.navbar-link:hover::after {
+  width: 70%;
+}
+
+.navbar-link-active::after {
+  width: 70%;
+  background: linear-gradient(90deg, #9d4edd, #6c2bd9);
+}
+
+.navbar-link-active-scrolled::after {
+  width: 70%;
+  background: linear-gradient(90deg, #6c2bd9, #4c1d95);
+}
+
+.navbar-cta-btn {
+  transition: all 0.25s ease-in-out;
+  background: linear-gradient(135deg, #7c3aed, #6c2bd9);
+}
+
+.navbar-cta-btn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.4),
+    0 8px 24px rgba(108, 43, 217, 0.3);
+}

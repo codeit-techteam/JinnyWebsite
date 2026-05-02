@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,9 +7,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  weight: "400",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
+  weight: ["400", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -26,12 +26,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#0D0B21] text-white selection:bg-purple-500/30">
+      <body className="min-h-full flex flex-col font-sans bg-[#0b0120] text-white selection:bg-purple-500/30">
         {children}
       </body>
     </html>
   );
 }
-
