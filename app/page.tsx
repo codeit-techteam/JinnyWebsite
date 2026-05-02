@@ -390,13 +390,13 @@ const HeroSection = () => {
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #7c3aed, #6c2bd9)' }}>AI</div>
                 <div>
-                  <h4 className="card-title text-white">Jinny AI assistant</h4>
-                  <p className="label-text text-white/40">What do you need today?</p>
+                  <h4 className="card-title" style={{ color: 'white' }}>Jinny AI assistant</h4>
+                  <p className="label-text" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>What do you need today?</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <div className="p-4 rounded-2xl rounded-tr-none text-sm text-white/90 max-w-[90%] ml-auto italic" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="p-4 rounded-2xl rounded-tr-none text-sm max-w-[90%] ml-auto italic" style={{ color: 'white', background: 'rgba(124, 58, 237, 0.35)', border: '1px solid rgba(255,255,255,0.08)' }}>
                   &quot;bathroom aur kitchen dono saaf karna hai aaj 🪄&quot;
                 </div>
 
@@ -419,12 +419,12 @@ const HeroSection = () => {
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <h4 className="card-title text-white">Rekha S. • <span style={{ color: '#FFB800' }}>8 min away</span> • ★ 4.9</h4>
+                  <h4 className="card-title" style={{ color: 'white' }}>Rekha S. • <span style={{ color: '#FFB800' }}>8 min away</span> • ★ 4.9</h4>
                   <div className="flex gap-1">
                     <div className="w-8 h-6 bg-blue-500/20 rounded flex items-center justify-center">🗺️</div>
                   </div>
                 </div>
-                <p className="label-text text-white/40 mt-1">Jinny Score: 91 • Advanced Cleaner Certified</p>
+                <p className="label-text mt-1" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>Jinny Score: 91 • Advanced Cleaner Certified</p>
               </div>
             </div>
 
@@ -434,8 +434,8 @@ const HeroSection = () => {
                 <span className="text-lg font-bold" style={{ color: '#FFB800' }}>72</span>
               </div>
               <div>
-                <p className="section-label text-white/40">Your Home Health Score</p>
-                <h4 className="card-title text-white">Kitchen needs attention</h4>
+                <p className="section-label" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>Your Home Health Score</p>
+                <h4 className="card-title mt-1" style={{ color: 'white' }}>Kitchen needs attention</h4>
               </div>
             </div>
           </div>
