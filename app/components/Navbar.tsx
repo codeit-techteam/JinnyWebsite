@@ -13,8 +13,13 @@ const Navbar = () => {
   const isHome = pathname === "/";
 
   React.useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const scrollPos = window.scrollY;
+      console.log('Scroll Position:', scrollPos);
+      setIsScrolled(scrollPos > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -67,19 +72,22 @@ const Navbar = () => {
           left: 0,
           right: 0,
           zIndex: 9999,
-          background: isScrolled ? 'rgba(11, 1, 32, 0.88)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(108,43,217,0.1)' : 'none',
-          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-          padding: isScrolled ? '12px 0' : '24px 0',
+          background: 'rgba(11, 1, 32, 0.9)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+          transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+          padding: isScrolled ? '2px 0' : '14px 0',
+          height: isScrolled ? '54px' : '76px',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-3xl animate-float-mini">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight text-white">Jinny</span>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full transition-all duration-500">
+          <Link href="/" className="flex items-center gap-2 group">
+            <span className={`text-3xl transition-transform duration-500 ${isScrolled ? 'scale-75 translate-y-0.5' : 'scale-100'} group-hover:rotate-12`}>🪔</span>
+            <span className={`font-serif font-bold italic tracking-tight text-white transition-all duration-500 origin-left ${isScrolled ? 'text-lg' : 'text-2xl'}`}>Jinny</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -88,13 +96,19 @@ const Navbar = () => {
               <Link
                 key={link.id}
                 href={link.href}
-                className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-white ${
+                className={`relative font-bold uppercase tracking-[0.2em] transition-all duration-500 py-2 group ${
+                  isScrolled ? 'text-[9px]' : 'text-[11px]'
+                } ${
                   (isHome && activeSection === link.id) || (!isHome && pathname === link.href)
-                    ? "text-[#6c2bd9]" 
-                    : "text-white/40"
+                    ? "text-[#f5b21c]" 
+                    : "text-white/40 hover:text-white"
                 }`}
               >
                 {link.label}
+                <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#f5b21c] transition-all duration-300 group-hover:w-full ${
+                  (isHome && activeSection === link.id) || (!isHome && pathname === link.href) ? "w-full" : ""
+                }`} />
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#f5b21c] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 blur-[2px]" />
               </Link>
             ))}
           </div>
@@ -102,7 +116,9 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             <Link 
               href="/waitlist"
-              className="hidden sm:flex px-8 py-3.5 bg-[#6c2bd9] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full hover:bg-[#7c3aed] hover:scale-105 transition-all active:scale-95 shadow-[0_10px_20px_-10px_rgba(108,43,217,0.4)]"
+              className={`hidden sm:flex items-center justify-center bg-[#6c2bd9] text-white font-bold uppercase tracking-[0.2em] rounded-full hover:bg-[#7c3aed] hover:scale-105 transition-all active:scale-95 shadow-[0_10px_20px_-10px_rgba(108,43,217,0.4)] ${
+                isScrolled ? 'px-6 py-2.5 text-[9px]' : 'px-8 py-3.5 text-[10px]'
+              }`}
             >
               Join Waitlist
             </Link>
