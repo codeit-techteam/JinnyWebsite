@@ -2,11 +2,11 @@
 
 import React from "react";
 import {
-  Sparkles, Menu, ArrowRight, Star, Clock, CheckCircle2,
+  Sparkles, ArrowRight, Star, Clock, CheckCircle2,
   MessageCircle, Wand2, PartyPopper, Home as HomeIcon, Plus,
   Mic, Heart, Lightbulb, Activity,
   ShieldCheck, ShieldAlert, Fingerprint, Lock, Trophy, AlertCircle, Navigation,
-  Eye, MapPin, X, Send,
+  Eye, MapPin, Send,
 } from "lucide-react";
 import { FaInstagram, FaXTwitter, FaLinkedinIn, FaFacebookF, FaApple, FaGooglePlay } from "react-icons/fa6";
 
@@ -304,211 +304,79 @@ const Footer = () => {
   );
 };
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isMobileOpen, setIsMobileOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState("");
 
-  React.useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Track active section based on scroll position
-  React.useEffect(() => {
-    const sectionIds = ["services", "how-it-works", "safety", "partner", "about"];
-    const handleScroll = () => {
-      let current = "";
-      for (const id of sectionIds) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom > 150) {
-            current = id;
-          }
-        }
-      }
-      setActiveSection(current);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Prevent body scroll when mobile menu is open
-  React.useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [isMobileOpen]);
-
-  const navLinks = [
-    { label: "Services", href: "#services", id: "services" },
-    { label: "How it works", href: "#how-it-works", id: "how-it-works" },
-    { label: "Safety", href: "#safety", id: "safety" },
-    { label: "Become a partner", href: "#partner", id: "partner" },
-    { label: "About", href: "#about", id: "about" },
-  ];
-
-  return (
-    <>
-      <nav
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 9999,
-          background: isScrolled ? 'rgba(11, 1, 32, 0.88)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(108,43,217,0.1)' : 'none',
-          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-          padding: isScrolled ? '16px 0' : '32px 0',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-3xl">🪔</span>
-            <span className={`text-2xl font-serif font-bold italic tracking-tight ${isScrolled ? "text-white" : "text-white"}`}>Jinny</span>
-          </div>
-
-          <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                className={`navbar-link text-sm font-bold ${activeSection === link.id
-                  ? isScrolled
-                    ? "text-[#c4b5fd] navbar-link-active-scrolled"
-                    : "text-white navbar-link-active"
-                  : isScrolled
-                    ? "text-white/60"
-                    : "text-white/60"
-                  }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="navbar-cta-btn px-7 py-3 bg-[#6c2bd9] text-white text-sm font-bold rounded-full active:scale-95 shadow-lg shadow-purple-950/20">
-              Join waitlist
-            </button>
-            <button
-              className={`lg:hidden p-2 ${isScrolled ? "text-white" : "text-white"}`}
-              onClick={() => setIsMobileOpen(true)}
-              aria-label="Open menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        onClick={() => setIsMobileOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div
-        className={`fixed top-0 right-0 z-[70] h-full w-[80%] max-w-sm transition-transform duration-400 ease-out lg:hidden ${isMobileOpen ? "translate-x-0" : "translate-x-full"}`}
-        style={{ background: "linear-gradient(180deg, #150835 0%, #0b0120 100%)" }}
-      >
-        <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">🪔</span>
-            <span className="text-xl font-serif font-bold italic tracking-tight text-white">Jinny</span>
-          </div>
-          <button
-            onClick={() => setIsMobileOpen(false)}
-            className="p-2 text-white/60 hover:text-white transition-colors"
-            aria-label="Close menu"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        <nav className="p-6 space-y-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              onClick={() => setIsMobileOpen(false)}
-              className={`block px-4 py-4 rounded-2xl text-base font-bold transition-all duration-250 ${activeSection === link.id
-                ? "text-white bg-[#6c2bd9]/20 border border-[#6c2bd9]/30"
-                : "text-white/60 hover:text-white hover:bg-white/5 border border-transparent"
-                }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
-          <button
-            onClick={() => setIsMobileOpen(false)}
-            className="navbar-cta-btn w-full px-7 py-4 bg-[#6c2bd9] text-white text-sm font-bold rounded-full active:scale-95 shadow-lg shadow-purple-950/20"
-          >
-            Join waitlist
-          </button>
-        </div>
-      </div>
-    </>
-  );
-};
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-44 pb-32 px-6 md:px-12 lg:px-24 overflow-hidden" style={{ background: 'radial-gradient(ellipse at 30% 20%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section className="hero-section relative pt-44 pb-32 px-6 md:px-12 lg:px-24">
+      {/* Extra ambient purple orb — top-right */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: '-10%',
+          right: '-5%',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(120,0,255,0.1) 0%, transparent 70%)',
+          filter: 'blur(100px)',
+        }}
+      />
+      {/* Extra warm glow — bottom-left (supplements ::before) */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          bottom: '-5%',
+          left: '0%',
+          width: '500px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(255,180,0,0.05) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+      />
+
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-24 relative z-10">
 
         {/* Left Column: Text & CTA */}
         <div className="flex-1 space-y-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-brand-gold">
-            <span className="section-label">🧞 COMING SOON TO DELHI NCR — JOIN THE WAITLIST</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>🧞 COMING SOON TO DELHI NCR — JOIN THE WAITLIST</span>
           </div>
 
-          <h1 className="heading-xl text-white max-w-2xl">
+          <h1 className="hero-title max-w-2xl">
             Your home&apos;s <br />
-            <span style={{ color: '#f5b21c' }}>personal genie.</span> <br />
+            <span className="hero-highlight-wrapper" data-text="personal genie.">
+              <span className="hero-highlight">personal genie.</span>
+            </span> <br />
             In 15 minutes.
           </h1>
 
-          <p className="body-text-dark max-w-lg">
+          <p className="hero-subtext max-w-lg">
             Tell Jinny what you need — in Hindi or English — and a trained, verified home professional arrives at your door. As if by magic.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-            <button className="w-full sm:w-auto rounded-full shadow-2xl shadow-yellow-500/20 transition-all active:scale-95 flex items-center justify-center gap-3" style={{ background: '#f5b21c', color: '#000000', borderRadius: '999px', padding: '14px 24px', fontWeight: 600, fontSize: '16px' }}>
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+            <button className="hero-primary-btn w-full sm:w-auto flex items-center justify-center gap-3">
               🧞 Join the waitlist
             </button>
-            <button className="w-full sm:w-auto rounded-full hover:bg-white/10 transition-all active:scale-95 flex items-center justify-center gap-3" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'white', background: 'transparent', borderRadius: '999px', padding: '14px 24px', fontWeight: 600, fontSize: '16px' }}>
+            <button className="hero-secondary-btn w-full sm:w-auto flex items-center justify-center gap-3">
               ✨ See how it works
             </button>
           </div>
 
           {/* Bottom Stats/Highlights */}
           <div className="pt-16 grid grid-cols-3 gap-8">
-            <div className="space-y-1">
-              <p className="text-3xl font-serif text-brand-gold">15 min</p>
+            <div className="space-y-2">
+              <p className="hero-stat-value">15 min</p>
               <p className="section-label text-white/40">Average arrival time</p>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-brand-gold" />
+                <Sparkles className="w-7 h-7 text-[#FFB800]" />
               </div>
-              <p className="section-label text-white/40 mt-2">Magical prices await</p>
+              <p className="section-label text-white/40 mt-1">Magical prices await</p>
             </div>
-            <div className="space-y-1">
-              <p className="text-3xl font-serif text-brand-gold flex items-center gap-1">4.9 <Star className="w-5 h-5 fill-brand-gold" /></p>
+            <div className="space-y-2">
+              <p className="hero-stat-value flex items-center gap-1">4.9 <Star className="w-6 h-6 fill-[#FFB800]" style={{ WebkitTextFillColor: 'initial' }} /></p>
               <p className="section-label text-white/40">Average partner rating</p>
             </div>
           </div>
@@ -516,11 +384,11 @@ const HeroSection = () => {
 
         {/* Right Column: Visual UI Cards */}
         <div className="flex-1 w-full max-w-2xl">
-          <div className="space-y-6">
+          <div className="space-y-5">
             {/* Chat Assistant Card */}
-            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-8 shadow-2xl space-y-8">
+            <div className="hero-card p-8 space-y-8">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-[#6c2bd9] rounded-full flex items-center justify-center text-xs font-bold text-white">AI</div>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #7c3aed, #6c2bd9)' }}>AI</div>
                 <div>
                   <h4 className="card-title text-white">Jinny AI assistant</h4>
                   <p className="label-text text-white/40">What do you need today?</p>
@@ -528,16 +396,16 @@ const HeroSection = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="p-4 bg-[#2D2A5A] rounded-2xl rounded-tr-none text-sm text-white/90 border border-white/5 max-w-[90%] ml-auto italic">
+                <div className="p-4 rounded-2xl rounded-tr-none text-sm text-white/90 max-w-[90%] ml-auto italic" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.06)' }}>
                   &quot;bathroom aur kitchen dono saaf karna hai aaj 🪄&quot;
                 </div>
 
-                <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4">
+                <div className="p-6 rounded-2xl space-y-4" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
                   <div className="space-y-1">
-                    <p className="body-text text-white/90">That&apos;s a <span className="text-brand-gold font-bold">Weekend Deep Clean</span> — 2.5 hrs. Best value bundle.</p>
-                    <p className="text-2xl font-serif text-brand-gold">₹ XXX</p>
+                    <p className="text-sm text-white/90">That&apos;s a <span className="font-bold" style={{ color: '#FFB800' }}>Weekend Deep Clean</span> — 2.5 hrs. Best value bundle.</p>
+                    <p className="text-2xl font-serif" style={{ color: '#FFB800' }}>₹ XXX</p>
                   </div>
-                  <button className="px-6 py-2 bg-brand-gold text-brand-dark text-xs font-bold rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity">
+                  <button className="px-6 py-2 text-xs font-bold rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #FFD76A, #FFB800)', color: '#1a0033' }}>
                     Confirm booking ✓
                   </button>
                 </div>
@@ -545,13 +413,13 @@ const HeroSection = () => {
             </div>
 
             {/* Partner Info Card */}
-            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-6 shadow-2xl flex items-center gap-6">
+            <div className="hero-card p-6 flex items-center gap-6">
               <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center overflow-hidden grayscale border border-white/10">
                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rekha" alt="Partner" className="w-full h-full object-cover opacity-60" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <h4 className="card-title text-white">Rekha S. • <span className="text-brand-gold">8 min away</span> • ★ 4.9</h4>
+                  <h4 className="card-title text-white">Rekha S. • <span style={{ color: '#FFB800' }}>8 min away</span> • ★ 4.9</h4>
                   <div className="flex gap-1">
                     <div className="w-8 h-6 bg-blue-500/20 rounded flex items-center justify-center">🗺️</div>
                   </div>
@@ -561,9 +429,9 @@ const HeroSection = () => {
             </div>
 
             {/* Home Health Score Card */}
-            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-6 shadow-2xl flex items-center gap-6">
-              <div className="w-14 h-14 rounded-full border-2 border-brand-gold flex items-center justify-center">
-                <span className="text-lg font-bold text-brand-gold">72</span>
+            <div className="hero-card p-6 flex items-center gap-6">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ border: '2px solid #FFB800' }}>
+                <span className="text-lg font-bold" style={{ color: '#FFB800' }}>72</span>
               </div>
               <div>
                 <p className="section-label text-white/40">Your Home Health Score</p>
@@ -621,7 +489,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-32 px-6 md:px-12 lg:px-24 bg-white text-brand-dark">
+    <section id="how-it-works" className="py-32 px-6 md:px-12 lg:px-24 text-brand-dark" style={{ backgroundColor: '#FAF7F2' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
@@ -731,7 +599,7 @@ const ServicesGrid = () => {
   ];
 
   return (
-    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF', paddingTop: '80px', paddingBottom: '80px' }}>
+    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FAF7F2', paddingTop: '80px', paddingBottom: '80px' }}>
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 space-y-5">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full" style={{ backgroundColor: '#F0EBFF', border: '1px solid #DDD6FE' }}>
@@ -1065,7 +933,7 @@ const JinnyUnderstandsYou = () => {
 
 const BuiltOnTrust = () => {
   return (
-    <section id="safety" className="py-32 px-6 md:px-12 lg:px-24 bg-white text-[#0b0120]">
+    <section id="safety" className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
@@ -1187,7 +1055,7 @@ const EveryBookingEarnsMagic = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#FDFCFB] text-[#0b0120]">
+    <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
       <div
         className="max-w-7xl mx-auto"
         style={{
@@ -1466,7 +1334,7 @@ const WhereJinnyWorks = () => {
   ];
 
   return (
-    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF', paddingTop: '80px', paddingBottom: '80px' }}>
+    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FAF7F2', paddingTop: '80px', paddingBottom: '80px' }}>
       <div className="max-w-7xl mx-auto text-center space-y-16">
         <div className="space-y-5">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full" style={{ backgroundColor: '#F0EBFF', border: '1px solid #DDD6FE' }}>
@@ -1516,141 +1384,114 @@ const BecomePartner = () => {
   ];
 
   return (
-    <section id="become-partner" className="py-12 px-6 md:px-12 lg:px-24 bg-white">
-      <div className="max-w-[1400px] mx-auto rounded-[4rem] p-12 lg:p-24 text-white flex flex-col lg:flex-row gap-20 items-center overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
-        <div className="absolute top-0 left-0 w-full h-full bg-purple-600/5 blur-[120px] pointer-events-none" />
+    <section id="become-partner" className="hero-wrapper">
+      <div className="hero-container">
+        {/* Ambient purple glow */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '10%',
+            left: '5%',
+            width: '500px',
+            height: '500px',
+            background: 'radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+        />
+        {/* Ambient gold glow */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            bottom: '0%',
+            right: '10%',
+            width: '600px',
+            height: '600px',
+            background: 'radial-gradient(circle, rgba(255,200,0,0.06) 0%, transparent 70%)',
+            filter: 'blur(100px)',
+          }}
+        />
 
-        {/* Left Column */}
-        <div className="flex-1 space-y-10 relative z-10">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>
+        <div className="hero-content">
+
+          {/* Left Column */}
+          <div className="hero-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full w-fit" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>💼 WORK WITH JINNY</span>
             </div>
-            <h2 className="heading-lg">
-              Become a <span className="text-purple-300">Jinny partner.</span> <br />
+
+            <h2 className="partner-hero-title heading-lg">
+              Become a <span>Jinny partner.</span> <br />
               Earn more. Work safely.
             </h2>
+
             <p className="body-text-dark max-w-lg">
               Join thousands of home service professionals earning a dignified, flexible income with Jinny&apos;s full welfare and safety system behind them.
             </p>
-          </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((s, i) => (
-              <div key={i} className="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-1">
-                <div className="text-2xl font-serif font-bold text-brand-gold">{s.value}</div>
-                <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Column: Form */}
-        <div className="flex-1 w-full max-w-xl relative z-10">
-          <div
-            style={{
-              background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '24px',
-              padding: '28px',
-              width: '100%',
-              maxWidth: '480px',
-              marginLeft: 'auto',
-              boxSizing: 'border-box' as const,
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02)',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
-              <span style={{ fontSize: '22px' }}>🪔</span>
-              <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0 }}>Join as a Jinny partner</h3>
+            {/* Stats Grid */}
+            <div className="stats-grid">
+              {stats.map((s, i) => (
+                <div key={i} className="stat-card space-y-1">
+                  <div className="text-2xl font-serif font-bold text-[#facc15]">{s.value}</div>
+                  <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">{s.label}</div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <input
-                type="text"
-                placeholder="Full name"
-                className="partner-input"
-                style={{
-                  width: '100%',
-                  height: '52px',
-                  padding: '0 16px',
-                  borderRadius: '14px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  color: '#fff',
-                  fontSize: '14px',
-                  outline: 'none',
-                  boxSizing: 'border-box' as const,
-                }}
-              />
-              <input
-                type="text"
-                placeholder="Mobile number"
-                className="partner-input"
-                style={{
-                  width: '100%',
-                  height: '52px',
-                  padding: '0 16px',
-                  borderRadius: '14px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  color: '#fff',
-                  fontSize: '14px',
-                  outline: 'none',
-                  boxSizing: 'border-box' as const,
-                }}
-              />
+          {/* Right Column: Form */}
+          <div className="w-full relative z-10">
+            <div className="form-card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                <span style={{ fontSize: '22px' }}>🪔</span>
+                <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0 }}>Join as a Jinny partner</h3>
+              </div>
 
-              {/* City */}
-              <CustomSelect
-                placeholder="Select your city"
-                options={[
-                  { value: 'gurugram', label: 'Gurugram' },
-                  { value: 'south-delhi', label: 'South Delhi' },
-                  { value: 'noida', label: 'Noida' },
-                  { value: 'dwarka', label: 'Dwarka' },
-                  { value: 'east-delhi', label: 'East Delhi' },
-                  { value: 'west-delhi', label: 'West Delhi' },
-                  { value: 'north-delhi', label: 'North Delhi' },
-                  { value: 'faridabad', label: 'Faridabad' },
-                  { value: 'ghaziabad', label: 'Ghaziabad' },
-                  { value: 'other', label: 'Other' },
-                ]}
-              />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="partner-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Mobile number"
+                  className="partner-input"
+                />
 
-              {/* Services */}
-              <CustomSelect
-                placeholder="Services you offer"
-                options={[
-                  { value: 'home', label: 'Home cleaning' },
-                  { value: 'kitchen', label: 'Kitchen cleaning' },
-                  { value: 'laundry', label: 'Laundry & ironing' },
-                  { value: 'car', label: 'Car cleaning' },
-                  { value: 'multiple', label: 'Multiple services' },
-                ]}
-              />
+                {/* City */}
+                <CustomSelect
+                  placeholder="Select your city"
+                  options={[
+                    { value: 'gurugram', label: 'Gurugram' },
+                    { value: 'south-delhi', label: 'South Delhi' },
+                    { value: 'noida', label: 'Noida' },
+                    { value: 'dwarka', label: 'Dwarka' },
+                    { value: 'east-delhi', label: 'East Delhi' },
+                    { value: 'west-delhi', label: 'West Delhi' },
+                    { value: 'north-delhi', label: 'North Delhi' },
+                    { value: 'faridabad', label: 'Faridabad' },
+                    { value: 'ghaziabad', label: 'Ghaziabad' },
+                    { value: 'other', label: 'Other' },
+                  ]}
+                />
 
-              <button
-                style={{
-                  width: '100%',
-                  height: '52px',
-                  borderRadius: '999px',
-                  background: 'linear-gradient(90deg, #facc15, #f59e0b)',
-                  color: '#000',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  marginTop: '8px',
-                  boxShadow: '0 10px 30px rgba(250,204,21,0.35), 0 0 20px rgba(250,204,21,0.25)',
-                  transition: 'all 0.25s ease',
-                }}
-                className="partner-form-btn"
-              >
-                Apply now — it&apos;s free ✨
-              </button>
+                {/* Services */}
+                <CustomSelect
+                  placeholder="Services you offer"
+                  options={[
+                    { value: 'home', label: 'Home cleaning' },
+                    { value: 'kitchen', label: 'Kitchen cleaning' },
+                    { value: 'laundry', label: 'Laundry & ironing' },
+                    { value: 'car', label: 'Car cleaning' },
+                    { value: 'multiple', label: 'Multiple services' },
+                  ]}
+                />
+
+                <button className="partner-form-btn mt-2">
+                  Apply now — it&apos;s free ✨
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1684,7 +1525,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#FDFCFB] text-[#0b0120]">
+    <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
       <div className="max-w-7xl mx-auto space-y-16">
         <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
@@ -1761,7 +1602,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#FDFCFB] text-[#0b0120]">
+    <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
@@ -1806,10 +1647,10 @@ const FAQ = () => {
 export default function Home() {
   return (
     <main className="flex-1">
-      <Navbar />
+
       <HeroSection />
       <HowItWorks />
-      <section id="services" style={{ backgroundColor: '#FFFFFF' }}>
+      <section id="services" style={{ backgroundColor: '#FAF7F2' }}>
         <ServicesGrid />
       </section>
       <JinnyUnderstandsYou />

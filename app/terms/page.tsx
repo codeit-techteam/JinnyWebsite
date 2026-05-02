@@ -1,22 +1,10 @@
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, FileText, CheckCircle2, AlertCircle } from "lucide-react";
+import { FileText, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0b0120]/80 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className="w-4 h-4 text-white/40 group-hover:text-white group-hover:-translate-x-1 transition-all" />
-            <span className="text-3xl">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight">Jinny</span>
-          </Link>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Terms of Service</span>
-        </div>
-      </nav>
-
       <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="space-y-6">

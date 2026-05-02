@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, Briefcase, Zap, Globe, Coffee, GraduationCap, Heart } from "lucide-react";
+import { Sparkles, Briefcase, Zap, Globe, Coffee, GraduationCap, Heart } from "lucide-react";
 
 export default function CareersPage() {
   const openings = [
@@ -14,21 +13,6 @@ export default function CareersPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0b0120]/80 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className="w-4 h-4 text-white/40 group-hover:text-white group-hover:-translate-x-1 transition-all" />
-            <span className="text-3xl">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight">Jinny</span>
-          </Link>
-          <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-white/40">
-            <a href="#culture" className="hover:text-white transition-colors">Culture</a>
-            <a href="#openings" className="hover:text-white transition-colors">Openings</a>
-            <a href="#benefits" className="hover:text-white transition-colors">Benefits</a>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero */}
       <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />

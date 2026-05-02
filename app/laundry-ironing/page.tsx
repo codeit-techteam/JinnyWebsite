@@ -1,21 +1,9 @@
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, CheckCircle2, Clock, Star, Wind } from "lucide-react";
+import { Sparkles, CheckCircle2, Clock, Star, Wind } from "lucide-react";
 
 export default function LaundryPage() {
   return (
     <main className="min-h-screen bg-white text-[#0b0120] selection:bg-purple-500/30">
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className="w-4 h-4 text-[#0b0120]/40 group-hover:text-[#0b0120] group-hover:-translate-x-1 transition-all" />
-            <span className="text-3xl">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight">Jinny</span>
-          </Link>
-          <button className="px-6 py-2 bg-[#6c2bd9] text-white rounded-full text-xs font-bold uppercase tracking-widest">Book Now</button>
-        </div>
-      </nav>
-
       <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 bg-[#0b0120] text-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">

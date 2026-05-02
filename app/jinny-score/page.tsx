@@ -1,24 +1,10 @@
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, Trophy, Star, ShieldCheck, Activity } from "lucide-react";
+import { Sparkles, Trophy, Star, ShieldCheck, Activity } from "lucide-react";
 
 export default function JinnyScorePage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0b0120]/80 backdrop-blur-xl border-b border-white/5 py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className="w-4 h-4 text-white/40 group-hover:text-white group-hover:-translate-x-1 transition-all" />
-            <span className="text-3xl">🪔</span>
-            <span className="text-2xl font-serif font-bold italic tracking-tight">Jinny</span>
-          </Link>
-          <div className="px-4 py-1 bg-[#6c2bd9]/20 border border-[#6c2bd9]/30 rounded-full">
-            <span className="text-[10px] font-bold text-[#6c2bd9] uppercase tracking-widest">Trust Metric</span>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero */}
       <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden text-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
