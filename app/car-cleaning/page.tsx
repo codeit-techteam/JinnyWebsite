@@ -1,10 +1,15 @@
+import Footer from "../components/Footer";
 import React from "react";
-import { Sparkles, CheckCircle2, Clock, Star, Car } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, CheckCircle2, Clock, Star, Car } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 export default function CarCleaningPage() {
   return (
-    <main className="min-h-screen bg-white text-[#0b0120] selection:bg-purple-500/30">
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 bg-[#0b0120] text-white relative overflow-hidden">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#0b0120] selection:bg-purple-500/30">
+      <Navbar />
+
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24 bg-[#0b0120] text-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
           <div className="space-y-8">
@@ -22,15 +27,17 @@ export default function CarCleaningPage() {
                 <div key={i} className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-[#6c2bd9]" /><span className="text-sm text-white/60">{item}</span></div>
               ))}
             </div>
-            <button className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg">Book Now 🪔</button>
+            <button className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all">Book Now 🪔</button>
           </div>
         </div>
       </section>
 
-      <footer className="py-24 px-6 text-center border-t border-gray-100 bg-[#FDFCFB]">
+      <footer className="py-12 px-6 text-center border-t border-gray-100 bg-[#FAF9F6]">
         <span className="text-2xl">🪔</span><span className="text-2xl font-serif font-bold italic text-[#0b0120] ml-2">Jinny</span>
         <p className="text-[10px] text-gray-400 mt-4 uppercase tracking-[0.2em]">© 2026 MTB ALPHA Private Limited</p>
       </footer>
     </main>
   );
 }
+
+

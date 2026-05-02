@@ -1,12 +1,16 @@
+import Footer from "../components/Footer";
 import React from "react";
-import { Sparkles, Heart, ShieldCheck, Wallet, Zap, TrendingUp } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, Heart, ShieldCheck, Wallet, Zap, TrendingUp } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 export default function PartnerBenefitsPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
-      {/* Navigation */}
+      <Navbar />
+
       {/* Hero */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto space-y-12 relative z-10">
@@ -27,7 +31,7 @@ export default function PartnerBenefitsPage() {
       </section>
 
       {/* Benefits Grid */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 bg-white text-[#0b0120]">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
@@ -39,7 +43,7 @@ export default function PartnerBenefitsPage() {
               { icon: Sparkles, title: "Family Stipends", desc: "Educational support for children of top-performing partners." },
             ].map((benefit, i) => (
               <div key={i} className="p-8 rounded-[3rem] bg-[#F5F3FF] border border-[#DDD6FE] space-y-6">
-                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#6c2bd9] shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#FAF9F6] flex items-center justify-center text-[#6c2bd9] shadow-sm">
                    <benefit.icon className="w-6 h-6" />
                 </div>
                 <h3 className="heading-md">{benefit.title}</h3>
@@ -51,7 +55,7 @@ export default function PartnerBenefitsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8 bg-[#0b0120]">
+      <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8 bg-[#0b0120]">
         <div className="flex items-center justify-center gap-3">
           <span className="text-3xl">🪔</span>
           <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
@@ -63,3 +67,5 @@ export default function PartnerBenefitsPage() {
     </main>
   );
 }
+
+

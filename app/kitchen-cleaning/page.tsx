@@ -1,12 +1,16 @@
+import Footer from "../components/Footer";
 import React from "react";
-import { Sparkles, CheckCircle2, Clock, ShieldCheck, Star, Utensils } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, CheckCircle2, Clock, ShieldCheck, Star, Utensils } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 export default function KitchenCleaningPage() {
   return (
-    <main className="min-h-screen bg-white text-[#0b0120] selection:bg-purple-500/30">
-      {/* Navigation */}
+    <main className="min-h-screen bg-[#FAF9F6] text-[#0b0120] selection:bg-purple-500/30">
+      <Navbar />
+
       {/* Hero */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 bg-[#0b0120] text-white relative overflow-hidden">
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24 bg-[#0b0120] text-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
@@ -57,15 +61,13 @@ export default function KitchenCleaningPage() {
                 </div>
               ))}
             </div>
-            <button className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-xl shadow-yellow-950/20">
-              Book the Magic 🪔
-            </button>
+            <Link href="/booking" className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-xl shadow-yellow-950/20 flex items-center justify-center">Book the Magic 🪔</Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-gray-100 text-center space-y-8 bg-[#FDFCFB]">
+      <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-gray-100 text-center space-y-8 bg-[#FAF9F6]">
         <div className="flex items-center justify-center gap-3">
           <span className="text-3xl">🪔</span>
           <span className="text-3xl font-serif font-bold italic tracking-tight text-[#0b0120]">Jinny</span>
@@ -77,3 +79,5 @@ export default function KitchenCleaningPage() {
     </main>
   );
 }
+
+

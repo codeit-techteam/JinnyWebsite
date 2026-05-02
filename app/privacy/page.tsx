@@ -1,11 +1,15 @@
 import React from "react";
-import { ShieldCheck, Lock, Eye, FileText } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, ShieldCheck, Lock, Eye, FileText } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
-      {/* Navigation */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24">
+      <Navbar />
+
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="space-y-6">
             <h1 className="heading-xl">Privacy Policy</h1>
@@ -64,15 +68,9 @@ export default function PrivacyPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8">
-        <div className="flex items-center justify-center gap-3">
-          <span className="text-3xl">🪔</span>
-          <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
-        </div>
-        <p className="text-[10px] font-medium text-white/20 uppercase tracking-[0.2em]">
-          © 2026 MTB ALPHA Private Limited · Delhi NCR
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }
+
+

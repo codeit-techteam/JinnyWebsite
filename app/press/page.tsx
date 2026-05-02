@@ -1,12 +1,16 @@
 import React from "react";
-import { Sparkles, Newspaper, Mic, Globe } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, Newspaper, Mic, Globe } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function PressPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
-      {/* Navigation */}
+      <Navbar />
+      
       {/* Hero */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#6c2bd9]/10 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto space-y-12 relative z-10 text-center">
@@ -27,7 +31,7 @@ export default function PressPage() {
       </section>
 
       {/* News Grid */}
-      <section className="py-32 px-6 md:px-12 lg:px-24 bg-white text-[#0b0120]">
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
@@ -53,15 +57,9 @@ export default function PressPage() {
 
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8 bg-[#0b0120]">
-        <div className="flex items-center justify-center gap-3">
-          <span className="text-3xl">🪔</span>
-          <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
-        </div>
-        <p className="text-[10px] font-medium text-white/20 uppercase tracking-[0.2em]">
-          © 2026 MTB ALPHA Private Limited · Press
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }
+
+

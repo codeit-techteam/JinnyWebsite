@@ -1,11 +1,15 @@
 import React from "react";
-import { FileText, CheckCircle2, AlertCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, FileText, CheckCircle2, AlertCircle } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
-      {/* Navigation */}
-      <section className="pt-48 pb-32 px-6 md:px-12 lg:px-24">
+      <Navbar />
+
+      <section className="pt-32 pb-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="space-y-6">
             <h1 className="heading-xl">Terms of Service</h1>
@@ -50,7 +54,7 @@ export default function TermsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8">
+      <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8">
         <div className="flex items-center justify-center gap-3">
           <span className="text-3xl">🪔</span>
           <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
@@ -62,3 +66,5 @@ export default function TermsPage() {
     </main>
   );
 }
+
+

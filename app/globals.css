@@ -436,7 +436,7 @@ footer {
 
 /* Default state — fully visible white card */
 .hover-card {
-  background-color: #FFFFFF;
+  background-color: #FAF9F6;
   border: 1px solid #EAEAF0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
@@ -936,57 +936,42 @@ select.partner-input {
 }
 
 /* =========================================
-   FAQ SECTION
+   ANIMATIONS
    ========================================= */
 
-.faq-container {
-  max-width: 900px;
-  margin: 0 auto;
+@keyframes float-mini {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
-.faq-item {
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  transition: background 0.2s ease;
+@keyframes wiggle-subtle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
 }
 
-.faq-item:last-child {
-  border-bottom: none;
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-.faq-item:hover {
-  background: rgba(0, 0, 0, 0.02);
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-.faq-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a0b2e;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  border: none;
-  background: transparent;
-  padding: 0;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-.faq-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(124, 58, 237, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #7c3aed;
-  font-size: 18px;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
+.animate-float-mini {
+  animation: float-mini 5s ease-in-out infinite;
 }
 
-.faq-item:hover .faq-icon {
-  background: rgba(124, 58, 237, 0.15);
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.animate-wiggle-subtle {
+  animation: wiggle-subtle 4s ease-in-out infinite;
 }

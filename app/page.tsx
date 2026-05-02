@@ -9,68 +9,17 @@ import {
   Eye, MapPin, Send,
 } from "lucide-react";
 import { FaInstagram, FaXTwitter, FaLinkedinIn, FaFacebookF, FaApple, FaGooglePlay } from "react-icons/fa6";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import Link from "next/link";
 
 // ... (previous components: Navbar, HeroSection, HighlightsBar, HowItWorks, ServicesGrid, SpecialPacks, FAQ)
 
-/* =========================================
-   CUSTOM SELECT DROPDOWN COMPONENT
-   Premium dark glass UI with yellow glow
-   ========================================= */
-interface CustomSelectProps {
-  placeholder: string;
-  options: { value: string; label: string }[];
-  className?: string;
-}
-
-const CustomSelect = ({ placeholder, options, className = '' }: CustomSelectProps) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState<string | null>(null);
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  // Close on outside click
-  React.useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const selectedLabel = options.find(o => o.value === selected)?.label;
-
-  return (
-    <div ref={ref} className={`custom-select ${isOpen ? 'open' : ''} ${className}`}>
-      <button
-        type="button"
-        className={`select-trigger ${selected ? 'has-value' : ''}`}
-        onClick={() => setIsOpen(prev => !prev)}
-      >
-        {selectedLabel || placeholder}
-      </button>
-
-      <div className="custom-select-dropdown">
-        {options.map((opt) => (
-          <div
-            key={opt.value}
-            className={`custom-select-option ${selected === opt.value ? 'active' : ''}`}
-            onClick={() => {
-              setSelected(opt.value);
-              setIsOpen(false);
-            }}
-          >
-            {opt.label}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+import CustomSelect from "@/app/components/CustomSelect";
 
 const Waitlist = () => {
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 text-white overflow-hidden relative" style={{ background: 'radial-gradient(ellipse at 50% 30%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section className="py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden relative" style={{ background: 'radial-gradient(ellipse at 50% 30%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#6c2bd9]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
@@ -151,7 +100,7 @@ const Waitlist = () => {
 
 const FinalCTA = () => {
   return (
-    <section className="py-32 px-6 text-white text-center relative overflow-hidden border-t border-white/5" style={{ background: 'radial-gradient(ellipse at 50% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section className="py-20 px-6 text-white text-center relative overflow-hidden border-t border-white/5" style={{ background: 'radial-gradient(ellipse at 50% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto space-y-12">
@@ -168,14 +117,14 @@ const FinalCTA = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-white hover:text-[#0b0120] transition-all group shadow-2xl">
+          <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-[#FAF9F6] hover:text-[#0b0120] transition-all group shadow-2xl">
             <FaGooglePlay className="w-8 h-8 text-[#6c2bd9] group-hover:text-[#0b0120]" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-bold text-white/40 group-hover:text-[#0b0120]/40">Coming to</p>
               <p className="text-xl font-bold">Google Play</p>
             </div>
           </button>
-          <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-white hover:text-[#0b0120] transition-all group shadow-2xl">
+          <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-[#FAF9F6] hover:text-[#0b0120] transition-all group shadow-2xl">
             <FaApple className="w-10 h-10 text-[#6c2bd9] group-hover:text-[#0b0120]" />
             <div className="text-left">
               <p className="text-[10px] uppercase font-bold text-white/40 group-hover:text-[#0b0120]/40">Coming to the</p>
@@ -192,157 +141,21 @@ const FinalCTA = () => {
   );
 };
 
-const Footer = () => {
-  const services = [
-    { name: "Bathroom cleaning", href: "/bathroom-cleaning" },
-    { name: "Kitchen cleaning", href: "/kitchen-cleaning" },
-    { name: "Full home cleaning", href: "/full-home-cleaning" },
-    { name: "Laundry & ironing", href: "/laundry-ironing" },
-    { name: "Car cleaning", href: "/car-cleaning" },
-    { name: "Service bundles", href: "/service-bundles" },
-    { name: "Occasion bookings", href: "/occasion-bookings" }
-  ];
-
-  const company = [
-    { name: "About Jinny", href: "/about" },
-    { name: "How it works", href: "#how-it-works" },
-    { name: "Safety & trust", href: "#safety" },
-    { name: "Jinny Score", href: "/jinny-score" },
-    { name: "Loyalty programme", href: "/loyalty-programme" },
-    { name: "Jinny for Business", href: "/business" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Press", href: "/press" }
-  ];
-
-  const partners = [
-    { name: "Become a partner", href: "#become-partner" },
-    { name: "Partner app", href: "/partner-app" },
-    { name: "Jinny Suraksha safety", href: "#partner" },
-    { name: "Certifications", href: "/certifications" },
-    { name: "Early salary", href: "/early-salary" },
-    { name: "Partner benefits", href: "/partner-benefits" },
-    { name: "Support centre", href: "/support" },
-    { name: "Privacy policy", href: "/privacy" }
-  ];
-
-  return (
-    <footer className="pt-32 pb-16 px-6 md:px-12 lg:px-24 text-white" style={{ background: 'linear-gradient(180deg, #0b0120 0%, #0a0118 100%)' }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20 mb-24">
-          {/* Brand Column */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">🪔</span>
-              <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
-            </div>
-            <div className="space-y-4">
-              <p className="text-white/40 leading-relaxed text-sm max-w-xs">
-                Your home&apos;s personal genie. AI-powered on-demand home services in Delhi NCR. <br />
-                Operated by MTB ALPHA Private Limited.
-              </p>
-              <p className="text-[11px] text-white/20 font-medium">
-                Launching in Delhi NCR · India · jinny.in
-              </p>
-            </div>
-            <div className="flex gap-3">
-              {[
-                { Icon: FaInstagram, label: "Instagram" },
-                { Icon: FaXTwitter, label: "Twitter" },
-                { Icon: FaLinkedinIn, label: "LinkedIn" },
-                { Icon: FaFacebookF, label: "Facebook" }
-              ].map(({ Icon, label }, i) => (
-                <a key={i} href="#" aria-label={label} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:bg-[#6c2bd9] hover:text-white hover:border-[#6c2bd9] transition-all duration-300">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Links Columns */}
-          <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-8">SERVICES</h4>
-            <ul className="space-y-4 text-sm font-medium text-white/40">
-              {services.map((s, i) => (
-                <li key={i}><a href={s.href} className="hover:text-[#6c2bd9] transition-colors">{s.name}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-8">COMPANY</h4>
-            <ul className="space-y-4 text-sm font-medium text-white/40">
-              {company.map((s, i) => (
-                <li key={i}><a href={s.href} className="hover:text-[#6c2bd9] transition-colors">{s.name}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-8">PARTNERS</h4>
-            <ul className="space-y-4 text-sm font-medium text-white/40">
-              {partners.map((s, i) => (
-                <li key={i}><a href={s.href} className="hover:text-[#6c2bd9] transition-colors">{s.name}</a></li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="pt-12 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] font-medium text-white/20 text-center lg:text-left">
-            © 2026 MTB ALPHA Private Limited. All rights reserved. Jinny™ is a trademark of MTB ALPHA Private Limited.
-          </p>
-          <div className="flex flex-wrap justify-center gap-8 text-[11px] font-bold text-white/40">
-            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="/partner-terms" className="hover:text-white transition-colors">Partner Terms</a>
-            <a href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
 
 
 
 const HeroSection = () => {
   return (
-    <section className="hero-section relative pt-44 pb-32 px-6 md:px-12 lg:px-24">
-      {/* Extra ambient purple orb — top-right */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          top: '-10%',
-          right: '-5%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(120,0,255,0.1) 0%, transparent 70%)',
-          filter: 'blur(100px)',
-        }}
-      />
-      {/* Extra warm glow — bottom-left (supplements ::before) */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          bottom: '-5%',
-          left: '0%',
-          width: '500px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(255,180,0,0.05) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-        }}
-      />
-
+    <section className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 overflow-hidden" style={{ background: 'radial-gradient(ellipse at 30% 20%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-24 relative z-10">
 
         {/* Left Column: Text & CTA */}
         <div className="flex-1 space-y-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>🧞 COMING SOON TO DELHI NCR — JOIN THE WAITLIST</span>
-          </div>
+          <Link href="/waitlist" className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-brand-gold hover:bg-white/10 transition-colors">
+            <span className="section-label">🧞 COMING SOON TO DELHI NCR — JOIN THE WAITLIST</span>
+          </Link>
 
-          <h1 className="hero-title max-w-2xl">
+          <h1 className="heading-xl text-white max-w-2xl" style={{ fontSize: 'clamp(48px, 6.5vw, 82px)', lineHeight: 1.05 }}>
             Your home&apos;s <br />
             <span className="hero-highlight-wrapper" data-text="personal genie.">
               <span className="hero-highlight">personal genie.</span>
@@ -354,13 +167,13 @@ const HeroSection = () => {
             Tell Jinny what you need — in Hindi or English — and a trained, verified home professional arrives at your door. As if by magic.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-            <button className="hero-primary-btn w-full sm:w-auto flex items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+            <Link href="/waitlist" className="w-full sm:w-auto rounded-full shadow-2xl shadow-yellow-500/20 transition-all active:scale-95 flex items-center justify-center gap-3" style={{ background: '#f5b21c', color: '#000000', borderRadius: '999px', padding: '14px 24px', fontWeight: 600, fontSize: '16px' }}>
               🧞 Join the waitlist
-            </button>
-            <button className="hero-secondary-btn w-full sm:w-auto flex items-center justify-center gap-3">
+            </Link>
+            <Link href="/#how-it-works" className="w-full sm:w-auto rounded-full hover:bg-white/10 transition-all active:scale-95 flex items-center justify-center gap-3" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'white', background: 'transparent', borderRadius: '999px', padding: '14px 24px', fontWeight: 600, fontSize: '16px' }}>
               ✨ See how it works
-            </button>
+            </Link>
           </div>
 
           {/* Bottom Stats/Highlights */}
@@ -383,59 +196,63 @@ const HeroSection = () => {
         </div>
 
         {/* Right Column: Visual UI Cards */}
-        <div className="flex-1 w-full max-w-2xl">
-          <div className="space-y-5">
+        <div className="flex-1 w-full max-w-xl">
+          <div className="space-y-4">
             {/* Chat Assistant Card */}
-            <div className="hero-card p-8 space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #7c3aed, #6c2bd9)' }}>AI</div>
+            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-6 shadow-2xl space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-[#6c2bd9] rounded-full flex items-center justify-center text-[10px] font-bold text-white">AI</div>
                 <div>
-                  <h4 className="card-title" style={{ color: 'white' }}>Jinny AI assistant</h4>
-                  <p className="label-text" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>What do you need today?</p>
+                  <h4 className="card-title !text-white text-sm">Jinny AI assistant</h4>
+                  <p className="label-text text-white/60 text-[11px]">What do you need today?</p>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="p-4 rounded-2xl rounded-tr-none text-sm max-w-[90%] ml-auto italic" style={{ color: 'white', background: 'rgba(124, 58, 237, 0.35)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="space-y-3">
+                <div className="p-3 bg-[#2D2A5A] rounded-2xl rounded-tr-none text-[13px] text-white/90 border border-white/5 max-w-[85%] ml-auto italic">
                   &quot;bathroom aur kitchen dono saaf karna hai aaj 🪄&quot;
                 </div>
 
-                <div className="p-6 rounded-2xl space-y-4" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div className="space-y-1">
-                    <p className="text-sm text-white/90">That&apos;s a <span className="font-bold" style={{ color: '#FFB800' }}>Weekend Deep Clean</span> — 2.5 hrs. Best value bundle.</p>
-                    <p className="text-2xl font-serif" style={{ color: '#FFB800' }}>₹ XXX</p>
+                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl space-y-3">
+                  <div className="space-y-0.5">
+                    <p className="text-[13px] text-white/90">That&apos;s a <span className="text-brand-gold font-bold">Weekend Deep Clean</span></p>
+                    <p className="text-xl font-serif text-brand-gold">₹ XXX</p>
                   </div>
-                  <button className="px-6 py-2 text-xs font-bold rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #FFD76A, #FFB800)', color: '#1a0033' }}>
+                  <Link href="/booking" className="px-5 py-1.5 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                     Confirm booking ✓
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
 
-            {/* Partner Info Card */}
-            <div className="hero-card p-6 flex items-center gap-6">
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center overflow-hidden grayscale border border-white/10">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rekha" alt="Partner" className="w-full h-full object-cover opacity-60" />
+            {/* Partner Info Card - Rebuilt with Layered Structure */}
+            <div style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(16px)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.08)' }} className="p-4 shadow-2xl flex items-center gap-4 group hover:bg-white/5 transition-all duration-500">
+              {/* Inner Icon Box with Animation */}
+              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner relative animate-float-subtle shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#6c2bd9]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rekha" alt="Partner" className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-110" />
               </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
-                  <h4 className="card-title" style={{ color: 'white' }}>Rekha S. • <span style={{ color: '#FFB800' }}>8 min away</span> • ★ 4.9</h4>
-                  <div className="flex gap-1">
-                    <div className="w-8 h-6 bg-blue-500/20 rounded flex items-center justify-center">🗺️</div>
+              
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-2">
+                  <h4 className="card-title !text-white text-[13px] font-bold truncate">Rekha S. • <span className="text-brand-gold">8 min away</span></h4>
+                  <div className="flex items-center gap-1 px-1.5 py-0.5 bg-white/5 rounded-md border border-white/10 shrink-0">
+                    <Star className="w-2.5 h-2.5 fill-brand-gold text-brand-gold" />
+                    <span className="text-[9px] font-bold text-white/90">4.9</span>
                   </div>
                 </div>
-                <p className="label-text mt-1" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>Jinny Score: 91 • Advanced Cleaner Certified</p>
+                <p className="label-text text-white/60 text-[11px] mt-0.5 truncate">Jinny Score: 91 • Advanced Cleaner Certified</p>
               </div>
             </div>
 
             {/* Home Health Score Card */}
-            <div className="hero-card p-6 flex items-center gap-6">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ border: '2px solid #FFB800' }}>
-                <span className="text-lg font-bold" style={{ color: '#FFB800' }}>72</span>
+            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-4 shadow-2xl flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full border-2 border-brand-gold flex items-center justify-center shrink-0">
+                <span className="text-sm font-bold text-brand-gold">72</span>
               </div>
               <div>
-                <p className="section-label" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>Your Home Health Score</p>
-                <h4 className="card-title mt-1" style={{ color: 'white' }}>Kitchen needs attention</h4>
+                <p className="section-label text-white/60 text-[9px]">Your Home Health Score</p>
+                <h4 className="card-title !text-white text-sm">Kitchen needs attention</h4>
               </div>
             </div>
           </div>
@@ -447,13 +264,13 @@ const HeroSection = () => {
 
 const HighlightsBar = () => {
   const highlights = [
-    { title: "Hindi, English, Hinglish", icon: <MessageCircle className="w-4 h-4" /> },
+    { title: "Hindi, English, Hinglish", icon: <Sparkles className="w-4 h-4" /> },
     { title: "Certified & Trained", icon: <CheckCircle2 className="w-4 h-4" /> },
     { title: "15 Min Fast Arrival", icon: <Clock className="w-4 h-4" /> },
   ];
 
   return (
-    <div className="py-6 px-6 border-y border-white/5" style={{ background: 'linear-gradient(90deg, #150835, #1a0645, #150835)' }}>
+    <div className="py-4 px-6 border-y border-white/5" style={{ background: 'linear-gradient(90deg, #150835, #1a0645, #150835)' }}>
       <div className="max-w-7xl mx-auto flex flex-wrap justify-center md:justify-between gap-8 md:gap-4 text-white">
         {highlights.map((item, i) => (
           <div key={i} className="flex items-center gap-3 text-white/60">
@@ -489,7 +306,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-32 px-6 md:px-12 lg:px-24 text-brand-dark" style={{ backgroundColor: '#FAF7F2' }}>
+    <section id="how-it-works" className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-brand-dark">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
@@ -599,7 +416,7 @@ const ServicesGrid = () => {
   ];
 
   return (
-    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FAF7F2', paddingTop: '80px', paddingBottom: '80px' }}>
+    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FAF9F6', paddingTop: '60px', paddingBottom: '60px' }}>
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 space-y-5">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full" style={{ backgroundColor: '#F0EBFF', border: '1px solid #DDD6FE' }}>
@@ -810,7 +627,7 @@ const JinnyUnderstandsYou = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 text-white overflow-hidden" style={{ background: 'radial-gradient(ellipse at 20% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section className="py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden" style={{ background: 'radial-gradient(ellipse at 20% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
 
@@ -905,8 +722,9 @@ const JinnyUnderstandsYou = () => {
                       <h5 className="font-bold text-brand-gold">Weekend Deep Clean</h5>
                     </div>
                     <p className="text-xs text-white/40">Today ~12 min away - Rekha S. available (★ 4.9)</p>
-                    <button
-                      className="cta-gold-btn w-full font-bold active:scale-95"
+                    <Link
+                      href="/booking"
+                      className="cta-gold-btn w-full font-bold active:scale-95 flex items-center justify-center"
                       style={{
                         background: '#f5b21c',
                         color: 'black',
@@ -916,7 +734,7 @@ const JinnyUnderstandsYou = () => {
                       }}
                     >
                       Confirm booking — Save more ✓
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -933,7 +751,7 @@ const JinnyUnderstandsYou = () => {
 
 const BuiltOnTrust = () => {
   return (
-    <section id="safety" className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
+    <section id="safety" className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
@@ -1055,7 +873,7 @@ const EveryBookingEarnsMagic = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
+    <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
       <div
         className="max-w-7xl mx-auto"
         style={{
@@ -1154,17 +972,7 @@ const EveryBookingEarnsMagic = () => {
 
       </div>
 
-      {/* Mobile responsive */}
-      <style jsx>{`
-        @media (max-width: 1024px) {
-          div[style*="grid-template-columns: 1fr 500px"] {
-            grid-template-columns: 1fr !important;
-          }
-          div[style*="maxWidth"] {
-            margin: 0 auto !important;
-          }
-        }
-      `}</style>
+      {/* Mobile responsive handled via Tailwind */}
     </section>
   );
 };
@@ -1194,7 +1002,7 @@ const JinnyProtectsThePeople = () => {
   ];
 
   return (
-    <section id="partner" className="py-32 px-6 md:px-12 lg:px-24 text-white overflow-hidden" style={{ background: 'radial-gradient(ellipse at 70% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section id="partner" className="py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden" style={{ background: 'radial-gradient(ellipse at 70% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
 
         {/* Left Column: Grid */}
@@ -1334,7 +1142,7 @@ const WhereJinnyWorks = () => {
   ];
 
   return (
-    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FAF7F2', paddingTop: '80px', paddingBottom: '80px' }}>
+    <section className="px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FAF9F6', paddingTop: '60px', paddingBottom: '60px' }}>
       <div className="max-w-7xl mx-auto text-center space-y-16">
         <div className="space-y-5">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full" style={{ backgroundColor: '#F0EBFF', border: '1px solid #DDD6FE' }}>
@@ -1384,32 +1192,9 @@ const BecomePartner = () => {
   ];
 
   return (
-    <section id="become-partner" className="hero-wrapper">
-      <div className="hero-container">
-        {/* Ambient purple glow */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: '10%',
-            left: '5%',
-            width: '500px',
-            height: '500px',
-            background: 'radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-        />
-        {/* Ambient gold glow */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            bottom: '0%',
-            right: '10%',
-            width: '600px',
-            height: '600px',
-            background: 'radial-gradient(circle, rgba(255,200,0,0.06) 0%, transparent 70%)',
-            filter: 'blur(100px)',
-          }}
-        />
+    <section id="become-partner" className="py-12 px-6 md:px-12 lg:px-24 bg-[#FAF9F6]">
+      <div className="max-w-[1400px] mx-auto rounded-[4rem] p-12 lg:p-24 text-white flex flex-col lg:flex-row gap-20 items-center overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
+        <div className="absolute top-0 left-0 w-full h-full bg-purple-600/5 blur-[120px] pointer-events-none" />
 
         <div className="hero-content">
 
@@ -1476,28 +1261,19 @@ const BecomePartner = () => {
                   ]}
                 />
 
-                {/* Services */}
-                <CustomSelect
-                  placeholder="Services you offer"
-                  options={[
-                    { value: 'home', label: 'Home cleaning' },
-                    { value: 'kitchen', label: 'Kitchen cleaning' },
-                    { value: 'laundry', label: 'Laundry & ironing' },
-                    { value: 'car', label: 'Car cleaning' },
-                    { value: 'multiple', label: 'Multiple services' },
-                  ]}
-                />
-
-                <button className="partner-form-btn mt-2">
+              <div className="pt-8">
+                <Link href="/waitlist" className="cta-gold-btn inline-flex items-center gap-4 px-12 py-5 bg-[#f5b21c] text-black rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(245,178,28,0.3)]">
                   Apply now — it&apos;s free ✨
-                </button>
+                  <ArrowRight className="w-6 h-6" />
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 const Testimonials = () => {
   const reviews = [
@@ -1525,11 +1301,11 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
+    <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
       <div className="max-w-7xl mx-auto space-y-16">
         <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
-            <MessageCircle className="w-3 h-3" />
+            <Sparkles className="w-3 h-3" />
             <span className="text-[10px] font-bold uppercase tracking-widest">WHAT PEOPLE SAY</span>
           </div>
           <h2 className="heading-lg">
@@ -1539,7 +1315,7 @@ const Testimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((r, i) => (
-            <div key={i} className="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm space-y-8 flex flex-col justify-between hover:shadow-xl transition-all duration-500">
+            <div key={i} className="bg-[#FAF9F6] p-10 rounded-[2.5rem] border border-gray-100 shadow-sm space-y-8 flex flex-col justify-between hover:shadow-xl transition-all duration-500">
               <div className="space-y-6">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, j) => (
@@ -1602,9 +1378,9 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 text-[#0b0120]" style={{ backgroundColor: '#FAF7F2' }}>
-      <div className="faq-container">
-        <div className="text-center space-y-6 mb-16">
+    <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#0b0120]">
+      <div className="max-w-4xl mx-auto space-y-16">
+        <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
             <span className="text-[10px] font-bold uppercase tracking-widest text-brand-purple">? QUESTIONS</span>
           </div>
@@ -1613,23 +1389,26 @@ const FAQ = () => {
           </h2>
         </div>
 
-        <div className="max-w-[900px] mx-auto">
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-[rgba(0,0,0,0.08)] py-[18px] last:border-0 hover:bg-[rgba(0,0,0,0.02)] transition-colors px-2 rounded-lg">
+            <div
+              key={i}
+              className="border-b border-gray-100 last:border-0"
+            >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="group flex items-center justify-between w-full text-left cursor-pointer"
+                className="w-full py-8 flex items-center justify-between text-left group"
               >
-                <span className={`text-[18px] font-semibold transition-colors ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#1a0b2e]'}`}>
+                <h3 className={`heading-md transition-colors ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#0b0120]'}`}>
                   {faq.q}
-                </span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${openIndex === i ? 'bg-[rgba(124,58,237,0.15)] text-[#6c2bd9] rotate-45' : 'bg-[rgba(124,58,237,0.08)] text-[#7c3aed] group-hover:bg-[rgba(124,58,237,0.15)]'}`}>
-                  <Plus className="w-4 h-4" />
+                </h3>
+                <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${openIndex === i ? 'bg-[#6c2bd9] border-[#6c2bd9] text-white rotate-45' : 'border-[#F5F3FF] text-[#6c2bd9]'}`}>
+                  <Plus className="w-5 h-5" />
                 </div>
               </button>
 
-              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === i ? 'max-h-96 pt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="body-text max-w-3xl" style={{ color: 'rgba(26, 11, 46, 0.7)', fontSize: '15px' }}>
+              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 pb-8 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="body-text max-w-3xl">
                   {faq.a}
                 </p>
               </div>
@@ -1647,7 +1426,7 @@ export default function Home() {
 
       <HeroSection />
       <HowItWorks />
-      <section id="services" style={{ backgroundColor: '#FAF7F2' }}>
+      <section id="services" style={{ backgroundColor: '#FAF9F6' }}>
         <ServicesGrid />
       </section>
       <JinnyUnderstandsYou />
@@ -1662,24 +1441,9 @@ export default function Home() {
       <FinalCTA />
       <Footer />
 
-      {/* Custom Styles for Animations */}
-      <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-15px); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 7s ease-in-out infinite 1s;
-        }
-      `}</style>
     </main>
   );
 }
+
+
 
