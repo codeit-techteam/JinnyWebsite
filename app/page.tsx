@@ -1615,7 +1615,7 @@ const FAQ = () => {
 
         <div className="max-w-[900px] mx-auto">
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-[rgba(0,0,0,0.08)] py-[18px] last:border-0 hover:bg-[rgba(0,0,0,0.02)] transition-colors px-2 rounded-lg">
+            <div key={i} className="border-b border-[rgba(0,0,0,0.08)] py-[18px] last:border-0 hover:bg-[rgba(0,0,0,0.02)] transition-colors">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="group flex items-center justify-between w-full text-left cursor-pointer"
