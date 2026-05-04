@@ -33,7 +33,7 @@ const Waitlist = () => {
             <span className="text-[#6c2bd9]">Get early access.</span>
           </h2>
           <p className="body-text-dark max-w-2xl mx-auto">
-            Jinny is coming to Delhi NCR soon. Join our waitlist and be the first to know when we launch in your neighbourhood — plus get an exclusive early-access offer.
+            Jinny is coming to Delhi NCR soon. Join our waitlist and be the first to know when we launch in your neighbourhood - plus get an exclusive early-access offer.
           </p>
         </div>
 
@@ -63,17 +63,17 @@ const Waitlist = () => {
               placeholder="I am joining as"
               className="waitlist-select"
               options={[
-                { value: 'customer', label: 'Customer — I need home help' },
-                { value: 'partner', label: 'Partner — I want to earn with Jinny' },
-                { value: 'business', label: 'Business — I need regular services' },
+                { value: 'customer', label: 'Customer - I need home help' },
+                { value: 'partner', label: 'Partner - I want to earn with Jinny' },
+                { value: 'business', label: 'Business - I need regular services' },
               ]}
             />
           </div>
-          <input type="text" placeholder="Email address (optional — for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+          <input type="text" placeholder="Email address (optional - for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
 
           <button className="cta-gold-btn w-full py-6 font-bold rounded-[2rem] active:scale-95 text-lg flex items-center justify-center gap-2" style={{ background: '#f5b21c', color: 'black', fontWeight: 600 }}>
             <span></span>
-            Join the waitlist — get early access
+            Join the waitlist - get early access
           </button>
 
           <p className="text-[10px] text-white/20 font-medium">No spam. No calls. Just a message when Jinny is ready for you.</p>
@@ -86,7 +86,7 @@ const Waitlist = () => {
           </div>
           <div className="space-y-1">
             <div className="heading-md text-[#f5b21c]">4</div>
-            <div className="section-label text-white/40">Launch zones — NCR</div>
+            <div className="section-label text-white/40">Launch zones - NCR</div>
           </div>
           <div className="space-y-1">
             <div className="heading-md text-[#f5b21c]">Soon</div>
@@ -152,7 +152,7 @@ const HeroSection = () => {
         {/* Left Column: Text & CTA */}
         <div className="flex-1 space-y-10">
           <Link href="/waitlist" className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-brand-gold hover:bg-white/10 transition-colors">
-            <span className="section-label">🧞 COMING SOON TO DELHI NCR — JOIN THE WAITLIST</span>
+            <span className="section-label">🧞 COMING SOON TO DELHI NCR - JOIN THE WAITLIST</span>
           </Link>
 
           <h1 className="heading-xl text-white max-w-2xl" style={{ fontSize: 'clamp(48px, 6.5vw, 82px)', lineHeight: 1.05 }}>
@@ -164,7 +164,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="hero-subtext max-w-lg">
-            Tell Jinny what you need — in Hindi or English — and a trained, verified home professional arrives at your door. 
+            Tell Jinny what you need - in Hindi or English - and a trained, verified home professional arrives at your door. 
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
@@ -287,7 +287,7 @@ const HowItWorks = () => {
   const steps = [
     {
       title: "Make your wish",
-      desc: "Open Jinny and say what you need — type or speak in Hindi or English. 'Bathroom clean karna hai' is all it takes. Jinny AI understands everything.",
+      desc: "Open Jinny and say what you need - type or speak in Hindi or English. 'Bathroom clean karna hai' is all it takes. Jinny AI understands everything.",
       badge: "Takes 30 seconds",
       icon: "🗣️",
     },
@@ -317,7 +317,7 @@ const HowItWorks = () => {
             Three steps to a <span className="text-[#6c2bd9]">spotless home</span>
           </h2>
           <p className="body-text max-w-2xl mx-auto">
-            No forms. No waiting. Just tell Jinny what you wish for — in Hindi or English — and the magic begins.
+            No forms. No waiting. Just tell Jinny what you wish for - in Hindi or English - and the magic begins.
           </p>
         </div>
 
@@ -359,42 +359,42 @@ const ServicesGrid = () => {
   const services = [
     {
       title: "Bathroom cleaning",
-      desc: "Deep scrub, sanitise, fixtures, tiles, mirrors — spotless every time.",
+      desc: "Deep scrub, sanitise, fixtures, tiles, mirrors - spotless every time.",
       price: "₹XXX",
       time: "30 min",
       icon: "🚿",
     },
     {
       title: "Kitchen cleaning",
-      desc: "Slab, hob, chimney wipe, utensils — the heart of your home, immaculate.",
+      desc: "Slab, hob, chimney wipe, utensils - the heart of your home, immaculate.",
       price: "₹XXX",
       time: "45 min",
       icon: "🍳",
     },
     {
       title: "Full home cleaning",
-      desc: "All rooms, mopping, dusting, fans, surfaces — a complete transformation.",
+      desc: "All rooms, mopping, dusting, fans, surfaces - a complete transformation.",
       price: "₹XXX",
       time: "90 min",
       icon: "🧹",
     },
     {
       title: "Laundry & ironing",
-      desc: "Washing, ironing, folding, linen changes — always crisp and fresh.",
+      desc: "Washing, ironing, folding, linen changes - always crisp and fresh.",
       price: "₹XXX",
       time: "60 min",
       icon: "👕",
     },
     {
       title: "Car cleaning",
-      desc: "Exterior wash, interior vacuum and wipe — your car gleaming again.",
+      desc: "Exterior wash, interior vacuum and wipe - your car gleaming again.",
       price: "₹XXX",
       time: "45 min",
       icon: "🚗",
     },
     {
       title: "Window & glass",
-      desc: "Streak-free windows inside and out — crystal clear every time.",
+      desc: "Streak-free windows inside and out - crystal clear every time.",
       price: "₹XXX",
       time: "45 min",
       icon: "🪟",
@@ -426,7 +426,7 @@ const ServicesGrid = () => {
             Everything your home <span style={{ color: '#6c2bd9' }}>wishes for</span>
           </h2>
           <p className="body-text" style={{ maxWidth: '560px' }}>
-            From a quick bathroom clean to a full pre-Diwali transformation — Jinny has it all.
+            From a quick bathroom clean to a full pre-Diwali transformation - Jinny has it all.
           </p>
         </div>
 
@@ -643,7 +643,7 @@ const JinnyUnderstandsYou = () => {
                 <span className="gradient-text-purple">understands you</span>
               </h2>
               <p className="body-text-dark max-w-lg">
-                Just say what you need — in Hindi, English, or Hinglish. Jinny AI books it in under 60 seconds. No forms. No menus. No fuss.
+                Just say what you need - in Hindi, English, or Hinglish. Jinny AI books it in under 60 seconds. No forms. No menus. No fuss.
               </p>
             </div>
 
@@ -688,7 +688,7 @@ const JinnyUnderstandsYou = () => {
                   <h4 className="font-bold text-white">Jinny AI</h4>
                   <p className="text-xs text-green-400 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                    Online — always ready
+                    Online - always ready
                   </p>
                 </div>
               </div>
@@ -699,7 +699,7 @@ const JinnyUnderstandsYou = () => {
                   className="p-5 rounded-2xl rounded-tl-none text-sm text-white/80 max-w-[85%] border border-white/5"
                   style={{ background: 'linear-gradient(90deg, #6c2bd9, #4c1d95)' }}
                 >
-                  Namaste Priya! 👋 Your home score is 68 today — kitchen needs attention. What can Jinny do for you?
+                  Namaste Priya! 👋 Your home score is 68 today - kitchen needs attention. What can Jinny do for you?
                 </div>
 
                 <div
@@ -713,7 +713,7 @@ const JinnyUnderstandsYou = () => {
                   className="p-6 rounded-2xl rounded-tl-none space-y-6 border border-white/5"
                   style={{ background: 'linear-gradient(90deg, #6c2bd9, #4c1d95)' }}
                 >
-                  <p className="text-sm text-white/90">That&apos;s our <span className="text-brand-gold font-bold">Weekend Deep Clean</span> — bathroom + kitchen + floor. 2.5 hours.</p>
+                  <p className="text-sm text-white/90">That&apos;s our <span className="text-brand-gold font-bold">Weekend Deep Clean</span> - bathroom + kitchen + floor. 2.5 hours.</p>
 
                   {/* Booking Card */}
                   <div className="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-4">
@@ -733,7 +733,7 @@ const JinnyUnderstandsYou = () => {
                         fontWeight: 600,
                       }}
                     >
-                      Confirm booking — Save more ✓
+                      Confirm booking - Save more ✓
                     </Link>
                   </div>
                 </div>
@@ -763,7 +763,7 @@ const BuiltOnTrust = () => {
           </h2>
           <p className="body-text max-w-3xl mx-auto">
             Jinny is India&apos;s first home services platform that protects both sides <br />
-            of every booking — the customer and the partner.
+            of every booking - the customer and the partner.
           </p>
         </div>
 
@@ -795,9 +795,9 @@ const BuiltOnTrust = () => {
               ⭐
             </div>
             <div className="space-y-4 flex-1">
-              <h3 className="heading-md">Jinny Score — quality you can see</h3>
+              <h3 className="heading-md">Jinny Score - quality you can see</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Every partner has a public Jinny Score — a task-level quality rating for bathroom cleaning, kitchen work, laundry, and more. You always know who is coming to your home.
+                Every partner has a public Jinny Score - a task-level quality rating for bathroom cleaning, kitchen work, laundry, and more. You always know who is coming to your home.
               </p>
               <ul className="space-y-3 pt-4">
                 {["Per-task quality score", "Before & after photos", "AI quality verification", "Verified customer reviews"].map((item, i) => (
@@ -818,7 +818,7 @@ const BuiltOnTrust = () => {
             <div className="space-y-4 flex-1">
               <h3 className="heading-md">Your home, your privacy</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                OTP session start. Masked calls and chat — your phone number is never shared. Real-time GPS tracking. Customer blocking. 24/7 safety monitoring.
+                OTP session start. Masked calls and chat - your phone number is never shared. Real-time GPS tracking. Customer blocking. 24/7 safety monitoring.
               </p>
               <ul className="space-y-3 pt-4">
                 {["OTP-verified session start", "Masked communication", "Block any partner anytime", "100% refund guarantee"].map((item, i) => (
@@ -981,7 +981,7 @@ const JinnyProtectsThePeople = () => {
   const safetyFeatures = [
     {
       title: "Volume-button SOS",
-      desc: "Triple-press the volume button — even on a locked phone — to instantly alert our ops team.",
+      desc: "Triple-press the volume button - even on a locked phone - to instantly alert our ops team.",
       icon: "📱",
     },
     {
@@ -1113,7 +1113,7 @@ const JinnyProtectsThePeople = () => {
                   "5-minute field team response SLA",
                   "Partner can block any customer anytime",
                   "Health + accident insurance from Day 1",
-                  "Safe exit — leave any session, no penalty",
+                  "Safe exit - leave any session, no penalty",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4 label-text font-medium text-white/80">
                     <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#ff7a3d', boxShadow: '0 0 6px rgba(255,122,61,0.4)' }} />
@@ -1175,7 +1175,7 @@ const WhereJinnyWorks = () => {
         <div>
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full label-text" style={{ backgroundColor: '#FFFBEB', border: '1px solid #FEF3C7', color: '#92400E' }}>
             <span>🧞</span>
-            Delhi NCR launch coming soon — join the waitlist below
+            Delhi NCR launch coming soon - join the waitlist below
           </div>
         </div>
       </div>
@@ -1186,7 +1186,7 @@ const WhereJinnyWorks = () => {
 const BecomePartner = () => {
   const stats = [
     { label: "Monthly earning potential", value: "₹45k+" },
-    { label: "Early salary — anytime", value: "Free" },
+    { label: "Early salary - anytime", value: "Free" },
     { label: "Health insurance from Day 1", value: "Free" },
     { label: "Tips go directly to you", value: "100%" },
   ];
@@ -1280,7 +1280,7 @@ const BecomePartner = () => {
                     href="/waitlist" 
                     className="w-full h-[64px] flex items-center justify-center gap-2 bg-[#d1a242] text-black rounded-full font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(209,162,66,0.3)]"
                   >
-                    Apply now — it&apos;s free ✨
+                    Apply now - it&apos;s free ✨
                   </Link>
                 </div>
               </div>
@@ -1308,7 +1308,7 @@ const Testimonials = () => {
       initial: "R",
     },
     {
-      text: "The Home Health Score is addictive. My score went from 54 to 87 in three weeks. I open Jinny every morning just to check it. Guests are coming — time to book the Pre-Party Pack! 🪄",
+      text: "The Home Health Score is addictive. My score went from 54 to 87 in three weeks. I open Jinny every morning just to check it. Guests are coming - time to book the Pre-Party Pack! 🪄",
       user: "Anjali Mehta",
       loc: "Noida, Sector 137",
       color: "bg-[#2D7A5F]",
@@ -1373,7 +1373,7 @@ const FAQ = () => {
     },
     {
       q: "What is the Jinny Score?",
-      a: "The Jinny Score is a task-level quality rating for every partner — broken down by bathroom cleaning, kitchen work, laundry, general cleaning, and punctuality. It is calculated from customer per-task feedback and AI photo quality verification after every session. You can see a partner's Jinny Score before booking them, so you always know who is coming to your home.",
+      a: "The Jinny Score is a task-level quality rating for every partner - broken down by bathroom cleaning, kitchen work, laundry, general cleaning, and punctuality. It is calculated from customer per-task feedback and AI photo quality verification after every session. You can see a partner's Jinny Score before booking them, so you always know who is coming to your home.",
     },
     {
       q: "What happens if I am not satisfied with the service?",
@@ -1381,11 +1381,11 @@ const FAQ = () => {
     },
     {
       q: "Is the Jinny AI assistant available in Hindi?",
-      a: "Yes — Jinny AI understands and responds in Hindi, English, and Hinglish naturally. You can type or speak (\"bathroom saaf karna hai\", \"kitchen clean karwa do\") and Jinny will understand exactly what you need, suggest the right service or bundle, and complete the booking in under 60 seconds without any form filling.",
+      a: "Yes - Jinny AI understands and responds in Hindi, English, and Hinglish naturally. You can type or speak (\"bathroom saaf karna hai\", \"kitchen clean karwa do\") and Jinny will understand exactly what you need, suggest the right service or bundle, and complete the booking in under 60 seconds without any form filling.",
     },
     {
       q: "How do Jinny Points and Loyalty Tiers work?",
-      a: "You earn 1 Jinny Point for every ✕✕✕ spent on bookings. Points unlock tiers — Silver (500 pts), Gold (2,000 pts), and Platinum (5,000 pts) — each with better perks including priority matching, dedicated partners, free session extensions, and faster support. Book once a week for 4 consecutive weeks and earn a streak cashback reward automatically.",
+      a: "You earn 1 Jinny Point for every ✕✕✕ spent on bookings. Points unlock tiers - Silver (500 pts), Gold (2,000 pts), and Platinum (5,000 pts) - each with better perks including priority matching, dedicated partners, free session extensions, and faster support. Book once a week for 4 consecutive weeks and earn a streak cashback reward automatically.",
     },
     {
       q: "How does Jinny protect partner safety?",

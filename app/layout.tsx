@@ -17,7 +17,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Jinny — Your home's personal genie",
+  title: "Jinny - Your home's personal genie",
   description: "Tell Jinny what you need and a trained, verified home professional arrives at your door. In 15 minutes.",
 };
 

@@ -32,7 +32,7 @@ html,
 body {
   overflow-x: hidden;
   /* IMPORTANT: Do NOT add overflow: hidden, transform, filter, or perspective
-     on html/body — these break position: fixed on the navbar */
+     on html/body - these break position: fixed on the navbar */
 }
 
 body {
@@ -93,7 +93,7 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Hero subtext — slightly brighter for readability */
+/* Hero subtext - slightly brighter for readability */
 .hero-subtext {
   font-family: var(--font-sans);
   color: rgba(255, 255, 255, 0.7);
@@ -103,7 +103,7 @@ body {
 }
 
 /* =========================================
-   LIGHT SECTION SYSTEM — Warm Off-White
+   LIGHT SECTION SYSTEM - Warm Off-White
    ========================================= */
 
 .section-light {
@@ -198,7 +198,7 @@ footer {
 }
 
 /* =========================================
-   HERO SECTION — Premium Centered Container
+   HERO SECTION - Premium Centered Container
    ========================================= */
 
 /* --- Outer wrapper (light bg, breathing room) --- */
@@ -434,7 +434,7 @@ footer {
    INTERACTIVE CARD SYSTEM
    ========================================= */
 
-/* Default state — fully visible white card */
+/* Default state - fully visible white card */
 .hover-card {
   background-color: #FAF9F6;
   border: 1px solid #EAEAF0;
@@ -443,7 +443,7 @@ footer {
   cursor: pointer;
 }
 
-/* Hover state — gradient takeover */
+/* Hover state - gradient takeover */
 .hover-card:hover {
   background: linear-gradient(135deg, #5B2EFF, #7A4DFF);
   border-color: transparent;
@@ -471,7 +471,7 @@ footer {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Service badge — default state */
+/* Service badge - default state */
 .service-badge {
   background: #F0EBFF;
   color: #6c2bd9;
@@ -535,7 +535,7 @@ footer {
 }
 
 /* =========================================
-   NAVBAR — Premium Glass Effect
+   NAVBAR - Premium Glass Effect
    Positioning handled via inline styles in
    the global Navbar component (components/Navbar.tsx)
    ========================================= */
@@ -594,7 +594,7 @@ footer {
 }
 
 /* =========================================
-   LOGO ANIMATION — Smooth Floating
+   LOGO ANIMATION - Smooth Floating
    ========================================= */
 
 .logo {
@@ -657,7 +657,7 @@ footer {
 }
 
 /* =========================================
-   PARTNER SECTION — Jinny Design System
+   PARTNER SECTION - Jinny Design System
    Deep purple gradients, yellow glow, glassmorphism
    ========================================= */
 
@@ -776,7 +776,7 @@ select.partner-input {
 }
 
 /* =========================================
-   CUSTOM SELECT DROPDOWN — Premium Glass UI
+   CUSTOM SELECT DROPDOWN - Premium Glass UI
    ========================================= */
 
 .custom-select {
@@ -859,7 +859,7 @@ select.partner-input {
   max-height: 280px;
   z-index: 50;
 
-  /* Animation — hidden by default */
+  /* Animation - hidden by default */
   opacity: 0;
   transform: translateY(-6px);
   transition: all 0.2s ease;
@@ -897,7 +897,7 @@ select.partner-input {
   font-family: var(--font-sans);
 }
 
-/* Hover effect — yellow glow from left */
+/* Hover effect - yellow glow from left */
 .custom-select-option:hover {
   background: rgba(250, 204, 21, 0.08);
 }
@@ -928,7 +928,7 @@ select.partner-input {
   font-size: 13px;
 }
 
-/* Waitlist section variant — slightly larger */
+/* Waitlist section variant - slightly larger */
 .custom-select.waitlist-select .select-trigger {
   height: auto;
   padding: 16px 40px 16px 24px;

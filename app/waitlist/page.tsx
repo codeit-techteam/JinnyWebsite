@@ -23,7 +23,7 @@ export default function WaitlistPage() {
               <span className="text-[#6c2bd9]">Get early access.</span>
             </h1>
             <p className="body-text-dark max-w-2xl mx-auto text-lg">
-              Jinny is coming to Delhi NCR soon. Join our waitlist and be the first to know when we launch in your neighbourhood — plus get an exclusive early-access offer.
+              Jinny is coming to Delhi NCR soon. Join our waitlist and be the first to know when we launch in your neighbourhood - plus get an exclusive early-access offer.
             </p>
           </div>
 
@@ -53,17 +53,17 @@ export default function WaitlistPage() {
                 placeholder="I am joining as"
                 className="waitlist-select"
                 options={[
-                  { value: 'customer', label: 'Customer — I need home help' },
-                  { value: 'partner', label: 'Partner — I want to earn with Jinny' },
-                  { value: 'business', label: 'Business — I need regular services' },
+                  { value: 'customer', label: 'Customer - I need home help' },
+                  { value: 'partner', label: 'Partner - I want to earn with Jinny' },
+                  { value: 'business', label: 'Business - I need regular services' },
                 ]}
               />
             </div>
-            <input type="text" placeholder="Email address (optional — for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+            <input type="text" placeholder="Email address (optional - for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
 
             <button className="cta-gold-btn w-full py-6 font-bold rounded-[2rem] active:scale-95 text-lg flex items-center justify-center gap-2" style={{ background: '#f5b21c', color: 'black', fontWeight: 600 }}>
               <span></span>
-              Join the waitlist — get early access
+              Join the waitlist - get early access
             </button>
 
             <p className="text-[10px] text-white/20 font-medium">No spam. No calls. Just a message when Jinny is ready for you.</p>
@@ -76,7 +76,7 @@ export default function WaitlistPage() {
             </div>
             <div className="space-y-1">
               <div className="heading-md text-[#f5b21c]">4</div>
-              <div className="section-label text-white/40">Launch zones — NCR</div>
+              <div className="section-label text-white/40">Launch zones - NCR</div>
             </div>
             <div className="space-y-1">
               <div className="heading-md text-[#f5b21c]">Soon</div>
