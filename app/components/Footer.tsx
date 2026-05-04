@@ -45,12 +45,12 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="space-y-8">
             <Link href="/" className="flex items-center gap-3">
-              <span className="text-3xl">🪔</span>
+              <span className="text-3xl"></span>
               <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
             </Link>
             <div className="space-y-4">
               <p className="text-white/40 leading-relaxed text-sm max-w-xs">
-                Your home&apos;s personal genie. AI-powered on-demand home services in Delhi NCR. <br />
+                Your home&apos;s personal Genie. AI-powered on-demand home services in Delhi NCR. <br />
                 Operated by MTB ALPHA Private Limited.
               </p>
               <p className="text-[11px] text-white/20 font-medium">

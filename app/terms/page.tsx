@@ -56,7 +56,7 @@ export default function TermsPage() {
       {/* Footer */}
       <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-white/5 text-center space-y-8">
         <div className="flex items-center justify-center gap-3">
-          <span className="text-3xl">🪔</span>
+          <span className="text-3xl"></span>
           <span className="text-3xl font-serif font-bold italic tracking-tight">Jinny</span>
         </div>
         <p className="text-[10px] font-medium text-white/20 uppercase tracking-[0.2em]">

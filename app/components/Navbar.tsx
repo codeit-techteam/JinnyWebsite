@@ -86,7 +86,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between w-full transition-all duration-500">
           <Link href="/" className="flex items-center gap-2 group">
-            <span className={`text-3xl transition-transform duration-500 ${isScrolled ? 'scale-75 translate-y-0.5' : 'scale-100'} group-hover:rotate-12`}>🪔</span>
+            <span className={`text-3xl transition-transform duration-500 ${isScrolled ? 'scale-75 translate-y-0.5' : 'scale-100'} group-hover:rotate-12`}></span>
             <span className={`font-serif font-bold italic tracking-tight text-white transition-all duration-500 origin-left ${isScrolled ? 'text-lg' : 'text-2xl'}`}>Jinny</span>
           </Link>
 
@@ -150,7 +150,7 @@ const Navbar = () => {
         }`}>
           <div className="flex justify-between items-center mb-16">
             <div className="flex items-center gap-2">
-              <span className="text-3xl">🪔</span>
+              <span className="text-3xl"></span>
               <span className="text-2xl font-serif font-bold italic tracking-tight text-white">Jinny</span>
             </div>
             <button

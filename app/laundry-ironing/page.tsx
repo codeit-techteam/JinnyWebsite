@@ -27,13 +27,13 @@ export default function LaundryPage() {
                 <div key={i} className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-[#6c2bd9]" /><span className="text-sm text-white/60">{item}</span></div>
               ))}
             </div>
-            <button className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all">Order Now 🪔</button>
+            <button className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all">Order Now </button>
           </div>
         </div>
       </section>
 
       <footer className="py-12 px-6 text-center border-t border-gray-100 bg-[#FAF9F6]">
-        <span className="text-2xl">🪔</span><span className="text-2xl font-serif font-bold italic text-[#0b0120] ml-2">Jinny</span>
+        <span className="text-2xl"></span><span className="text-2xl font-serif font-bold italic text-[#0b0120] ml-2">Jinny</span>
         <p className="text-[10px] text-gray-400 mt-4 uppercase tracking-[0.2em]">© 2026 MTB ALPHA Private Limited</p>
       </footer>
     </main>

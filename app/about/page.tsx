@@ -24,7 +24,7 @@ export default function AboutPage() {
               <span className="text-[#6c2bd9]">Home Services</span>
             </h1>
             <p className="body-text-dark text-xl max-w-2xl mx-auto">
-              Jinny isn&apos;t just an app; it&apos;s your home&apos;s personal genie. We combine cutting-edge AI with a human-first approach to make home maintenance effortless, transparent, and magical.
+              Jinny isn&apos;t just an app; it&apos;s your home&apos;s personal Genie. We combine cutting-edge AI with a human-first approach to make home maintenance effortless, transparent, and magical.
             </p>
           </div>
         </div>

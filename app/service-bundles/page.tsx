@@ -45,7 +45,7 @@ export default function ServiceBundlesPage() {
       </section>
 
       <footer className="py-12 px-6 text-center border-t border-gray-100 bg-[#FAF9F6]">
-        <span className="text-2xl">🪔</span><span className="text-2xl font-serif font-bold italic text-[#0b0120] ml-2">Jinny</span>
+        <span className="text-2xl"></span><span className="text-2xl font-serif font-bold italic text-[#0b0120] ml-2">Jinny</span>
         <p className="text-[10px] text-gray-400 mt-4 uppercase tracking-[0.2em]">© 2026 MTB ALPHA Private Limited</p>
       </footer>
     </main>

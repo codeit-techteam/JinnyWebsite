@@ -25,7 +25,7 @@ const Waitlist = () => {
       <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-white/5 border border-white/10 rounded-full">
-            <span className="text-xs">🪔</span>
+            <span className="text-xs"></span>
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">EARLY ACCESS</span>
           </div>
           <h2 className="heading-lg">
@@ -72,7 +72,7 @@ const Waitlist = () => {
           <input type="text" placeholder="Email address (optional — for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
 
           <button className="cta-gold-btn w-full py-6 font-bold rounded-[2rem] active:scale-95 text-lg flex items-center justify-center gap-2" style={{ background: '#f5b21c', color: 'black', fontWeight: 600 }}>
-            <span>🪔</span>
+            <span></span>
             Join the waitlist — get early access
           </button>
 
@@ -104,7 +104,7 @@ const FinalCTA = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto space-y-12">
-        <div className="text-6xl md:text-8xl animate-float">🪔</div>
+        <div className="text-6xl md:text-8xl animate-float"></div>
 
         <div className="space-y-6">
           <h2 className="heading-xl">
@@ -157,14 +157,14 @@ const HeroSection = () => {
 
           <h1 className="heading-xl text-white max-w-2xl" style={{ fontSize: 'clamp(48px, 6.5vw, 82px)', lineHeight: 1.05 }}>
             Your home&apos;s <br />
-            <span className="hero-highlight-wrapper" data-text="personal genie.">
-              <span className="hero-highlight">personal genie.</span>
+            <span className="hero-highlight-wrapper whitespace-nowrap" data-text="personal Genie.">
+              <span className="hero-highlight">personal Genie.</span>
             </span> <br />
             In 15 minutes.
           </h1>
 
           <p className="hero-subtext max-w-lg">
-            Tell Jinny what you need — in Hindi or English — and a trained, verified home professional arrives at your door. As if by magic.
+            Tell Jinny what you need — in Hindi or English — and a trained, verified home professional arrives at your door. 
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
@@ -295,7 +295,7 @@ const HowItWorks = () => {
       title: "Jinny appears",
       desc: "A trained, background-verified Jinny partner is matched to you instantly. Track them live on the map. You get an OTP to start the session safely.",
       badge: "Partner arrives in ~15 min",
-      icon: "🪔",
+      icon: "",
     },
     {
       title: "The reveal",
@@ -1231,7 +1231,7 @@ const BecomePartner = () => {
             
             <div className="form-card relative z-10 border border-white/10 shadow-[0_30px_100px_-20px_rgba(0,0,0,0.6)]" style={{ background: '#251043', borderRadius: '32px' }}>
               <div className="flex items-center gap-3 mb-8">
-                <span className="text-2xl">🪔</span>
+                <span className="text-2xl"></span>
                 <h3 className="text-[20px] font-semibold text-white">Join as a Jinny partner</h3>
               </div>
 

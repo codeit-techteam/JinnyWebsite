@@ -61,7 +61,7 @@ export default function KitchenCleaningPage() {
                 </div>
               ))}
             </div>
-            <Link href="/booking" className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-xl shadow-yellow-950/20 flex items-center justify-center">Book the Magic 🪔</Link>
+            <Link href="/booking" className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-xl shadow-yellow-950/20 flex items-center justify-center">Book the Magic </Link>
           </div>
         </div>
       </section>
@@ -69,7 +69,7 @@ export default function KitchenCleaningPage() {
       {/* Footer */}
       <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-gray-100 text-center space-y-8 bg-[#FAF9F6]">
         <div className="flex items-center justify-center gap-3">
-          <span className="text-3xl">🪔</span>
+          <span className="text-3xl"></span>
           <span className="text-3xl font-serif font-bold italic tracking-tight text-[#0b0120]">Jinny</span>
         </div>
         <p className="text-[10px] font-medium text-gray-400 uppercase tracking-[0.2em]">

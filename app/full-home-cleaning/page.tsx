@@ -62,7 +62,7 @@ export default function FullHomeCleaningPage() {
               ))}
             </div>
             <button className="w-full py-6 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-xl shadow-yellow-950/20">
-              Transform my Home 🪔
+              Transform my Home 
             </button>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function FullHomeCleaningPage() {
       {/* Footer */}
       <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-gray-100 text-center space-y-8 bg-[#FAF9F6]">
         <div className="flex items-center justify-center gap-3">
-          <span className="text-3xl">🪔</span>
+          <span className="text-3xl"></span>
           <span className="text-3xl font-serif font-bold italic tracking-tight text-[#0b0120]">Jinny</span>
         </div>
         <p className="text-[10px] font-medium text-gray-400 uppercase tracking-[0.2em]">
