@@ -32,7 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#0b0120] text-white selection:bg-purple-500/30">
+      <body className="min-h-full flex flex-col font-sans bg-[#fcfaff] text-[#140a24] selection:bg-purple-500/20">
         <Navbar />
         {children}
       </body>

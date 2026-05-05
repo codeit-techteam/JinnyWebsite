@@ -13,10 +13,10 @@ export default function PrivacyPage() {
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="space-y-6">
             <h1 className="heading-xl">Privacy Policy</h1>
-            <p className="body-text-dark">Last updated: May 1, 2026</p>
+            <p className="body-text-on-dark">Last updated: May 1, 2026</p>
             <div className="p-8 rounded-[2rem] bg-[#6c2bd9]/10 border border-[#6c2bd9]/20 flex items-start gap-6">
               <ShieldCheck className="w-8 h-8 text-[#6c2bd9] shrink-0" />
-              <p className="body-text-dark text-sm leading-relaxed">
+              <p className="body-text-on-dark text-sm leading-relaxed">
                 At Jinny, we respect your privacy and are committed to protecting your personal data. This policy explains how we handle your information when you use our platform and services.
               </p>
             </div>
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
                   </div>
                   <h2 className="heading-md">{section.title}</h2>
                 </div>
-                <p className="body-text-dark leading-relaxed pl-14">
+                <p className="body-text-on-dark leading-relaxed pl-14">
                   {section.content}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
           </div>
 
           <div className="pt-12 border-t border-white/5">
-            <p className="body-text-dark text-sm">
+            <p className="body-text-on-dark text-sm">
               If you have any questions about this Privacy Policy, please contact us at <span className="text-[#6c2bd9] font-bold">privacy@jinny.in</span>
             </p>
           </div>

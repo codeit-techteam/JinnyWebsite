@@ -23,7 +23,7 @@ export default function LoyaltyPage() {
               Earn magic with <br />
               <span className="text-[#6c2bd9]">Every Booking</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               Our tiered loyalty programme rewards your commitment to a better home. Unlock exclusive perks, faster ETAs, and magical surprises.
             </p>
           </div>

@@ -1,7 +1,5 @@
-import Footer from "../components/Footer";
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, CheckCircle2, Clock, ShieldCheck, Star, Utensils } from "lucide-react";
+import { CheckCircle2, Clock, Star, Utensils } from "lucide-react";
 import Navbar from "../components/Navbar";
 
 export default function KitchenCleaningPage() {
@@ -23,7 +21,7 @@ export default function KitchenCleaningPage() {
               Kitchen <br />
               <span className="text-[#6c2bd9]">Deep Cleaning</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-xl">
+            <p className="body-text-on-dark text-xl max-w-xl">
               From degreasing chimneys to scrubbing grout, we restore your kitchen to its factory-fresh shine. Magic for the heart of your home.
             </p>
             
@@ -61,7 +59,9 @@ export default function KitchenCleaningPage() {
                 </div>
               ))}
             </div>
-            <Link href="/booking" className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all shadow-xl shadow-yellow-950/20 flex items-center justify-center">Book the Magic </Link>
+            <div className="static-info-pill w-full justify-center rounded-2xl border border-white/10 bg-white/6 px-6 py-5 text-center text-sm text-white/80">
+              Booking opens soon
+            </div>
           </div>
         </div>
       </section>

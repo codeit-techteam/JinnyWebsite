@@ -23,7 +23,7 @@ export default function CareersPage() {
               Help us build the <br />
               <span className="text-[#6c2bd9]">Future of Work</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               Join a team of dreamers and doers building the world's most trusted home service platform. We are always looking for people who care.
             </p>
           </div>

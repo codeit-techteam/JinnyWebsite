@@ -18,7 +18,7 @@ export default function DownloadAppPage() {
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">Partner App</span>
             </div>
             <h1 className="heading-xl">Get the <span className="text-[#6c2bd9]">Partner App</span></h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               Ready to start earning? Download the official Jinny Partner app and join the magic.
             </p>
           </div>
@@ -29,10 +29,9 @@ export default function DownloadAppPage() {
             </div>
             
             <div className="space-y-4">
-              <button className="w-full py-6 bg-[#f5b21c] text-black rounded-[2rem] font-bold text-lg flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(245,178,28,0.3)]">
-                <Download className="w-6 h-6" />
-                Download APK (24MB)
-              </button>
+              <div className="static-info-pill w-full justify-center rounded-[2rem] border border-white/10 bg-white/6 px-6 py-5 text-center text-sm text-white/80">
+                Partner app downloads will be available soon
+              </div>
               <p className="text-[10px] text-white/20 font-medium tracking-widest uppercase">Version 1.0.2 • Requires Android 8.0+</p>
             </div>
 

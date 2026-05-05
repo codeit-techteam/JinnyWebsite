@@ -1,17 +1,12 @@
 "use client";
 
 import React from "react";
-import {
-  Sparkles, ArrowRight, Star, Clock, CheckCircle2,
-  MessageCircle, Wand2, PartyPopper, Home as HomeIcon, Plus,
-  Mic, Heart, Lightbulb, Activity,
-  ShieldCheck, ShieldAlert, Fingerprint, Lock, Trophy, AlertCircle, Navigation,
-  Eye, MapPin, Send,
-} from "lucide-react";
-import { FaInstagram, FaXTwitter, FaLinkedinIn, FaFacebookF, FaApple, FaGooglePlay } from "react-icons/fa6";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
 import Link from "next/link";
+import {
+  Sparkles, Star, Clock, CheckCircle2, Plus,
+  ShieldCheck, ShieldAlert,
+} from "lucide-react";
+import Footer from "@/app/components/Footer";
 
 // ... (previous components: Navbar, HeroSection, HighlightsBar, HowItWorks, ServicesGrid, SpecialPacks, FAQ)
 
@@ -19,28 +14,28 @@ import CustomSelect from "@/app/components/CustomSelect";
 
 const Waitlist = () => {
   return (
-    <section className="py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden relative" style={{ background: 'radial-gradient(ellipse at 50% 30%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#6c2bd9]/5 blur-[120px] rounded-full pointer-events-none" />
+    <section id="waitlist" className="scroll-mt-28 py-20 px-6 md:px-12 lg:px-24 text-[#140a24] overflow-hidden relative" style={{ background: 'radial-gradient(ellipse at 50% 20%, #efe5ff 0%, #f8f3ff 45%, #ffffff 100%)' }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#6c2bd9]/8 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1 bg-white/5 border border-white/10 rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#f5efff] border border-[#6c2bd9]/12 rounded-full">
             <span className="text-xs"></span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">EARLY ACCESS</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#6c2bd9]">EARLY ACCESS</span>
           </div>
-          <h2 className="heading-lg">
+          <h2 className="heading-lg text-[#140a24]">
             Be first. <br />
             <span className="text-[#6c2bd9]">Get early access.</span>
           </h2>
-          <p className="body-text-dark max-w-2xl mx-auto">
+              <p className="body-text-dark max-w-2xl mx-auto text-[#140a24]">
             Jinny is coming to Delhi NCR soon. Join our waitlist and be the first to know when we launch in your neighbourhood - plus get an exclusive early-access offer.
           </p>
         </div>
 
-        <div className="bg-white/5 border border-white/10 p-4 md:p-8 rounded-[3rem] space-y-4 max-w-2xl mx-auto backdrop-blur-xl">
+        <div className="bg-white/85 border border-[#6c2bd9]/12 p-4 md:p-8 rounded-[3rem] space-y-4 max-w-2xl mx-auto backdrop-blur-xl shadow-[0_24px_60px_rgba(76,29,149,0.08)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" placeholder="Your name" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
-            <input type="text" placeholder="Mobile number" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+            <input type="text" placeholder="Your name" className="w-full px-6 py-4 bg-white border border-[#6c2bd9]/12 rounded-2xl focus:outline-none focus:border-[#6c2bd9] focus:ring-4 focus:ring-[#6c2bd9]/8 text-sm text-[#140a24] placeholder:text-[#140a24]/60 transition-all" />
+            <input type="text" placeholder="Mobile number" className="w-full px-6 py-4 bg-white border border-[#6c2bd9]/12 rounded-2xl focus:outline-none focus:border-[#6c2bd9] focus:ring-4 focus:ring-[#6c2bd9]/8 text-sm text-[#140a24] placeholder:text-[#140a24]/60 transition-all" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <CustomSelect
@@ -69,28 +64,36 @@ const Waitlist = () => {
               ]}
             />
           </div>
-          <input type="text" placeholder="Email address (optional - for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+          <input type="text" placeholder="Email address (optional - for launch updates)" className="w-full px-6 py-4 bg-white border border-[#6c2bd9]/12 rounded-2xl focus:outline-none focus:border-[#6c2bd9] focus:ring-4 focus:ring-[#6c2bd9]/8 text-sm text-[#140a24] placeholder:text-[#140a24]/60 transition-all" />
 
-          <button className="cta-gold-btn w-full py-6 font-bold rounded-[2rem] active:scale-95 text-lg flex items-center justify-center gap-2" style={{ background: '#f5b21c', color: 'black', fontWeight: 600 }}>
-            <span></span>
+          <button
+            className="mt-2 mb-1 w-full py-5 font-bold rounded-[1.2rem] text-lg flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
+            style={{
+              background: "#9d4edd",
+              color: "#ffffff",
+              fontWeight: 700,
+              border: "1px solid rgba(124, 58, 237, 0.45)",
+              boxShadow: "0 12px 24px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255,255,255,0.18)",
+            }}
+          >
             Join the waitlist - get early access
           </button>
 
-          <p className="text-[10px] text-white/20 font-medium">No spam. No calls. Just a message when Jinny is ready for you.</p>
+          <p className="text-[10px] text-[#140a24]/70 font-medium">No spam. No calls. Just a message when Jinny is ready for you.</p>
         </div>
 
         <div className="flex justify-center gap-12 md:gap-24 pt-8">
           <div className="space-y-1">
-            <div className="heading-md text-[#f5b21c]">500+</div>
-            <div className="section-label text-white/40">Already on waitlist</div>
+            <div className="heading-md text-[#6c2bd9]">500+</div>
+            <div className="section-label text-[#140a24]/70">Already on waitlist</div>
           </div>
           <div className="space-y-1">
-            <div className="heading-md text-[#f5b21c]">4</div>
-            <div className="section-label text-white/40">Launch zones - NCR</div>
+            <div className="heading-md text-[#6c2bd9]">4</div>
+            <div className="section-label text-[#140a24]/70">Launch zones - NCR</div>
           </div>
           <div className="space-y-1">
-            <div className="heading-md text-[#f5b21c]">Soon</div>
-            <div className="section-label text-white/40">Going live</div>
+            <div className="heading-md text-[#6c2bd9]">Soon</div>
+            <div className="section-label text-[#140a24]/70">Going live</div>
           </div>
         </div>
       </div>
@@ -100,42 +103,40 @@ const Waitlist = () => {
 
 const FinalCTA = () => {
   return (
-    <section className="py-20 px-6 text-white text-center relative overflow-hidden border-t border-white/5" style={{ background: 'radial-gradient(ellipse at 50% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#6c2bd9]/10 blur-[120px] rounded-full pointer-events-none" />
+    <section className="relative overflow-hidden px-6 py-24 md:px-12 lg:px-24" style={{ background: "linear-gradient(180deg, #ffffff 0%, #f7f5ff 100%)" }}>
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(108,59,255,0.09),transparent_68%)]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6C3BFF]/10 blur-3xl" />
 
-      <div className="relative z-10 max-w-4xl mx-auto space-y-12">
-        <div className="text-6xl md:text-8xl animate-float"></div>
+      <div className="relative mx-auto max-w-5xl rounded-[40px] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(247,245,255,0.92))] p-[1px] shadow-[0_32px_100px_rgba(75,46,255,0.10)]">
+        <div className="relative overflow-hidden rounded-[39px] border border-[#ece7ff] bg-[radial-gradient(circle_at_top,rgba(108,59,255,0.08),transparent_32%),linear-gradient(180deg,#ffffff_0%,#fbfaff_100%)] px-6 py-16 text-center sm:px-10 md:px-14 md:py-20">
+          <div className="pointer-events-none absolute left-10 top-10 h-24 w-24 rounded-full border border-[#ede7ff] bg-white/70 blur-sm" />
+          <div className="pointer-events-none absolute bottom-10 right-10 h-32 w-32 rounded-full bg-[#f1ebff] blur-2xl" />
 
-        <div className="space-y-6">
-          <h2 className="heading-xl">
-            Your home&apos;s genie <br />
-            <span className="text-[#6c2bd9]">is almost here</span>
-          </h2>
-          <p className="body-text-dark max-w-2xl mx-auto">
-            Download the Jinny app when we launch and get an exclusive early-access offer. The magic is coming.
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-[#FAF9F6] hover:text-[#0b0120] transition-all group shadow-2xl">
-            <FaGooglePlay className="w-8 h-8 text-[#6c2bd9] group-hover:text-[#0b0120]" />
-            <div className="text-left">
-              <p className="text-[10px] uppercase font-bold text-white/40 group-hover:text-[#0b0120]/40">Coming to</p>
-              <p className="text-xl font-bold">Google Play</p>
+          <div className="mx-auto flex max-w-2xl flex-col items-center justify-center space-y-6 sm:space-y-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#e8e1ff] bg-white/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#9d4edd] shadow-[0_10px_30px_rgba(75,46,255,0.08)] backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-[#9d4edd]" />
+              App Launch
             </div>
-          </button>
-          <button className="w-72 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center px-8 gap-4 hover:bg-[#FAF9F6] hover:text-[#0b0120] transition-all group shadow-2xl">
-            <FaApple className="w-10 h-10 text-[#6c2bd9] group-hover:text-[#0b0120]" />
-            <div className="text-left">
-              <p className="text-[10px] uppercase font-bold text-white/40 group-hover:text-[#0b0120]/40">Coming to the</p>
-              <p className="text-xl font-bold">App Store</p>
-            </div>
-          </button>
-        </div>
 
-        <p className="text-xs text-white/20 pt-8">
-          Exclusive early-access offer · No subscription required · Cancel anytime
-        </p>
+            <div className="relative flex h-20 w-20 items-center justify-center rounded-[24px] bg-[linear-gradient(135deg,#6C3BFF_0%,#4B2EFF_100%)] shadow-[0_22px_50px_rgba(75,46,255,0.22)]">
+              <div className="absolute inset-[1px] rounded-[23px] border border-white/20" />
+              <Sparkles className="relative z-10 h-8 w-8 text-white" />
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="font-serif text-[clamp(2.8rem,6vw,5rem)] font-black leading-none tracking-[-0.03em] text-[#9d4edd]">
+                Coming Soon
+              </h2>
+              <p className="mx-auto max-w-2xl text-base leading-7 text-[#666666] sm:text-lg">
+                Jinny is preparing for launch with a cleaner, faster, and more premium experience.
+              </p>
+            </div>
+
+            <div className="inline-flex items-center rounded-full border border-[#e6ddff] bg-[#faf8ff] px-4 py-2 text-sm font-semibold tracking-[0.18em] uppercase text-[#9d4edd]">
+              Launching soon
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -146,16 +147,16 @@ const FinalCTA = () => {
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 overflow-hidden" style={{ background: 'radial-gradient(ellipse at 30% 20%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 overflow-hidden" style={{ background: 'radial-gradient(ellipse at 30% 20%, #efe4ff 0%, #f8f2ff 45%, #ffffff 100%)' }}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-24 relative z-10">
 
         {/* Left Column: Text & CTA */}
         <div className="flex-1 space-y-10">
-          <Link href="/waitlist" className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-brand-gold hover:bg-white/10 transition-colors">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#6c2bd9]/12 rounded-full text-[#6c2bd9]">
             <span className="section-label">🧞 COMING SOON TO DELHI NCR - JOIN THE WAITLIST</span>
-          </Link>
+          </div>
 
-          <h1 className="heading-xl text-white max-w-2xl" style={{ fontSize: 'clamp(48px, 6.5vw, 82px)', lineHeight: 1.05 }}>
+          <h1 className="heading-xl text-[#140a24] max-w-2xl" style={{ fontSize: 'clamp(48px, 6.5vw, 82px)', lineHeight: 1.05 }}>
             Your home&apos;s <br />
             <span className="hero-highlight-wrapper whitespace-nowrap" data-text="personal Genie.">
               <span className="hero-highlight">personal Genie.</span>
@@ -163,16 +164,24 @@ const HeroSection = () => {
             In 15 minutes.
           </h1>
 
-          <p className="hero-subtext max-w-lg">
+          <p className="hero-subtext max-w-lg text-[#140a24]">
             Tell Jinny what you need - in Hindi or English - and a trained, verified home professional arrives at your door. 
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-            <Link href="/waitlist" className="w-full sm:w-auto rounded-full shadow-2xl shadow-yellow-500/20 transition-all active:scale-95 flex items-center justify-center gap-3" style={{ background: '#f5b21c', color: '#000000', borderRadius: '999px', padding: '14px 24px', fontWeight: 600, fontSize: '16px' }}>
-              🧞 Join the waitlist
+            <Link
+              href="/#waitlist"
+              className="w-full sm:w-auto shadow-2xl shadow-purple-500/8 transition-all hover:-translate-y-0.5"
+              style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(108,43,217,0.12))', color: '#6c2bd9', borderRadius: '999px', padding: '14px 24px', fontSize: '16px', border: '1px solid rgba(108,43,217,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600 }}
+            >
+              🧞 Booking opens soon
             </Link>
-            <Link href="/#how-it-works" className="w-full sm:w-auto rounded-full hover:bg-white/10 transition-all active:scale-95 flex items-center justify-center gap-3" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'white', background: 'transparent', borderRadius: '999px', padding: '14px 24px', fontWeight: 600, fontSize: '16px' }}>
-              ✨ See how it works
+            <Link
+              href="/#services"
+              className="w-full sm:w-auto transition-all hover:-translate-y-0.5"
+              style={{ border: '1px solid rgba(108,43,217,0.18)', color: '#140a24', background: 'rgba(255,255,255,0.75)', borderRadius: '999px', padding: '14px 24px', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600 }}
+            >
+              ✨ Service details below
             </Link>
           </div>
 
@@ -180,17 +189,17 @@ const HeroSection = () => {
           <div className="pt-16 grid grid-cols-3 gap-8">
             <div className="space-y-2">
               <p className="hero-stat-value">15 min</p>
-              <p className="section-label text-white/40">Average arrival time</p>
+              <p className="section-label text-[#140a24]/70">Average arrival time</p>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-7 h-7 text-[#FFB800]" />
               </div>
-              <p className="section-label text-white/40 mt-1">Magical prices await</p>
+              <p className="section-label text-[#140a24]/70 mt-1">Magical prices await</p>
             </div>
             <div className="space-y-2">
               <p className="hero-stat-value flex items-center gap-1">4.9 <Star className="w-6 h-6 fill-[#FFB800]" style={{ WebkitTextFillColor: 'initial' }} /></p>
-              <p className="section-label text-white/40">Average partner rating</p>
+              <p className="section-label text-[#140a24]/70">Average partner rating</p>
             </div>
           </div>
         </div>
@@ -199,60 +208,60 @@ const HeroSection = () => {
         <div className="flex-1 w-full max-w-xl">
           <div className="space-y-4">
             {/* Chat Assistant Card */}
-            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-6 shadow-2xl space-y-6">
+            <div style={{ background: 'rgba(255,255,255,0.86)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(108,43,217,0.12)' }} className="p-6 shadow-[0_24px_60px_rgba(76,29,149,0.08)] space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-[#6c2bd9] rounded-full flex items-center justify-center text-[10px] font-bold text-white">AI</div>
                 <div>
-                  <h4 className="card-title !text-white text-sm">Jinny AI assistant</h4>
-                  <p className="label-text text-white/60 text-[11px]">What do you need today?</p>
+                  <h4 className="card-title !text-[#140a24] text-sm">Jinny AI assistant</h4>
+                  <p className="label-text text-[#140a24]/85 text-[11px]">What do you need today?</p>
                 </div>
               </div>
 
               <div className="space-y-3">
-                <div className="p-3 bg-[#2D2A5A] rounded-2xl rounded-tr-none text-[13px] text-white/90 border border-white/5 max-w-[85%] ml-auto italic">
+                <div className="p-3 bg-[#f2ebff] rounded-2xl rounded-tr-none text-[13px] text-[#140a24]/85 border border-[#6c2bd9]/8 max-w-[85%] ml-auto italic">
                   &quot;bathroom aur kitchen dono saaf karna hai aaj 🪄&quot;
                 </div>
 
-                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl space-y-3">
+                <div className="p-4 bg-[#faf7ff] border border-[#6c2bd9]/10 rounded-2xl space-y-3">
                   <div className="space-y-0.5">
-                    <p className="text-[13px] text-white/90">That&apos;s a <span className="text-brand-gold font-bold">Weekend Deep Clean</span></p>
+                    <p className="text-[13px] text-[#140a24]/85">That&apos;s a <span className="text-brand-gold font-bold">Weekend Deep Clean</span></p>
                     <p className="text-xl font-serif text-brand-gold">₹ XXX</p>
                   </div>
-                  <Link href="/booking" className="px-5 py-1.5 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
-                    Confirm booking ✓
-                  </Link>
+                  <div className="static-info-pill w-full rounded-full border border-[#6c2bd9]/12 bg-white px-5 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#6c2bd9]">
+                    Booking preview only
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Partner Info Card - Rebuilt with Layered Structure */}
-            <div style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(16px)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.08)' }} className="p-4 shadow-2xl flex items-center gap-4 group hover:bg-white/5 transition-all duration-500">
+            <div style={{ background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(16px)', borderRadius: '24px', border: '1px solid rgba(108,43,217,0.1)' }} className="p-4 shadow-[0_22px_50px_rgba(76,29,149,0.07)] flex items-center gap-4 group hover:bg-[#faf7ff] transition-all duration-500">
               {/* Inner Icon Box with Animation */}
-              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shadow-inner relative animate-float-subtle shrink-0">
+              <div className="w-12 h-12 bg-[#faf7ff] rounded-xl flex items-center justify-center overflow-hidden border border-[#6c2bd9]/10 shadow-inner relative animate-float-subtle shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#6c2bd9]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rekha" alt="Partner" className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-110" />
               </div>
               
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2">
-                  <h4 className="card-title !text-white text-[13px] font-bold truncate">Rekha S. • <span className="text-brand-gold">8 min away</span></h4>
-                  <div className="flex items-center gap-1 px-1.5 py-0.5 bg-white/5 rounded-md border border-white/10 shrink-0">
+                  <h4 className="card-title !text-[#140a24] text-[13px] font-bold truncate">Rekha S. • <span className="text-brand-gold">8 min away</span></h4>
+                  <div className="flex items-center gap-1 px-1.5 py-0.5 bg-[#faf7ff] rounded-md border border-[#6c2bd9]/10 shrink-0">
                     <Star className="w-2.5 h-2.5 fill-brand-gold text-brand-gold" />
-                    <span className="text-[9px] font-bold text-white/90">4.9</span>
+                    <span className="text-[9px] font-bold text-[#140a24]/85">4.9</span>
                   </div>
                 </div>
-                <p className="label-text text-white/60 text-[11px] mt-0.5 truncate">Jinny Score: 91 • Advanced Cleaner Certified</p>
+                <p className="label-text text-[#140a24]/85 text-[11px] mt-0.5 truncate">Jinny Score: 91 • Advanced Cleaner Certified</p>
               </div>
             </div>
 
             {/* Home Health Score Card */}
-            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }} className="p-4 shadow-2xl flex items-center gap-4">
+            <div style={{ background: 'rgba(255,255,255,0.86)', backdropFilter: 'blur(12px)', borderRadius: '20px', border: '1px solid rgba(108,43,217,0.1)' }} className="p-4 shadow-[0_22px_50px_rgba(76,29,149,0.07)] flex items-center gap-4">
               <div className="w-10 h-10 rounded-full border-2 border-brand-gold flex items-center justify-center shrink-0">
                 <span className="text-sm font-bold text-brand-gold">72</span>
               </div>
               <div>
-                <p className="section-label text-white/60 text-[9px]">Your Home Health Score</p>
-                <h4 className="card-title !text-white text-sm">Kitchen needs attention</h4>
+                <p className="section-label text-[#140a24]/80 text-[9px]">Your Home Health Score</p>
+                <h4 className="card-title !text-[#140a24] text-sm">Kitchen needs attention</h4>
               </div>
             </div>
           </div>
@@ -270,10 +279,10 @@ const HighlightsBar = () => {
   ];
 
   return (
-    <div className="py-4 px-6 border-y border-white/5" style={{ background: 'linear-gradient(90deg, #150835, #1a0645, #150835)' }}>
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-center md:justify-between gap-8 md:gap-4 text-white">
+    <div className="py-4 px-6 border-y border-[#6c2bd9]/8" style={{ background: 'linear-gradient(90deg, #ffffff, #f7f2ff, #ffffff)' }}>
+      <div className="max-w-7xl mx-auto flex flex-wrap justify-center md:justify-between gap-8 md:gap-4 text-[#140a24]">
         {highlights.map((item, i) => (
-          <div key={i} className="flex items-center gap-3 text-white/60">
+          <div key={i} className="flex items-center gap-3 text-[#140a24]/85">
             <div className="text-brand-purple">{item.icon}</div>
             <span className="section-label">{item.title}</span>
           </div>
@@ -467,12 +476,12 @@ const ServicesGrid = () => {
           <div
             className="premium-pack-card"
             style={{
-              background: 'linear-gradient(135deg, #1A0033 0%, #2D0B5C 100%)',
+              background: '#c692e0',
               borderRadius: '20px',
               padding: '28px',
-              color: 'white',
+              color: '#2a1338',
               position: 'relative',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              boxShadow: '0 10px 24px rgba(108,43,217,0.18)',
               transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
               cursor: 'pointer',
               overflow: 'hidden',
@@ -485,8 +494,8 @@ const ServicesGrid = () => {
                   ✨ Weekend Deep Clean
                 </h3>
                 <span style={{
-                  background: 'rgba(245,177,0,0.15)',
-                  color: '#F5B100',
+                  background: 'rgba(255,255,255,0.45)',
+                  color: '#5b2b7a',
                   padding: '6px 14px',
                   borderRadius: '999px',
                   fontSize: '12px',
@@ -497,13 +506,13 @@ const ServicesGrid = () => {
                   Save more ✨
                 </span>
               </div>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: '20px' }}>
+              <p style={{ fontSize: '14px', color: 'rgba(42,19,56,0.86)', lineHeight: 1.6, marginBottom: '20px' }}>
                 Bathroom + Kitchen + Full floor mopping. 2.5 hours.<br />
                 Your weekend reset.
               </p>
               <div className="flex items-center gap-3">
-                <span style={{ color: '#F5B100', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
-                <span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>₹ XXX</span>
+                <span style={{ color: '#4c1d95', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
+                <span style={{ textDecoration: 'line-through', color: 'rgba(42,19,56,0.46)', fontSize: '14px' }}>₹ XXX</span>
               </div>
             </div>
           </div>
@@ -512,12 +521,12 @@ const ServicesGrid = () => {
           <div
             className="premium-pack-card"
             style={{
-              background: 'linear-gradient(135deg, #1A0033 0%, #2D0B5C 100%)',
+              background: '#c692e0',
               borderRadius: '20px',
               padding: '28px',
-              color: 'white',
+              color: '#2a1338',
               position: 'relative',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              boxShadow: '0 10px 24px rgba(108,43,217,0.18)',
               transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
               cursor: 'pointer',
               overflow: 'hidden',
@@ -530,8 +539,8 @@ const ServicesGrid = () => {
                   🎉 Pre-Party Pack
                 </h3>
                 <span style={{
-                  background: 'rgba(245,177,0,0.15)',
-                  color: '#F5B100',
+                  background: 'rgba(255,255,255,0.45)',
+                  color: '#5b2b7a',
                   padding: '6px 14px',
                   borderRadius: '999px',
                   fontSize: '12px',
@@ -542,12 +551,12 @@ const ServicesGrid = () => {
                   Save more ✨
                 </span>
               </div>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: '20px' }}>
+              <p style={{ fontSize: '14px', color: 'rgba(42,19,56,0.86)', lineHeight: 1.6, marginBottom: '20px' }}>
                 Living room + Kitchen + Bathroom. 2 hours. Guests arrive in 3 hours? Jinny&apos;s on it.
               </p>
               <div className="flex items-center gap-3">
-                <span style={{ color: '#F5B100', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
-                <span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>₹ XXX</span>
+                <span style={{ color: '#4c1d95', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
+                <span style={{ textDecoration: 'line-through', color: 'rgba(42,19,56,0.46)', fontSize: '14px' }}>₹ XXX</span>
               </div>
             </div>
           </div>
@@ -556,12 +565,12 @@ const ServicesGrid = () => {
           <div
             className="premium-pack-card"
             style={{
-              background: 'linear-gradient(135deg, #1A0033 0%, #2D0B5C 100%)',
+              background: '#c692e0',
               borderRadius: '20px',
               padding: '28px',
-              color: 'white',
+              color: '#2a1338',
               position: 'relative',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+              boxShadow: '0 10px 24px rgba(108,43,217,0.18)',
               transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
               cursor: 'pointer',
               overflow: 'hidden',
@@ -574,8 +583,8 @@ const ServicesGrid = () => {
                   🏠 Full Home Clean
                 </h3>
                 <span style={{
-                  background: 'rgba(245,177,0,0.15)',
-                  color: '#F5B100',
+                  background: 'rgba(255,255,255,0.45)',
+                  color: '#5b2b7a',
                   padding: '6px 14px',
                   borderRadius: '999px',
                   fontSize: '12px',
@@ -586,13 +595,13 @@ const ServicesGrid = () => {
                   Best value ✨
                 </span>
               </div>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: '20px' }}>
+              <p style={{ fontSize: '14px', color: 'rgba(42,19,56,0.86)', lineHeight: 1.6, marginBottom: '20px' }}>
                 Every room + Kitchen + Bathroom + Laundry. 4 hours.<br />
                 The complete reset.
               </p>
               <div className="flex items-center gap-3">
-                <span style={{ color: '#F5B100', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
-                <span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>₹ XXX</span>
+                <span style={{ color: '#4c1d95', fontWeight: 700, fontSize: '20px', fontFamily: 'var(--font-serif)' }}>₹ XXX</span>
+                <span style={{ textDecoration: 'line-through', color: 'rgba(42,19,56,0.46)', fontSize: '14px' }}>₹ XXX</span>
               </div>
             </div>
           </div>
@@ -627,14 +636,14 @@ const JinnyUnderstandsYou = () => {
   ];
 
   return (
-    <section className="py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden" style={{ background: 'radial-gradient(ellipse at 20% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section className="py-20 px-6 md:px-12 lg:px-24 text-[#140a24] overflow-hidden" style={{ background: 'radial-gradient(ellipse at 20% 50%, #efe4ff 0%, #f8f3ff 48%, #ffffff 100%)' }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
 
           {/* Left Column: Text & Features */}
           <div className="flex-1 space-y-10">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1 bg-purple-600/10 border border-purple-700/20 rounded-full text-purple-300">
+              <div className="inline-flex items-center gap-2 px-4 py-1 bg-purple-600/10 border border-purple-700/15 rounded-full text-[#6c2bd9]">
                 <span className="text-[10px] font-bold uppercase tracking-widest">🤖 JINNY AI</span>
               </div>
               <h2 className="heading-lg">
@@ -642,7 +651,7 @@ const JinnyUnderstandsYou = () => {
                 services app that <br />
                 <span className="gradient-text-purple">understands you</span>
               </h2>
-              <p className="body-text-dark max-w-lg">
+              <p className="body-text-dark max-w-lg text-[#140a24]">
                 Just say what you need - in Hindi, English, or Hinglish. Jinny AI books it in under 60 seconds. No forms. No menus. No fuss.
               </p>
             </div>
@@ -651,19 +660,19 @@ const JinnyUnderstandsYou = () => {
               {features.map((f, i) => (
                 <div
                   key={i}
-                  className="feature-list-item flex gap-6 border border-white/10 group"
+                  className="feature-list-item flex gap-6 border border-[#6c2bd9]/10 group"
                   style={{
-                    background: 'rgba(255,255,255,0.04)',
+                    background: 'rgba(255,255,255,0.88)',
                     borderRadius: '16px',
                     padding: '18px',
                   }}
                 >
-                  <div className="w-12 h-12 bg-purple-700/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-purple-700/10 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                     {f.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-white group-hover:text-purple-300 transition-colors">{f.title}</h4>
-                    <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{f.desc}</p>
+                    <h4 className="font-bold text-[#140a24] group-hover:text-[#6c2bd9] transition-colors">{f.title}</h4>
+                    <p className="text-sm mt-1" style={{ color: 'rgba(20,10,36,0.85)' }}>{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -675,17 +684,17 @@ const JinnyUnderstandsYou = () => {
             <div
               className="chat-card shadow-2xl space-y-8"
               style={{
-                background: 'linear-gradient(145deg, #1b0036, #2c0a5a)',
+                background: 'linear-gradient(145deg, rgba(255,255,255,0.92), rgba(246,240,255,0.96))',
                 borderRadius: '24px',
                 padding: '24px',
-                border: '1px solid rgba(255,255,255,0.08)',
+                border: '1px solid rgba(108,43,217,0.12)',
               }}
             >
               {/* Chat Header */}
-              <div className="flex items-center gap-4 pb-6 border-b border-white/5">
+              <div className="flex items-center gap-4 pb-6 border-b border-[#6c2bd9]/10">
                 <div className="w-12 h-12 bg-gradient-to-tr from-purple-600 to-pink-500 rounded-full flex items-center justify-center text-white text-xl">🧞</div>
                 <div>
-                  <h4 className="font-bold text-white">Jinny AI</h4>
+                  <h4 className="font-bold text-[#140a24]">Jinny AI</h4>
                   <p className="text-xs text-green-400 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     Online - always ready
@@ -696,52 +705,51 @@ const JinnyUnderstandsYou = () => {
               {/* Chat History */}
               <div className="space-y-6">
                 <div
-                  className="p-5 rounded-2xl rounded-tl-none text-sm text-white/80 max-w-[85%] border border-white/5"
+                  className="p-5 rounded-2xl rounded-tl-none text-sm text-white max-w-[85%] border border-white/5"
                   style={{ background: 'linear-gradient(90deg, #6c2bd9, #4c1d95)' }}
                 >
                   Namaste Priya! 👋 Your home score is 68 today - kitchen needs attention. What can Jinny do for you?
                 </div>
 
                 <div
-                  className="p-4 rounded-2xl rounded-tr-none text-sm text-white/90 max-w-[80%] ml-auto italic"
-                  style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.08)' }}
+                  className="p-4 rounded-2xl rounded-tr-none text-sm text-[#140a24]/90 max-w-[80%] ml-auto italic"
+                  style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(108,43,217,0.08)' }}
                 >
                   bathroom aur kitchen dono saaf karna hai aaj
                 </div>
 
                 <div
-                  className="p-6 rounded-2xl rounded-tl-none space-y-6 border border-white/5"
-                  style={{ background: 'linear-gradient(90deg, #6c2bd9, #4c1d95)' }}
+                  className="p-6 rounded-2xl rounded-tl-none space-y-6 border border-[#6c2bd9]/10"
+                  style={{ background: 'linear-gradient(135deg, #f4edff, #efe5ff)' }}
                 >
-                  <p className="text-sm text-white/90">That&apos;s our <span className="text-brand-gold font-bold">Weekend Deep Clean</span> - bathroom + kitchen + floor. 2.5 hours.</p>
+                  <p className="text-sm text-[#140a24]/85">That&apos;s our <span className="text-brand-gold font-bold">Weekend Deep Clean</span> - bathroom + kitchen + floor. 2.5 hours.</p>
 
                   {/* Booking Card */}
-                  <div className="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-4">
+                  <div className="bg-white/90 border border-[#6c2bd9]/10 p-5 rounded-2xl space-y-4">
                     <div className="flex items-center gap-3">
                       <Sparkles className="w-5 h-5 text-brand-gold" />
                       <h5 className="font-bold text-brand-gold">Weekend Deep Clean</h5>
                     </div>
-                    <p className="text-xs text-white/40">Today ~12 min away - Rekha S. available (★ 4.9)</p>
-                    <Link
-                      href="/booking"
-                      className="cta-gold-btn w-full font-bold active:scale-95 flex items-center justify-center"
+                    <p className="text-xs text-[#140a24]/75">Today ~12 min away - Rekha S. available (★ 4.9)</p>
+                    <div
+                      className="static-info-pill w-full justify-center border border-[#6c2bd9]/12 bg-white"
                       style={{
-                        background: '#f5b21c',
-                        color: 'black',
+                        color: '#6c2bd9',
                         borderRadius: '999px',
                         padding: '12px 20px',
                         fontWeight: 600,
                       }}
                     >
-                      Confirm booking - Save more ✓
-                    </Link>
+                      Bundle preview only
+                    </div>
+                    <p className="text-[11px] text-[#140a24]/55">Booking will be available soon.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Decorative background blur */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-600/12 blur-[120px] rounded-full pointer-events-none" />
           </div>
         </div>
       </div>
@@ -769,19 +777,19 @@ const BuiltOnTrust = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1: Verified Partners */}
-          <div className="p-10 rounded-[2.5rem] text-white space-y-8 flex flex-col h-full shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_50px_-10px_rgba(108,43,217,0.3)] group" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
-            <div className="w-12 h-12 bg-green-500/20 border border-green-500/30 rounded-xl flex items-center justify-center text-green-400">
+          <div className="p-10 rounded-[2.5rem] bg-[#f6f0ff] text-[#140a24] space-y-8 flex flex-col h-full shadow-xl transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_20px_50px_-10px_rgba(108,43,217,0.12)] group border border-[#6c2bd9]/10">
+            <div className="w-12 h-12 bg-[#6c2bd9]/10 border border-[#6c2bd9]/15 rounded-xl flex items-center justify-center text-[#6c2bd9]">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <div className="space-y-4 flex-1">
               <h3 className="heading-md">Verified, trained partners</h3>
-              <p className="text-white/40 text-sm leading-relaxed">
+              <p className="text-[#140a24]/85 text-sm leading-relaxed">
                 Every Jinny partner goes through Aadhaar verification, PAN check, police clearance, and structured training before their first booking.
               </p>
               <ul className="space-y-3 pt-4">
                 {["Government ID verified", "Police clearance check", "In-person training programme", "Background screening"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-white/80">
-                    <div className="w-1.5 h-1.5 bg-brand-gold rounded-full" />
+                  <li key={i} className="flex items-center gap-3 text-sm text-[#140a24]">
+                    <div className="w-1.5 h-1.5 bg-[#6c2bd9] rounded-full" />
                     {item}
                   </li>
                 ))}
@@ -890,11 +898,11 @@ const EveryBookingEarnsMagic = () => {
             <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
               <span className="text-[10px] font-bold uppercase tracking-widest">👑 JINNY LOYALTY</span>
             </div>
-            <h2 className="heading-lg">
+          <h2 className="heading-lg text-[#140a24]">
               Every booking <br />
               <span className="text-[#6c2bd9]">earns magic</span>
             </h2>
-            <p className="body-text max-w-lg">
+            <p className="body-text max-w-lg text-[#140a24]">
               Earn Jinny Points on every booking. Unlock tiers. Get perks that make your home life even more effortless.
             </p>
           </div>
@@ -905,10 +913,10 @@ const EveryBookingEarnsMagic = () => {
               { bold: "Book 4 weeks in a row", rest: "and earn a cashback reward automatically." },
               { bold: "Platinum members", rest: "get a dedicated partner and 10-minute ETA guarantee." },
             ].map((item, i) => (
-              <li key={i} className="flex items-center gap-4 text-gray-600">
+              <li key={i} className="flex items-center gap-4 text-[#140a24]/82">
                 <div className="w-2 h-2 bg-[#6c2bd9] rounded-full flex-shrink-0" />
                 <p>
-                  <span className="font-bold text-[#0b0120]">{item.bold}</span> {item.rest}
+                  <span className="font-bold text-[#140a24]">{item.bold}</span> {item.rest}
                 </p>
               </li>
             ))}
@@ -1002,32 +1010,32 @@ const JinnyProtectsThePeople = () => {
   ];
 
   return (
-    <section id="partner" className="py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden" style={{ background: 'radial-gradient(ellipse at 70% 50%, #2a0a5e 0%, #150835 40%, #0b0120 100%)' }}>
+    <section id="partner" className="py-20 px-6 md:px-12 lg:px-24 text-[#140a24] overflow-hidden" style={{ background: 'radial-gradient(ellipse at 70% 50%, #efe5ff 0%, #f8f3ff 48%, #ffffff 100%)' }}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
 
         {/* Left Column: Grid */}
         <div className="flex-1 space-y-12">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400">
+            <div className="inline-flex items-center gap-2 px-4 py-1 bg-purple-600/10 border border-purple-600/15 rounded-full text-[#6c2bd9]">
               <ShieldAlert className="w-3 h-3" />
               <span className="text-[10px] font-bold uppercase tracking-widest">PARTNER SAFETY</span>
             </div>
             <h2 className="heading-lg">
               Jinny protects the <br />
-              <span className="text-brand-gold italic">people who protect</span> <br />
+              <span className="text-[#6c2bd9] italic">people who protect</span> <br />
               your home
             </h2>
-            <p className="body-text-dark max-w-lg">
+            <p className="body-text-dark max-w-lg text-[#140a24]">
               Jinny is India&apos;s first home services platform with AI-powered proactive safety for every partner, every session.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {safetyFeatures.map((f, i) => (
-              <div key={i} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/[0.08] transition-all duration-500 group hover:scale-[1.05] hover:shadow-[0_20px_40px_-15px_rgba(108,43,217,0.2)]">
+              <div key={i} className="p-8 rounded-[2.5rem] bg-white border border-[#6c2bd9]/10 hover:border-[#6c2bd9]/22 hover:bg-[#faf7ff] transition-all duration-500 group hover:scale-[1.05] hover:shadow-[0_20px_40px_-15px_rgba(108,43,217,0.12)]">
                 <div className="text-3xl mb-6 group-hover:scale-110 transition-transform">{f.icon}</div>
-                <h4 className="font-bold text-white mb-2">{f.title}</h4>
-                <p className="text-xs text-white/40 leading-relaxed">{f.desc}</p>
+                <h4 className="font-bold text-[#140a24] mb-2">{f.title}</h4>
+                <p className="text-xs text-[#140a24]/82 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -1040,19 +1048,19 @@ const JinnyProtectsThePeople = () => {
             style={{
               padding: '1.5px',
               borderRadius: '28px',
-              background: 'linear-gradient(135deg, rgba(255,80,80,0.5), rgba(255,120,80,0.2), transparent 60%)',
-              boxShadow: '0 0 50px rgba(255,80,80,0.12), 0 0 100px rgba(255,120,80,0.06)',
+              background: 'linear-gradient(135deg, rgba(108,43,217,0.26), rgba(168,85,247,0.12), transparent 60%)',
+              boxShadow: '0 0 50px rgba(108,43,217,0.12), 0 0 100px rgba(168,85,247,0.06)',
             }}
           >
             {/* Inner card */}
             <div
               style={{
-                background: 'linear-gradient(135deg, #1a0b2e 0%, #140826 100%)',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.94) 0%, #f6f0ff 100%)',
                 borderRadius: '27px',
                 padding: '40px',
                 position: 'relative',
                 overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.05)',
+                border: '1px solid rgba(108,43,217,0.1)',
               }}
             >
               {/* Red radial glow overlay */}
@@ -1063,7 +1071,7 @@ const JinnyProtectsThePeople = () => {
                   right: '-15%',
                   width: '300px',
                   height: '300px',
-                  background: 'radial-gradient(circle, rgba(255,90,90,0.16) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(168,85,247,0.14) 0%, transparent 70%)',
                   filter: 'blur(40px)',
                 }}
               />
@@ -1075,7 +1083,7 @@ const JinnyProtectsThePeople = () => {
                   left: '-10%',
                   width: '250px',
                   height: '250px',
-                  background: 'radial-gradient(circle, rgba(108,43,217,0.1) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(108,43,217,0.12) 0%, transparent 70%)',
                   filter: 'blur(50px)',
                 }}
               />
@@ -1089,8 +1097,8 @@ const JinnyProtectsThePeople = () => {
                     width: '72px',
                     height: '72px',
                     borderRadius: '20px',
-                    background: 'linear-gradient(135deg, #1e3a8a, #2563eb)',
-                    boxShadow: 'inset 0 0 20px rgba(255,255,255,0.08), 0 10px 30px rgba(0,0,0,0.4)',
+                    background: 'linear-gradient(135deg, #8b5cf6, #6c2bd9)',
+                    boxShadow: 'inset 0 0 20px rgba(255,255,255,0.12), 0 10px 30px rgba(108,43,217,0.16)',
                     fontSize: '36px',
                   }}
                 >
@@ -1098,7 +1106,7 @@ const JinnyProtectsThePeople = () => {
                 </div>
 
                 <h3 className="heading-md" style={{ fontSize: '24px' }}>Jinny Suraksha</h3>
-                <p className="text-sm text-white/40 max-w-xs mx-auto leading-relaxed">
+                <p className="text-sm text-[#140a24]/82 max-w-xs mx-auto leading-relaxed">
                   Our AI-powered proactive safety system. Active on every session. Protecting every partner. Every time.
                 </p>
               </div>
@@ -1115,8 +1123,8 @@ const JinnyProtectsThePeople = () => {
                   "Health + accident insurance from Day 1",
                   "Safe exit - leave any session, no penalty",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 label-text font-medium text-white/80">
-                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#ff7a3d', boxShadow: '0 0 6px rgba(255,122,61,0.4)' }} />
+                  <li key={i} className="flex items-center gap-4 label-text font-medium text-[#140a24]/82">
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#6c2bd9', boxShadow: '0 0 6px rgba(108,43,217,0.26)' }} />
                     {item}
                   </li>
                 ))}
@@ -1125,7 +1133,7 @@ const JinnyProtectsThePeople = () => {
           </div>
 
           {/* Background decoration */}
-          <div className="absolute -z-10 -bottom-20 -right-20 w-[150%] h-[150%] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute -z-10 -bottom-20 -right-20 w-[150%] h-[150%] bg-purple-600/8 blur-[120px] rounded-full pointer-events-none" />
         </div>
 
       </div>
@@ -1151,7 +1159,7 @@ const WhereJinnyWorks = () => {
           <h2 className="heading-lg" style={{ color: '#0b0120' }}>
             Launching in <span style={{ color: '#6c2bd9' }}>Delhi NCR</span>
           </h2>
-          <p className="body-text mx-auto" style={{ maxWidth: '560px' }}>
+          <p className="body-text mx-auto text-[#140a24]" style={{ maxWidth: '560px' }}>
             Be the first to experience the magic. Join our waitlist and get early access before we go live.
           </p>
         </div>
@@ -1193,15 +1201,15 @@ const BecomePartner = () => {
 
   return (
     <section id="become-partner" className="py-12 px-6 md:px-12 lg:px-24 bg-[#FAF9F6]">
-      <div className="max-w-[1400px] mx-auto rounded-[4rem] p-12 lg:p-24 text-white flex flex-col lg:flex-row gap-20 items-center overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #1a0033, #2d0b5f)' }}>
-        <div className="absolute top-0 left-0 w-full h-full bg-purple-600/5 blur-[120px] pointer-events-none" />
+      <div className="max-w-[1400px] mx-auto rounded-[4rem] p-12 lg:p-24 text-[#140a24] flex flex-col lg:flex-row gap-20 items-center overflow-hidden relative border border-[#6c2bd9]/10" style={{ background: 'linear-gradient(135deg, #ffffff, #f6efff)' }}>
+        <div className="absolute top-0 left-0 w-full h-full bg-purple-600/8 blur-[120px] pointer-events-none" />
 
         <div className="hero-content">
 
           {/* Left Column */}
           <div className="hero-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full w-fit" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>💼 WORK WITH JINNY</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full w-fit" style={{ background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.12)' }}>
+              <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', color: '#6c2bd9' }}>💼 WORK WITH JINNY</span>
             </div>
 
             <h2 className="partner-hero-title heading-lg">
@@ -1209,7 +1217,7 @@ const BecomePartner = () => {
               Earn more. Work safely.
             </h2>
 
-            <p className="body-text-dark max-w-lg">
+            <p className="body-text-dark max-w-lg text-[#140a24]">
               Join thousands of home service professionals earning a dignified, flexible income with Jinny&apos;s full welfare and safety system behind them.
             </p>
 
@@ -1217,8 +1225,8 @@ const BecomePartner = () => {
             <div className="stats-grid">
               {stats.map((s, i) => (
                 <div key={i} className="stat-card space-y-1">
-                  <div className="text-2xl font-serif font-bold text-[#facc15]">{s.value}</div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">{s.label}</div>
+                  <div className="text-2xl font-serif font-bold text-[#6c2bd9]">{s.value}</div>
+                  <div className="text-[10px] text-[#140a24]/70 uppercase tracking-widest font-bold">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -1227,24 +1235,24 @@ const BecomePartner = () => {
           {/* Right Column: Form */}
           <div className="w-full relative z-10 lg:max-w-md">
             {/* External Yellow Glow */}
-            <div className="absolute -inset-4 bg-[#f5b21c]/5 blur-[60px] rounded-full pointer-events-none" />
+            <div className="absolute -inset-4 bg-[#6c2bd9]/8 blur-[60px] rounded-full pointer-events-none" />
             
-            <div className="form-card relative z-10 border border-white/10 shadow-[0_30px_100px_-20px_rgba(0,0,0,0.6)]" style={{ background: '#251043', borderRadius: '32px' }}>
+            <div className="form-card relative z-10 border border-[#6c2bd9]/12 shadow-[0_30px_100px_-20px_rgba(76,29,149,0.12)]" style={{ background: 'rgba(255,255,255,0.92)', borderRadius: '32px' }}>
               <div className="flex items-center gap-3 mb-8">
                 <span className="text-2xl"></span>
-                <h3 className="text-[20px] font-semibold text-white">Join as a Jinny partner</h3>
+                <h3 className="text-[20px] font-semibold text-[#140a24]">Join as a Jinny partner</h3>
               </div>
 
               <div className="flex flex-col gap-4">
                 <input
                   type="text"
                   placeholder="Full name"
-                  className="w-full h-[60px] px-6 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9] focus:bg-white/[0.06] transition-all"
+                  className="w-full h-[60px] px-6 bg-white border border-[#6c2bd9]/12 rounded-2xl text-[#140a24] placeholder:text-[#140a24]/55 focus:outline-none focus:border-[#6c2bd9] focus:ring-4 focus:ring-[#6c2bd9]/8 transition-all"
                 />
                 <input
                   type="text"
                   placeholder="Mobile number"
-                  className="w-full h-[60px] px-6 bg-white/[0.03] border border-white/10 rounded-2xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9] focus:bg-white/[0.06] transition-all"
+                  className="w-full h-[60px] px-6 bg-white border border-[#6c2bd9]/12 rounded-2xl text-[#140a24] placeholder:text-[#140a24]/55 focus:outline-none focus:border-[#6c2bd9] focus:ring-4 focus:ring-[#6c2bd9]/8 transition-all"
                 />
 
                 <CustomSelect
@@ -1275,13 +1283,19 @@ const BecomePartner = () => {
                   ]}
                 />
 
-                <div className="pt-4">
-                  <Link 
-                    href="/waitlist" 
-                    className="w-full h-[64px] flex items-center justify-center gap-2 bg-[#d1a242] text-black rounded-full font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(209,162,66,0.3)]"
+                <div className="pt-5">
+                  <button
+                    type="button"
+                    className="w-full h-[66px] flex items-center justify-center gap-2 rounded-[1.2rem] font-bold text-lg transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
+                    style={{
+                      background: "#9d4edd",
+                      color: "#ffffff",
+                      border: "1px solid rgba(124, 58, 237, 0.45)",
+                      boxShadow: "0 12px 24px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255,255,255,0.18)",
+                    }}
                   >
                     Apply now - it&apos;s free ✨
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1360,7 +1374,7 @@ const Testimonials = () => {
 };
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+  const [openIndex, setOpenIndex] = React.useState<number>(0);
 
   const faqs = [
     {
@@ -1394,8 +1408,8 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-[#FAF9F6]">
-      <div className="max-w-[900px] mx-auto space-y-16">
+    <section className="px-6 pb-24 pt-32 md:px-12 md:pt-36 lg:px-24 bg-[#FAF9F6]">
+      <div className="max-w-[900px] mx-auto space-y-10">
         <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#F5F3FF] border border-[#DDD6FE] rounded-full text-[#6c2bd9]">
             <span className="text-[10px] font-bold uppercase tracking-widest">? QUESTIONS</span>
@@ -1403,38 +1417,60 @@ const FAQ = () => {
           <h2 className="heading-lg" style={{ color: '#1a0b2e' }}>
             Everything you <span className="text-[#6c2bd9]">wish to know</span>
           </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-7 text-[#140a24]/60 sm:text-base">
+            Quick answers with a smoother, easier-to-scan experience.
+          </p>
         </div>
 
-        <div className="divide-y divide-black/[0.08] border-t border-black/[0.08]">
+        <div className="overflow-hidden rounded-[2rem] border border-[#ece6fb] bg-white/85 shadow-[0_20px_60px_rgba(20,10,36,0.05)] backdrop-blur-sm">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="group transition-all duration-300 hover:bg-black/[0.01]"
+              className={`border-b border-[#efe9fb] bg-white/60 last:border-b-0 transition-colors duration-300 ${
+                openIndex === i ? "bg-[#fdfbff]" : ""
+              }`}
             >
               <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full py-[22px] flex items-center justify-between text-left"
+                type="button"
+                onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
+                className="flex w-full items-start justify-between gap-4 px-6 py-6 text-left sm:px-8 sm:py-7"
+                aria-expanded={openIndex === i}
               >
-                <h3 className={`text-[18px] font-semibold transition-colors duration-300 ${openIndex === i ? 'text-[#6c2bd9]' : 'text-[#1a0b2e]'}`}>
+                <h3
+                  className={`pr-2 text-[18px] font-semibold leading-7 transition-colors duration-300 ${
+                    openIndex === i ? "text-[#6c2bd9]" : "text-[#1a0b2e]"
+                  }`}
+                >
                   {faq.q}
                 </h3>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  openIndex === i 
-                    ? 'bg-[#6c2bd9] text-white rotate-45' 
-                    : 'bg-[#7c3aed]/[0.08] text-[#7c3aed] group-hover:bg-[#7c3aed]/[0.15]'
-                }`}>
-                  <Plus className="w-4.5 h-4.5" />
+                <div
+                  className={`mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                    openIndex === i
+                      ? "border-[#6c2bd9] bg-[#6c2bd9] text-white"
+                      : "border-[#efe3ff] bg-[#faf5ff] text-[#9b6cf3]"
+                  }`}
+                >
+                  <Plus
+                    className={`h-4 w-4 transition-transform duration-300 ${
+                      openIndex === i ? "rotate-45" : "rotate-0"
+                    }`}
+                  />
                 </div>
               </button>
 
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 pb-8 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="body-text max-w-3xl text-gray-500">
-                  {faq.a}
-                </p>
+              <div
+                className={`grid transition-all duration-400 ease-out ${
+                  openIndex === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="body-text max-w-3xl px-6 pb-7 leading-7 text-gray-500 sm:px-8">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
-          <div className="border-b border-black/[0.08]" />
         </div>
       </div>
     </section>
@@ -1446,8 +1482,9 @@ export default function Home() {
     <main className="flex-1">
 
       <HeroSection />
+      <HighlightsBar />
       <HowItWorks />
-      <section id="services" style={{ backgroundColor: '#FAF9F6' }}>
+      <section id="services" className="scroll-mt-28" style={{ backgroundColor: '#FAF9F6' }}>
         <ServicesGrid />
       </section>
       <JinnyUnderstandsYou />

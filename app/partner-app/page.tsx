@@ -23,7 +23,7 @@ export default function PartnerAppPage() {
               Earnings at your <br />
               <span className="text-[#6c2bd9]">Finger Tips</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-xl">
+            <p className="body-text-on-dark text-xl max-w-xl">
               Managed earnings, live navigation, and real-time support. The Jinny Partner App is designed to help you succeed as a home service professional.
             </p>
           </div>

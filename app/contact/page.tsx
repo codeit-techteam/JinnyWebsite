@@ -1,10 +1,56 @@
+/* eslint-disable react/no-unescaped-entities */
+"use client";
+
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, MessageCircle, Mail, MapPin, Send } from "lucide-react";
+import { MessageCircle, Mail, MapPin } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export default function ContactPage() {
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [error, setError] = React.useState("");
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
+    setSubmitted(false);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      setError("Please fill in your name, email, and message.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`Jinny contact form message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:hello@jinny.in?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
+
   return (
     <main className="min-h-screen bg-[#0b0120] text-white selection:bg-purple-500/30">
       <Navbar />
@@ -21,11 +67,11 @@ export default function ContactPage() {
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">Get in touch</span>
               </div>
               <h1 className="heading-xl">
-                We'd love to <br />
+                We&apos;d love to <br />
                 <span className="text-[#6c2bd9]">Hear from You</span>
               </h1>
-              <p className="body-text-dark text-xl max-w-xl">
-                Have a question, feedback, or just want to say hi? We're always listening. Our team usually responds within 2 hours.
+              <p className="body-text-on-dark text-xl max-w-xl">
+                Have a question, feedback, or just want to say hi? We&apos;re always listening. Our team usually responds within 2 hours.
               </p>
             </div>
 
@@ -47,26 +93,69 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="bg-white/5 border border-white/10 p-12 rounded-[3rem] space-y-8 backdrop-blur-xl">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white/5 border border-white/10 p-12 rounded-[3rem] space-y-8 backdrop-blur-xl"
+          >
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                <div className="space-y-2">
-                 <label className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-4">Full Name</label>
-                 <input type="text" placeholder="John Doe" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+                 <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-4">Full Name</label>
+                 <input
+                   id="name"
+                   name="name"
+                   type="text"
+                   value={formData.name}
+                   onChange={handleChange}
+                   placeholder="John Doe"
+                   className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9]/60 focus:ring-4 focus:ring-[#6c2bd9]/10 transition-all"
+                 />
                </div>
                <div className="space-y-2">
-                 <label className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-4">Email</label>
-                 <input type="email" placeholder="john@example.com" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+                 <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-4">Email</label>
+                 <input
+                   id="email"
+                   name="email"
+                   type="email"
+                   value={formData.email}
+                   onChange={handleChange}
+                   placeholder="john@example.com"
+                   className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9]/60 focus:ring-4 focus:ring-[#6c2bd9]/10 transition-all"
+                 />
                </div>
              </div>
              <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-4">Message</label>
-                <textarea rows={4} placeholder="How can we help?" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm resize-none"></textarea>
+                <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-4">Message</label>
+               <textarea
+                 id="message"
+                 name="message"
+                 rows={4}
+                 value={formData.message}
+                 onChange={handleChange}
+                 placeholder="How can we help?"
+                 className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#6c2bd9]/60 focus:ring-4 focus:ring-[#6c2bd9]/10 transition-all resize-none"
+               />
              </div>
-             <button className="w-full py-5 bg-[#6c2bd9] text-white rounded-2xl font-bold uppercase tracking-widest text-xs active:scale-95 transition-all flex items-center justify-center gap-2">
-                <span>Send Message</span>
-                <Send className="w-3 h-3" />
-             </button>
-          </div>
+             <div className="space-y-3">
+               <button
+                 type="submit"
+                 className="w-full rounded-2xl border border-[#6c2bd9]/30 bg-[#6c2bd9] px-6 py-5 text-center text-sm font-semibold text-white transition-all hover:bg-[#5b23b9] active:scale-[0.99]"
+               >
+                 Send message
+               </button>
+               {error ? (
+                 <p className="text-sm text-red-300">{error}</p>
+               ) : null}
+               {submitted ? (
+                 <p className="text-sm text-white/75">
+                   Your email app should open with this message pre-filled to `hello@jinny.in`.
+                 </p>
+               ) : (
+                 <p className="text-sm text-white/55">
+                   No backend needed. This sends your message through your default email app.
+                 </p>
+               )}
+             </div>
+          </form>
         </div>
       </section>
 

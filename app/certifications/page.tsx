@@ -23,7 +23,7 @@ export default function CertificationsPage() {
               Unlock your <br />
               <span className="text-[#6c2bd9]">Full Potential</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               Our structured certification programmes ensure that every Jinny partner is equipped with the skills and knowledge to deliver world-class service.
             </p>
           </div>

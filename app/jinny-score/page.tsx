@@ -18,7 +18,7 @@ export default function JinnyScorePage() {
             <h1 className="heading-xl">
               The <span className="text-[#6c2bd9]">Jinny Score</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               A task-level quality rating for every partner - calculated from AI photo verification and real-time customer feedback.
             </p>
           </div>

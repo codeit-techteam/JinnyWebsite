@@ -23,7 +23,7 @@ export default function EarlySalaryPage() {
               Access your earnings <br />
               <span className="text-[#6c2bd9]">When you need them</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               No more waiting for the end of the month. Jinny partners can withdraw a portion of their earned wages instantly for emergencies or planned expenses.
             </p>
           </div>

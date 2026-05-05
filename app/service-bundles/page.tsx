@@ -1,7 +1,5 @@
-import Footer from "../components/Footer";
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, CheckCircle2, Clock, Star, Gift } from "lucide-react";
+import { Gift } from "lucide-react";
 import Navbar from "../components/Navbar";
 
 export default function ServiceBundlesPage() {
@@ -18,7 +16,7 @@ export default function ServiceBundlesPage() {
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">Value Packs</span>
             </div>
             <h1 className="heading-xl">Curated <br /><span className="text-[#6c2bd9]">Magic Bundles</span></h1>
-            <p className="body-text-dark text-xl max-w-xl">Save more with our carefully selected service combinations. Perfect for deep resets or routine maintenance.</p>
+            <p className="body-text-on-dark text-xl max-w-xl">Save more with our carefully selected service combinations. Perfect for deep resets or routine maintenance.</p>
           </div>
           <div className="bg-white/5 border border-white/10 p-10 rounded-[3rem] backdrop-blur-xl space-y-8">
              <div className="space-y-4">
@@ -27,7 +25,7 @@ export default function ServiceBundlesPage() {
                   { name: "All-in-One Reset", desc: "Full Home + Laundry + Car", price: "₹3,499", save: "Save ₹400" },
                   { name: "Kitchen King", desc: "Kitchen + Chimney + Fridge", price: "₹1,499", save: "Save ₹200" },
                 ].map((bundle, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between items-center group hover:bg-[#6c2bd9]/20 transition-all cursor-pointer">
+                  <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between items-center group hover:bg-[#6c2bd9]/12 transition-all">
                     <div className="space-y-1">
                       <h4 className="font-bold text-lg">{bundle.name}</h4>
                       <p className="text-xs text-white/40">{bundle.desc}</p>
@@ -39,7 +37,9 @@ export default function ServiceBundlesPage() {
                   </div>
                 ))}
              </div>
-             <button className="w-full py-5 bg-[#6c2bd9] text-white rounded-2xl font-bold">Explore All Bundles</button>
+             <div className="static-info-pill w-full justify-center rounded-2xl border border-white/10 bg-white/6 px-6 py-5 text-center text-sm text-white/80">
+               Bundle availability will be shared soon
+             </div>
           </div>
         </div>
       </section>

@@ -19,7 +19,7 @@ export default function SurakshaPage() {
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">Jinny Suraksha</span>
             </div>
             <h1 className="heading-xl">Your safety is <br /><span className="text-[#6c2bd9]">Our Guarantee</span></h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">Jinny Suraksha is our comprehensive safety program designed to protect both our customers and our partners.</p>
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">Jinny Suraksha is our comprehensive safety program designed to protect both our customers and our partners.</p>
           </div>
         </div>
       </section>

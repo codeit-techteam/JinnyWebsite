@@ -22,20 +22,21 @@ export default function WaitlistPage() {
               Be first. <br />
               <span className="text-[#6c2bd9]">Get early access.</span>
             </h1>
-            <p className="body-text-dark max-w-2xl mx-auto text-lg">
+            <p className="body-text-on-dark max-w-2xl mx-auto text-lg">
               Jinny is coming to Delhi NCR soon. Join our waitlist and be the first to know when we launch in your neighbourhood - plus get an exclusive early-access offer.
             </p>
           </div>
 
           <div className="bg-white/5 border border-white/10 p-6 md:p-10 rounded-[3rem] space-y-6 max-w-2xl mx-auto backdrop-blur-xl shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Your name" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
-              <input type="text" placeholder="Mobile number" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+              <input type="text" placeholder="Your name" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#f5b21c]/70 focus:ring-4 focus:ring-[#f5b21c]/10 text-sm placeholder:text-white/30 transition-all" />
+              <input type="text" placeholder="Mobile number" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#f5b21c]/70 focus:ring-4 focus:ring-[#f5b21c]/10 text-sm placeholder:text-white/30 transition-all" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <CustomSelect
                 placeholder="Select your city"
                 className="waitlist-select"
+                theme="dark"
                 options={[
                   { value: 'gurugram', label: 'Gurugram' },
                   { value: 'south-delhi', label: 'South Delhi' },
@@ -52,6 +53,7 @@ export default function WaitlistPage() {
               <CustomSelect
                 placeholder="I am joining as"
                 className="waitlist-select"
+                theme="dark"
                 options={[
                   { value: 'customer', label: 'Customer - I need home help' },
                   { value: 'partner', label: 'Partner - I want to earn with Jinny' },
@@ -59,10 +61,9 @@ export default function WaitlistPage() {
                 ]}
               />
             </div>
-            <input type="text" placeholder="Email address (optional - for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#6c2bd9] text-sm" />
+            <input type="text" placeholder="Email address (optional - for launch updates)" className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-[#f5b21c]/70 focus:ring-4 focus:ring-[#f5b21c]/10 text-sm placeholder:text-white/30 transition-all" />
 
-            <button className="cta-gold-btn w-full py-6 font-bold rounded-[2rem] active:scale-95 text-lg flex items-center justify-center gap-2" style={{ background: '#f5b21c', color: 'black', fontWeight: 600 }}>
-              <span></span>
+            <button className="w-full py-6 bg-[#f5b21c] text-[#0b0120] rounded-[2rem] font-bold text-lg flex items-center justify-center gap-3 hover:scale-[1.01] active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(245,178,28,0.3)]">
               Join the waitlist - get early access
             </button>
 

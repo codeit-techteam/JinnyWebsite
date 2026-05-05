@@ -23,7 +23,7 @@ export default function PressPage() {
               Spreading the <br />
               <span className="text-[#6c2bd9]">Magic</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               Follow our journey as we redefine home services in India. For press inquiries, please reach out to <span className="text-[#6c2bd9] font-bold">press@jinny.in</span>
             </p>
           </div>

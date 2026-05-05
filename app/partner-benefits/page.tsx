@@ -23,7 +23,7 @@ export default function PartnerBenefitsPage() {
               Partnering for <br />
               <span className="text-[#6c2bd9]">A Better Future</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl">
+            <p className="body-text-on-dark text-xl max-w-2xl">
               We believe in shared success. Jinny partners receive a comprehensive benefits package that ensures safety, growth, and financial stability.
             </p>
           </div>

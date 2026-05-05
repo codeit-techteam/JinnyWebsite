@@ -6,50 +6,66 @@ interface CustomSelectProps {
   placeholder: string;
   options: { value: string; label: string }[];
   className?: string;
+  helperText?: string;
+  theme?: "light" | "dark";
 }
 
-const CustomSelect = ({ placeholder, options, className = '' }: CustomSelectProps) => {
+const CustomSelect = ({
+  placeholder,
+  options,
+  className = "",
+  helperText,
+  theme = "light",
+}: CustomSelectProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<string | null>(null);
   const ref = React.useRef<HTMLDivElement>(null);
 
-  // Close on outside click
   React.useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const selectedLabel = options.find(o => o.value === selected)?.label;
+  const selectedLabel = options.find((option) => option.value === selected)?.label;
 
   return (
-    <div ref={ref} className={`custom-select ${isOpen ? 'open' : ''} ${className}`}>
+    <div
+      ref={ref}
+      className={`custom-select custom-select-theme-${theme} ${isOpen ? "open" : ""} ${className}`}
+    >
       <button
         type="button"
-        className={`select-trigger ${selected ? 'has-value' : ''}`}
-        onClick={() => setIsOpen(prev => !prev)}
+        className={`select-trigger ${selected ? "has-value" : ""}`}
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
       >
         {selectedLabel || placeholder}
       </button>
 
-      <div className="custom-select-dropdown">
-        {options.map((opt) => (
-          <div
-            key={opt.value}
-            className={`custom-select-option ${selected === opt.value ? 'active' : ''}`}
+      <div className="custom-select-dropdown" role="listbox">
+        {options.map((option) => (
+          <button
+            type="button"
+            key={option.value}
+            className={`custom-select-option ${selected === option.value ? "active" : ""}`}
             onClick={() => {
-              setSelected(opt.value);
+              setSelected(option.value);
               setIsOpen(false);
             }}
           >
-            {opt.label}
-          </div>
+            {option.label}
+          </button>
         ))}
       </div>
+
+      {helperText ? <p className="select-helper-text">{helperText}</p> : null}
     </div>
   );
 };

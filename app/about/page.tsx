@@ -23,7 +23,7 @@ export default function AboutPage() {
               We&apos;re redefining <br />
               <span className="text-[#6c2bd9]">Home Services</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-2xl mx-auto">
+            <p className="body-text-on-dark text-xl max-w-2xl mx-auto">
               Jinny isn&apos;t just an app; it&apos;s your home&apos;s personal Genie. We combine cutting-edge AI with a human-first approach to make home maintenance effortless, transparent, and magical.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="text-center space-y-6">
             <h2 className="heading-lg">Our Core Values</h2>
-            <p className="body-text-dark max-w-2xl mx-auto">The principles that guide every decision we make at Jinny.</p>
+            <p className="body-text-on-dark max-w-2xl mx-auto">The principles that guide every decision we make at Jinny.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <div key={i} className="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#6c2bd9]/50 transition-all group">
                 <value.icon className="w-10 h-10 text-[#6c2bd9] mb-8 group-hover:scale-110 transition-transform" />
                 <h3 className="heading-md mb-4">{value.title}</h3>
-                <p className="body-text-dark text-sm leading-relaxed">{value.desc}</p>
+                <p className="body-text-on-dark text-sm leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>

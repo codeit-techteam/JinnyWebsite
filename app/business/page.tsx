@@ -23,7 +23,7 @@ export default function BusinessPage() {
               Home Care as <br />
               <span className="text-[#6c2bd9]">Employee Benefit</span>
             </h1>
-            <p className="body-text-dark text-xl max-w-xl">
+            <p className="body-text-on-dark text-xl max-w-xl">
               Gift your team the most valuable luxury of all: Time. Jinny for Business offers managed home services for forward-thinking organizations.
             </p>
           </div>

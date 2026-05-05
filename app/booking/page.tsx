@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Calendar, Clock, MapPin, CreditCard, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, CreditCard, ShieldCheck } from "lucide-react";
 
 export default function BookingPage() {
   return (
@@ -14,8 +14,8 @@ export default function BookingPage() {
           {/* Left: Checkout Details */}
           <div className="lg:col-span-2 space-y-8">
             <div className="space-y-4">
-              <h1 className="heading-xl">Finalize your <span className="text-[#6c2bd9]">Booking</span></h1>
-              <p className="body-text-dark text-lg">Select your preferred slot and confirm your magical experience.</p>
+              <h1 className="heading-xl">Your <span className="text-[#6c2bd9]">Booking Preview</span></h1>
+              <p className="body-text-on-dark text-lg">A display-only overview of how scheduling and payment details will appear at launch.</p>
             </div>
 
             {/* Address Selection */}
@@ -25,18 +25,18 @@ export default function BookingPage() {
                 <h3 className="heading-md text-xl">Service Address</h3>
               </div>
               <div className="grid grid-cols-1 gap-4">
-                <button className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-[#6c2bd9] text-left">
+                <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-[#6c2bd9] text-left">
                   <div className="w-5 h-5 rounded-full border-2 border-[#6c2bd9] flex items-center justify-center p-1 mt-1">
                     <div className="w-full h-full bg-[#6c2bd9] rounded-full" />
                   </div>
                   <div>
                     <p className="font-bold text-white">Home</p>
-                    <p className="text-sm text-white/40">Select an address from your Delhi NCR profile</p>
+                    <p className="text-sm text-white/40">Primary Delhi NCR address on file</p>
                   </div>
-                </button>
-                <button className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left text-white/40 text-sm hover:bg-white/10 transition-all">
-                  + Add new address
-                </button>
+                </div>
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-left text-white/40 text-sm">
+                  Additional addresses can be added once booking goes live
+                </div>
               </div>
             </div>
 
@@ -48,16 +48,16 @@ export default function BookingPage() {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {['Today', 'Tomorrow', '3 May', '4 May'].map((day, i) => (
-                  <button key={i} className={`p-4 rounded-xl border ${i === 0 ? 'bg-[#6c2bd9] border-[#6c2bd9]' : 'bg-white/5 border-white/10'} text-center`}>
+                  <div key={i} className={`p-4 rounded-xl border ${i === 0 ? 'bg-[#6c2bd9] border-[#6c2bd9]' : 'bg-white/5 border-white/10'} text-center`}>
                     <p className="text-xs uppercase font-bold tracking-widest">{day}</p>
-                  </button>
+                  </div>
                 ))}
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {['10:00 AM', '12:30 PM', '03:00 PM', '05:30 PM'].map((time, i) => (
-                  <button key={i} className={`p-4 rounded-xl border ${i === 1 ? 'bg-[#6c2bd9] border-[#6c2bd9]' : 'bg-white/5 border-white/10'} text-center`}>
+                  <div key={i} className={`p-4 rounded-xl border ${i === 1 ? 'bg-[#6c2bd9] border-[#6c2bd9]' : 'bg-white/5 border-white/10'} text-center`}>
                     <p className="text-sm font-bold">{time}</p>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -69,20 +69,20 @@ export default function BookingPage() {
                 <h3 className="heading-md text-xl">Payment Method</h3>
               </div>
               <div className="space-y-3">
-                <button className="w-full flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10">
+                <div className="w-full flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-6 bg-blue-500/20 rounded" />
                     <p className="text-sm font-bold">UPI / Cards / NetBanking</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/20" />
-                </button>
-                <button className="w-full flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/30">Preview</span>
+                </div>
+                <div className="w-full flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-6 bg-green-500/20 rounded" />
                     <p className="text-sm font-bold">Cash after service</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/20" />
-                </button>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/30">Preview</span>
+                </div>
               </div>
             </div>
           </div>
@@ -117,11 +117,11 @@ export default function BookingPage() {
                 <div className="space-y-4 pt-4">
                   <div className="flex gap-3 text-[10px] text-white/30 uppercase tracking-widest font-bold">
                     <ShieldCheck className="w-4 h-4 text-green-500" />
-                    Secure Checkout
+                    Informational Preview
                   </div>
-                  <button className="w-full py-6 bg-[#6c2bd9] text-white rounded-[2rem] font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_-10px_rgba(108,43,217,0.4)]">
-                    Pay & Confirm ✓
-                  </button>
+                  <div className="static-info-pill w-full justify-center rounded-[2rem] border border-white/10 bg-white/6 px-6 py-5 text-center text-sm text-white/80">
+                    Payment and confirmation will be available soon
+                  </div>
                 </div>
               </div>
             </div>

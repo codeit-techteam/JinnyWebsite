@@ -1,7 +1,5 @@
-import Footer from "../components/Footer";
 import React from "react";
-import Link from "next/link";
-import { ArrowLeft, Sparkles, CheckCircle2, Clock, Star, Car } from "lucide-react";
+import { CheckCircle2, Car } from "lucide-react";
 import Navbar from "../components/Navbar";
 
 export default function CarCleaningPage() {
@@ -18,7 +16,7 @@ export default function CarCleaningPage() {
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#f5b21c]">Showroom Shine</span>
             </div>
             <h1 className="heading-xl">Professional <br /><span className="text-[#6c2bd9]">Car Detailing</span></h1>
-            <p className="body-text-dark text-xl max-w-xl">From exterior waterless wash to interior deep sanitization. We bring the garage to your driveway.</p>
+            <p className="body-text-on-dark text-xl max-w-xl">From exterior waterless wash to interior deep sanitization. We bring the garage to your driveway.</p>
           </div>
           <div className="bg-white/5 border border-white/10 p-10 rounded-[3rem] backdrop-blur-xl space-y-8">
             <div className="flex justify-between items-center"><h3 className="heading-md">Starting at</h3><div className="text-right"><p className="text-3xl font-bold text-[#f5b21c]">₹399</p></div></div>
@@ -27,7 +25,9 @@ export default function CarCleaningPage() {
                 <div key={i} className="flex items-center gap-3"><CheckCircle2 className="w-5 h-5 text-[#6c2bd9]" /><span className="text-sm text-white/60">{item}</span></div>
               ))}
             </div>
-            <button className="w-full py-5 bg-[#f5b21c] text-[#0b0120] rounded-2xl font-bold text-lg active:scale-95 transition-all">Book Now </button>
+            <div className="static-info-pill w-full justify-center rounded-2xl border border-white/10 bg-white/6 px-6 py-5 text-center text-sm text-white/80">
+              Booking opens soon
+            </div>
           </div>
         </div>
       </section>

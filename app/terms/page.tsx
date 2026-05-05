@@ -13,7 +13,7 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="space-y-6">
             <h1 className="heading-xl">Terms of Service</h1>
-            <p className="body-text-dark">Last updated: May 1, 2026</p>
+            <p className="body-text-on-dark">Last updated: May 1, 2026</p>
           </div>
 
           <div className="space-y-12">
@@ -37,7 +37,7 @@ export default function TermsPage() {
             ].map((section, i) => (
               <div key={i} className="space-y-4">
                 <h2 className="heading-md text-[#6c2bd9]">{section.title}</h2>
-                <p className="body-text-dark leading-relaxed">
+                <p className="body-text-on-dark leading-relaxed">
                   {section.content}
                 </p>
               </div>
